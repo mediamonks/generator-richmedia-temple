@@ -1,0 +1,1 @@
+const questions = require('./questions');
