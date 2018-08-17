@@ -5,6 +5,8 @@ node_js:
 
 sudo: false
 
+#script:
+#- npm run test
 
 deploy:
 - provider: npm

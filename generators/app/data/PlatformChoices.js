@@ -1,6 +1,6 @@
 const PlatformChoices = {
-  DOUBLECLICK: "doubleclick",
-  NETFLIX: "netflix"
+  DOUBLECLICK: 'doubleclick',
+  NETFLIX: 'netflix',
 };
 
 module.exports = PlatformChoices;
