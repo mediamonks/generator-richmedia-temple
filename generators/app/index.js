@@ -5,19 +5,23 @@ const chalk = require("chalk");
 const yosay = require("yosay");
 const inquirer = require("inquirer");
 const createPackageJson = require("./templates/createPackageJson");
-const isPathInside = require('is-path-inside');
-const MainChoices = {
-  SETUP: "initial setup",
-  CREATE_BANNER: "create richmedia unit",
-  ADD_CONTENT: "add content to richmedia unit"
-};
-
-const PlatformChoices = {
-  DOUBLECLICK: "doubleclick",
-  NETFLIX: "netflix"
-};
+const createRichmediaRC = require("./templates/createRichmediaRC");
+const isPathInside = require("is-path-inside");
+const MainChoices = require("./data/MainChoices");
+const PlatformChoices = require("./data/PlatformChoices");
+const QuestionNames = require("./data/QuestionNames");
+const glob = require("glob-promise");
+const schinquirer = require("schinquirer");
+const richmediarcSchema = require("@mediamonks/richmedia-temple-server/src/schema/richmediarc.schema");
 
 module.exports = class extends Generator {
+  mergeAnswers(result) {
+    this.answers = {
+      ...(this.answers || {}),
+      ...result
+    };
+  }
+
   async prompting() {
     // Have Yeoman greet the user.
     this.log(`
@@ -40,88 +44,144 @@ With this tool you can create the initial setup, create standard banner config e
       });
     }
 
-    this.answers = await this.prompt([
-      {
-        type: "list",
-        name: "doing",
-        message: "What do you want to do?",
-        choices
-      }
-    ]);
+    this.mergeAnswers(
+      await this.prompt([
+        {
+          type: "list",
+          name: QuestionNames.DOING,
+          message: "What do you want to do?",
+          choices
+        }
+      ])
+    );
 
     switch (this.answers.doing) {
       case MainChoices.SETUP: {
-        this.answers = {
-          ...this.answers,
-          ...(await this.prompt([
+        this.mergeAnswers(
+          await this.prompt([
             {
               type: "input",
-              name: "projectName",
+              name: QuestionNames.PROJECT_NAME,
               message: "Your project name",
               default: this.appname // Default to current folder name
             }
-          ]))
-        };
+          ])
+        );
+
         break;
       }
+
       case MainChoices.CREATE_BANNER: {
-        this.answers = {
-          ...this.answers,
-          ...(await this.prompt([
+        this.mergeAnswers(
+          await this.prompt([
             {
               type: "input",
-              name: "size",
+              name: QuestionNames.SIZE,
               message: "Please fill in size of banner",
               default: "300x250",
               validate: (input, hash) => /^\d+x\d+$/.test(input)
-            },
+            }
+          ])
+        );
+
+        this.mergeAnswers(
+          await this.prompt([
             {
               type: "input",
-              name: "outputPath",
+              name: QuestionNames.OUTPUT_PATH,
               message: "Where do you want to put it?",
-              default: './src/',
+              default: `./src/${this.answers[QuestionNames.SIZE]}/`,
               validate: (input, hash) => {
-                return isPathInside(path.resolve(input), path.resolve(process.cwd()))
+                return isPathInside(
+                  path.resolve(input),
+                  path.resolve(process.cwd())
+                );
               }
             },
             {
               type: "list",
-              name: "bannerType",
+              name: QuestionNames.BANNER_PLATFORM,
               message: "What is the platform?",
               choices: [PlatformChoices.DOUBLECLICK, PlatformChoices.NETFLIX]
-            },
+            }
+          ])
+        );
 
-          ]))
-        };
-
-        switch (this.answers.bannerType) {
+        switch (this.answers[QuestionNames.BANNER_PLATFORM]) {
           case PlatformChoices.NETFLIX: {
-            this.answers = {
-              ...this.answers,
-              ...(await this.prompt([
-
-              ]))
-            };
+            this.mergeAnswers(await this.prompt([]));
             break;
           }
         }
+      }
+
+      case MainChoices.ADD_CONTENT: {
+        const files = await glob(
+          path.join(this.destinationPath(), "**/.richmediarc")
+        );
+
+        this.mergeAnswers(
+          await this.prompt([
+            {
+              type: "list",
+              name: QuestionNames.RICHMEDIARC_PATH,
+              message: "What file do you want to change",
+              choices: files
+            }
+          ])
+        );
+
+        const { contentType } = await this.prompt([
+          {
+            type: "list",
+            name: "contentType",
+            message: "What file do you want to change",
+            choices: Object.keys(richmediarcSchema.definitions)
+          }
+        ]);
+
+        console.log(contentType);
+
+        const data = await new Promise(resolve =>
+          schinquirer.prompt(
+            richmediarcSchema.definitions[contentType].properties,
+            args => {
+              console.log("args", args);
+
+              resolve(args);
+            }
+          )
+        );
+
+        console.log(data);
+
+        break;
       }
     }
   }
 
   writing() {
-    switch (this.answers.doing) {
+    switch (this.answers[QuestionNames.DOING]) {
       case MainChoices.SETUP: {
         this.fs.extendJSON(
-          this.destinationPath("package.json"),
+          this.destinationPath(".richmediarc"),
           createPackageJson({
-            name: this.answers.projectName
+            name: this.answers[QuestionNames.PROJECT_NAME]
           })
         );
         break;
       }
 
       case MainChoices.CREATE_BANNER: {
+        this.fs.extendJSON(
+          this.destinationPath(
+            path.join(this.answers[QuestionNames.OUTPUT_PATH], ".richmediarc")
+          ),
+          createRichmediaRC({
+            bannerSize: this.answers[QuestionNames.SIZE],
+            bannerType: this.answers[QuestionNames.BANNER_PLATFORM]
+          })
+        );
         break;
       }
     }
