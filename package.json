@@ -39,7 +39,6 @@
     "chalk": "^2.1.0",
     "glob-promise": "^3.4.0",
     "is-path-inside": "^2.0.0",
-    "schinquirer": "^0.3.2",
     "yeoman-generator": "^2.0.1",
     "yosay": "^2.0.1"
   },

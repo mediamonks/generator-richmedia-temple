@@ -11,7 +11,6 @@ const MainChoices = require("./data/MainChoices");
 const PlatformChoices = require("./data/PlatformChoices");
 const QuestionNames = require("./data/QuestionNames");
 const glob = require("glob-promise");
-const schinquirer = require("schinquirer");
 const richmediarcSchema = require("@mediamonks/richmedia-temple-server/src/schema/richmediarc.schema");
 
 module.exports = class extends Generator {
