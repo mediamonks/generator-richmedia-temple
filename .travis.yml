@@ -3,4 +3,15 @@ node_js:
   - v10
   - v8
   - v6
-  - v4
+
+sudo: false
+
+
+deploy:
+- provider: npm
+  email: 'devmonk@mediamonks.com'
+  api_key: $NPM_TOKEN
+  on:
+    tags: true
+    node: '8'
+  skip_cleanup: true
