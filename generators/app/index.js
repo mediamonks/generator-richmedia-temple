@@ -25,7 +25,7 @@ module.exports = class extends Generator {
     this.log(`
 Welcome to ${chalk.red('Richmedia Temple')} generator!
 -
-With this tool you can create the initial setup, create standard banner config etc
+Create, change and start developing your richmedia units
 `);
 
     const choices = [MainChoices.SETUP];
