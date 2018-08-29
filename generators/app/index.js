@@ -106,6 +106,11 @@ Create, change and start developing your richmedia units
             break;
           }
 
+          case PlatformChoices.DOUBLECLICK: {
+            this.mergeAnswers(await this.prompt([]));
+            break;
+          }
+
           default: {
             throw Error(`unknown choise ${this.answers[QuestionNames.BANNER_PLATFORM]}`);
           }
@@ -182,7 +187,7 @@ Create, change and start developing your richmedia units
       }
 
       default: {
-        throw Error(`unknown choise ${this.answers[QuestionNames.DOING]}`);
+        throw Error(`unknown choice ${this.answers[QuestionNames.DOING]}`);
       }
     }
   }
