@@ -162,7 +162,7 @@ Create, change and start developing your richmedia units
     switch (this.answers[QuestionNames.DOING]) {
       case MainChoices.SETUP: {
         this.fs.extendJSON(
-          this.destinationPath('.richmediarc'),
+          this.destinationPath('package.json'),
           createPackageJson({
             name: this.answers[QuestionNames.PROJECT_NAME],
           }),
