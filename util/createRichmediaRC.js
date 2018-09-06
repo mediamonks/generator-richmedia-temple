@@ -7,6 +7,10 @@ function createRichmediaRC({ bannerType, bannerSize }) {
 
   const result = {
     settings: {
+      entry: {
+        js: './main.js',
+        html: './index.html',
+      },
       size: {
         width: parseInt(bannerWidth, 10),
         height: parseInt(bannerHeight, 10),

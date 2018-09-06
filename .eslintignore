@@ -1,3 +1,5 @@
 coverage
+templates/**/*.js
+templates/**/*.html
 **/templates
 **/__tests__

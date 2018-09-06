@@ -49,6 +49,7 @@
   "license": "ISC",
   "dependencies": {
     "chalk": "^2.1.0",
+    "deepmerge": "^2.1.1",
     "glob-promise": "^3.4.0",
     "is-path-inside": "^2.0.0",
     "nyc": "^13.0.1",

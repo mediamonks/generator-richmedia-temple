@@ -1,0 +1,19 @@
+{
+  "settings": {
+    "entry": {
+      "js": "./main.js",
+      "html": "./index.html"
+    },
+    "size": {
+      "width": 0,
+      "height": 0
+    }
+  },
+
+  "content": {},
+
+  "monet":{
+    "creative": "",
+    "agency": "Mediamonks"
+  }
+}
