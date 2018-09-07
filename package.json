@@ -5,7 +5,8 @@
   "homepage": "",
   "author": "",
   "files": [
-    "generators"
+    "generators",
+    "util"
   ],
   "main": "index.js",
   "keywords": [
