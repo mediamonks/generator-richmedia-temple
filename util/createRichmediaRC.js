@@ -1,6 +1,4 @@
-const MainChoices = require('../data/MainChoices');
-const PlatformChoices = require('../data/PlatformChoices');
-const QuestionNames = require('../data/QuestionNames');
+const PlatformChoices = require('./data/PlatformChoices');
 
 function createRichmediaRC({ bannerType, bannerSize }) {
   const [bannerWidth, bannerHeight] = bannerSize.split('x');
