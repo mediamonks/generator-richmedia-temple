@@ -10,5 +10,9 @@
     }
   },
 
-  "content": {}
+  "content": {},
+  "doubleclick": {
+    "creative": "",
+    "agency": "Mediamonks"
+  }
 }

@@ -12,10 +12,8 @@ class Banner extends Entity {
     super();
   }
 
-  init() {
-    return super.init().then(() => {
-
-    });
+  async init() {
+    await super.init();
   }
 }
 
