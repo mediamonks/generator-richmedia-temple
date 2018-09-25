@@ -1,6 +1,6 @@
 {
   "name": "generator-richmedia-temple",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "",
   "homepage": "",
   "author": "",
@@ -40,8 +40,7 @@
   "engines": {
     "npm": ">= 4.0.0"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "license": "ISC",
   "dependencies": {
     "chalk": "^2.1.0",
