@@ -1,7 +1,7 @@
 {
   "settings": {
     "entry": {
-      "js": "./main.js",
+      "js": "./script/main.js",
       "html": "./index.html"
     },
     "size": {
