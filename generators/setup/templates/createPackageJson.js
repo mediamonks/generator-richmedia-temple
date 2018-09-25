@@ -1,12 +1,12 @@
 module.exports = function createPackageJson({ name = 'richmedia-temple' }) {
   return {
     name,
-    version: '0.0.0',
+    version: '1.0.0',
     description: '',
     homepage: '',
     author: '',
     engines: {
-      npm: '>= 6.0.0',
+      npm: '>= 8.0.0',
     },
     scripts: {
       dev: 'node ./node_modules/@mediamonks/richmedia-temple-server/dev.js',
@@ -14,8 +14,8 @@ module.exports = function createPackageJson({ name = 'richmedia-temple' }) {
     },
     license: 'ISC',
     dependencies: {
-      '@mediamonks/richmedia-temple-server': '*',
-      '@mediamonks/temple': '*',
+      '@mediamonks/richmedia-temple-server': 'latest',
+      '@mediamonks/temple': 'latest',
     },
   };
 };
