@@ -1,4 +1,5 @@
 const deepmerge = require('deepmerge');
+const mkdirp = require('mkdirp');
 
 const Generator = require('yeoman-generator');
 const isPathInside = require('is-path-inside');
@@ -82,8 +83,8 @@ module.exports = class extends Generator {
         );
 
         this.fs.copyTpl(
-          this.templatePath('netflix/main.js'),
-          this.destinationPath(path.join(this.result.outputPath, 'main.js')),
+          this.templatePath('netflix/script/main.js'),
+          this.destinationPath(path.join(this.result.outputPath, 'script/main.js')),
         );
 
         const [width, height] = this.result.size.split('x');
@@ -102,18 +103,33 @@ module.exports = class extends Generator {
           json,
         );
 
+        mkdirp(this.destinationPath(path.join(this.result.outputPath, 'img')), err => {
+          if (err) console.error(err);
+        });
+        mkdirp(this.destinationPath(path.join(this.result.outputPath, 'video')), err => {
+          if (err) console.error(err);
+        });
+
         break;
       }
 
       case PlatformChoices.DOUBLECLICK: {
+        // main html
         this.fs.copyTpl(
           this.templatePath('doubleclick/index.html'),
           this.destinationPath(path.join(this.result.outputPath, 'index.html')),
         );
 
+        // main javascript
         this.fs.copyTpl(
-          this.templatePath('doubleclick/main.js'),
-          this.destinationPath(path.join(this.result.outputPath, 'main.js')),
+          this.templatePath('doubleclick/script/main.js'),
+          this.destinationPath(path.join(this.result.outputPath, 'script/main.js')),
+        );
+
+        // copy pasting css
+        this.fs.copyTpl(
+          this.templatePath('doubleclick/css/style.css'),
+          this.destinationPath(path.join(this.result.outputPath, 'css/style.css')),
         );
 
         const [width, height] = this.result.size.split('x');
@@ -131,6 +147,13 @@ module.exports = class extends Generator {
           this.destinationPath(path.join(this.result.outputPath, '.richmediarc')),
           json,
         );
+
+        mkdirp(this.destinationPath(path.join(this.result.outputPath, 'img')), err => {
+          if (err) console.error(err);
+        });
+        mkdirp(this.destinationPath(path.join(this.result.outputPath, 'video')), err => {
+          if (err) console.error(err);
+        });
 
         break;
       }

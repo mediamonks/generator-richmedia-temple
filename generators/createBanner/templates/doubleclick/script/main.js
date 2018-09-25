@@ -3,7 +3,7 @@ import DoubleClickPlatformComponent from '@mediamonks/temple/component/platform/
 import EventDispatcherComponent from "@mediamonks/temple/component/EventDispatcherComponent";
 import DoubleClickEventEnum from "@mediamonks/temple/event/DoubleClickEventEnum";
 
-import config from './.richmediarc';
+import config from '../.richmediarc';
 
 class Banner extends Entity {
   /**
