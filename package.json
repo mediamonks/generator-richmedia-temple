@@ -41,12 +41,6 @@
     "npm": ">= 4.0.0"
   },
   "scripts": {
-    "pretest": "eslint .",
-    "precommit": "lint-staged",
-    "lint": "npm-run-all lint:*",
-    "lint:js": "eslint generators --ext .js --cache",
-    "test": "cross-env NODE_ENV=test nyc --all mocha \"./__tests__/**/*.spec.js\"",
-    "test:dev": "mocha -w --watch-extensions js \"./__tests__/**/*.spec.js\""
   },
   "license": "ISC",
   "dependencies": {
@@ -58,41 +52,6 @@
     "nyc": "^13.0.1",
     "yeoman-generator": "^3.1.1",
     "yosay": "^2.0.1"
-  },
-  "jest": {
-    "testEnvironment": "node"
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.json": [
-      "prettier --write",
-      "git add"
-    ]
-  },
-  "eslintConfig": {
-    "extends": [
-      "xo",
-      "prettier"
-    ],
-    "env": {
-      "jest": true,
-      "node": true
-    },
-    "rules": {
-      "prettier/prettier": [
-        "error",
-        {
-          "singleQuote": true,
-          "printWidth": 90
-        }
-      ]
-    },
-    "plugins": [
-      "prettier"
-    ]
   },
   "repository": "mediamonks/generator-richmedia-temple"
 }
