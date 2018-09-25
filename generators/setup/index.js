@@ -26,7 +26,7 @@ module.exports = class Setup extends Generator {
     );
 
     this.fs.copy(this.templatePath('.prettierrc'), this.destinationPath('.prettierrc'));
-    this.fs.copy(this.templatePath('.gitignore'), this.destinationPath('.gitignore'));
+    this.fs.copy(this.templatePath('gitignore.text'), this.destinationPath('.gitignore'));
     this.fs.copy(this.templatePath('.editorconfig'), this.destinationPath('.editorconfig'));
 
     this.installDependencies({
