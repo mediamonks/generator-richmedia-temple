@@ -25,24 +25,24 @@ class Banner extends Entity {
     const dispatcher = this.getComponent(EventDispatcherComponent);
 
     // listening to events that are being dispatched by DoubleClick through DoubleClickPlatformComponent
-    dispatcher.addListener(DoubleClickEventEnum.DC_INIT, this.handleInit);
-    dispatcher.addListener(DoubleClickEventEnum.DC_EXIT, this.handleExit);
-    dispatcher.addListener(DoubleClickEventEnum.DC_COLLAPSE, this.handleCollapse);
-    dispatcher.addListener(DoubleClickEventEnum.DC_COLLAPSE_FINISH, this.handleCollapseFinish);
-    dispatcher.addListener(DoubleClickEventEnum.DC_COLLAPSE_START, this.handleCollapseStart);
-    dispatcher.addListener(DoubleClickEventEnum.DC_EXPAND_FINISH, this.handleExpandFinish);
-    dispatcher.addListener(DoubleClickEventEnum.DC_EXPAND_START, this.handleExpandStart);
-    dispatcher.addListener(DoubleClickEventEnum.DC_FULLSCREEN_COLLAPSE_FINISH, this.handleFullscreenCollapseFinish);
-    dispatcher.addListener(DoubleClickEventEnum.DC_FULLSCREEN_COLLAPSE_START, this.handleFullscreenCollapseStart);
-    dispatcher.addListener(DoubleClickEventEnum.DC_FULLSCREEN_DIMENSIONS, this.handleFullscreenDimensions);
-    dispatcher.addListener(DoubleClickEventEnum.DC_FULLSCREEN_EXPAND_FINISH, this.handleFullscreenExpandFinish);
-    dispatcher.addListener(DoubleClickEventEnum.DC_FULLSCREEN_EXPAND_START, this.handleFullscreenExpandStart);
-    dispatcher.addListener(DoubleClickEventEnum.DC_FULLSCREEN_SUPPORT, this.handleFullscreenSupport);
-    dispatcher.addListener(DoubleClickEventEnum.DC_HIDDEN, this.handleHidden);
-    dispatcher.addListener(DoubleClickEventEnum.DC_INTERACTION, this.handleInteraction);
-    dispatcher.addListener(DoubleClickEventEnum.DC_ORIENTATION, this.handleOrientation);
-    dispatcher.addListener(DoubleClickEventEnum.DC_PAGE_LOADED, this.handlePageLoaded);
-    dispatcher.addListener(DoubleClickEventEnum.DC_VISIBLE, this.handleVisible);
+    dispatcher.addEventListener(DoubleClickEventEnum.DC_INIT, this.handleInit);
+    dispatcher.addEventListener(DoubleClickEventEnum.DC_EXIT, this.handleExit);
+    dispatcher.addEventListener(DoubleClickEventEnum.DC_COLLAPSE, this.handleCollapse);
+    dispatcher.addEventListener(DoubleClickEventEnum.DC_COLLAPSE_FINISH, this.handleCollapseFinish);
+    dispatcher.addEventListener(DoubleClickEventEnum.DC_COLLAPSE_START, this.handleCollapseStart);
+    dispatcher.addEventListener(DoubleClickEventEnum.DC_EXPAND_FINISH, this.handleExpandFinish);
+    dispatcher.addEventListener(DoubleClickEventEnum.DC_EXPAND_START, this.handleExpandStart);
+    dispatcher.addEventListener(DoubleClickEventEnum.DC_FULLSCREEN_COLLAPSE_FINISH, this.handleFullscreenCollapseFinish);
+    dispatcher.addEventListener(DoubleClickEventEnum.DC_FULLSCREEN_COLLAPSE_START, this.handleFullscreenCollapseStart);
+    dispatcher.addEventListener(DoubleClickEventEnum.DC_FULLSCREEN_DIMENSIONS, this.handleFullscreenDimensions);
+    dispatcher.addEventListener(DoubleClickEventEnum.DC_FULLSCREEN_EXPAND_FINISH, this.handleFullscreenExpandFinish);
+    dispatcher.addEventListener(DoubleClickEventEnum.DC_FULLSCREEN_EXPAND_START, this.handleFullscreenExpandStart);
+    dispatcher.addEventListener(DoubleClickEventEnum.DC_FULLSCREEN_SUPPORT, this.handleFullscreenSupport);
+    dispatcher.addEventListener(DoubleClickEventEnum.DC_HIDDEN, this.handleHidden);
+    dispatcher.addEventListener(DoubleClickEventEnum.DC_INTERACTION, this.handleInteraction);
+    dispatcher.addEventListener(DoubleClickEventEnum.DC_ORIENTATION, this.handleOrientation);
+    dispatcher.addEventListener(DoubleClickEventEnum.DC_PAGE_LOADED, this.handlePageLoaded);
+    dispatcher.addEventListener(DoubleClickEventEnum.DC_VISIBLE, this.handleVisible);
   }
 
   /**
