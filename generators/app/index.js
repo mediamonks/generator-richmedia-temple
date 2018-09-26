@@ -4,9 +4,11 @@ const hasInitialSetup = require('../../util/hasInitialSetup');
 
 module.exports = class App extends Generator {
   async questions() {
+    const packageJson = require('../../package');
+
     // Have Yeoman greet the user.
     this.log(`
-Welcome to ${chalk.red('Richmedia Temple')} generator!
+Welcome to ${chalk.red('Richmedia Temple Generator')} v${packageJson.version}
 -
 Create, change and start developing your richmedia units
 `);
