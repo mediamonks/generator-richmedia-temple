@@ -114,10 +114,16 @@ module.exports = class extends Generator {
       }
 
       case PlatformChoices.DOUBLECLICK: {
+        const [width, height] = this.result.size.split('x');
+
         // main html
         this.fs.copyTpl(
           this.templatePath('doubleclick/index.html'),
           this.destinationPath(path.join(this.result.outputPath, 'index.html')),
+          {
+            banner_width: width,
+            banner_height: height
+          }
         );
 
         // main javascript
@@ -131,8 +137,6 @@ module.exports = class extends Generator {
           this.templatePath('doubleclick/css/style.css'),
           this.destinationPath(path.join(this.result.outputPath, 'css/style.css')),
         );
-
-        const [width, height] = this.result.size.split('x');
 
         const json = deepmerge(this.fs.readJSON(this.templatePath('doubleclick/.richmediarc')), {
           settings: {
