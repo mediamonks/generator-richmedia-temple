@@ -136,6 +136,10 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
           this.templatePath('doubleclick/css/style.css'),
           this.destinationPath(path.join(this.result.outputPath, 'css/style.css')),
+          {
+            banner_width: width,
+            banner_height: height
+          }
         );
 
         const json = deepmerge(this.fs.readJSON(this.templatePath('doubleclick/.richmediarc')), {
