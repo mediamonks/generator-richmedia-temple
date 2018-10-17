@@ -3,8 +3,8 @@
   --grey: #221f1f;
   --white: #221f1f;
 
-  --width: #221f1f;
-  --height: #221f1f;
+  --width: <%= banner_width %>px;
+  --height: <%= banner_height %>px;
 }
 
 html {
