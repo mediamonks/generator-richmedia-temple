@@ -1,3 +1,8 @@
+:root {
+  --width: <%= banner_width %>px;
+  --height: <%= banner_height %>px;
+}
+
 html {
   box-sizing: border-box;
   width: 100%;
@@ -30,8 +35,8 @@ body {
 
 #banner {
   position: relative;
-  width: <%= banner_width %>px;
-  height: <%= banner_height %>px;
+  width: var(--width);
+  height: var(--height);
   border: solid 1px #000;
   overflow: hidden;
   background-color: #000;
