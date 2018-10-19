@@ -68,6 +68,9 @@ module.exports = class extends Generator {
   action() {
     switch (this.result.type) {
       case PlatformChoices.NETFLIX: {
+
+        const [width, height] = this.result.size.split('x');
+
         this.fs.extendJSON(this.destinationPath('package.json'), {
           dependencies: {
             ...this.netflix.libs.reduce((prev, curr) => {
@@ -80,14 +83,25 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
           this.templatePath('netflix/index.html'),
           this.destinationPath(path.join(this.result.outputPath, 'index.html')),
+          {
+            banner_width: width,
+            banner_height: height
+          }
+        );
+
+        this.fs.copyTpl(
+          this.templatePath('netflix/css/style.css'),
+          this.destinationPath(path.join(this.result.outputPath, 'css/style.css')),
+          {
+            banner_width: width,
+            banner_height: height
+          }
         );
 
         this.fs.copyTpl(
           this.templatePath('netflix/script/main.js'),
           this.destinationPath(path.join(this.result.outputPath, 'script/main.js')),
         );
-
-        const [width, height] = this.result.size.split('x');
 
         const json = deepmerge(this.fs.readJSON(this.templatePath('netflix/.richmediarc')), {
           settings: {
@@ -103,9 +117,17 @@ module.exports = class extends Generator {
           json,
         );
 
-        mkdirp(this.destinationPath(path.join(this.result.outputPath, 'img')), err => {
-          if (err) console.error(err);
-        });
+        // removing this since the img folder has to be there for the loader, therefore I'' not creating the folder but just copyTpl
+
+        // mkdirp(this.destinationPath(path.join(this.result.outputPath, 'img')), err => {
+        //   if (err) console.error(err);
+        // });
+
+        this.fs.copyTpl(
+          this.templatePath('netflix/img/**'),
+          this.destinationPath(path.join(this.result.outputPath), 'img/'),
+        );
+
         mkdirp(this.destinationPath(path.join(this.result.outputPath, 'video')), err => {
           if (err) console.error(err);
         });
@@ -114,10 +136,17 @@ module.exports = class extends Generator {
       }
 
       case PlatformChoices.DOUBLECLICK: {
+
+        const [width, height] = this.result.size.split('x');
+
         // main html
         this.fs.copyTpl(
           this.templatePath('doubleclick/index.html'),
           this.destinationPath(path.join(this.result.outputPath, 'index.html')),
+          {
+            banner_width: width,
+            banner_height: height
+          }
         );
 
         // main javascript
@@ -130,9 +159,11 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
           this.templatePath('doubleclick/css/style.css'),
           this.destinationPath(path.join(this.result.outputPath, 'css/style.css')),
+          {
+            banner_width: width,
+            banner_height: height
+          }
         );
-
-        const [width, height] = this.result.size.split('x');
 
         const json = deepmerge(this.fs.readJSON(this.templatePath('doubleclick/.richmediarc')), {
           settings: {
