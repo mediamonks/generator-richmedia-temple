@@ -10,42 +10,35 @@
 </head>
 
 <body>
-  <div class="preloader-spinner" style="position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);width: 55px;height: 55px;"><style>.preloader-spinner { background-image: url("img/loader.svg") } @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {.preloader-spinner { background-image: url("img/loader.gif") } }@supports (-ms-ime-align:auto) {.preloader-spinner { background-image: url("img/loader.gif") } }</style></div>
+  <div class="preloader-spinner"></div>
 
-  <div id="banner" class="">
+  <div id="banner">
 
-  <div id="main">
-
-    <div class="background wrapper">
-
-    </div>
-
-    <div class="characters wrapper">
-
-    </div>
+    <div class="background wrapper"></div>
+    <div class="characters wrapper"></div>
 
     <div class="content wrapper">
 
       <div class="titleLockup wrapper">
-        <component type="netflix-text" id="pedigreeComponent" class="boldFont" data-dynamic-key="Pedigree"></component>
-        <div id="titleTreatment">
-          <component type="netflix-img" data-dynamic-key="Title_Treatment_Vertical"></component>
+        <netflix-text class="boldFont pedigreeComponent" data-dynamic-key="Pedigree"></netflix-text>
+        <div class="titleTreatment">
+          <netflix-img data-dynamic-key="Title_Treatment_Vertical"></netflix-img>
           <div class="ttsub"></div>
         </div>
       </div>
 
       <div id="titleTreatment2">
-        <component type="netflix-img" data-dynamic-key="Title_Treatment_Vertical"></component>
-        <component type="netflix-text" id="pedigreeComponent2" class="boldFont" data-dynamic-key="Pedigree"></component>
+        <netflix-img data-dynamic-key="Title_Treatment_Vertical"></netflix-img>
+        <netflix-text class="boldFont" data-dynamic-key="Pedigree"></netflix-text>
       </div>
 
       <div class="copyContainer">
-        <component type="netflix-text" id="mainCopyComponent" class="boldFont" data-dynamic-key="Tune_In"></component>
+        <netflix-text class="boldFont" data-dynamic-key="Tune_In"></netflix-text>
 
-        <component type="netflix-brand-logo" id="logoComponent" width="109"></component>
+        <netflix-brand-logo width="109"></netflix-brand-logo>
 
         <div class="ctaContainer">
-          <component type="netflix-cta" id="ctaComponent" class="boldFont" arrow data-dynamic-key="CTA" width="105" height="30"></component>
+          <netflix-cta class="boldFont" arrow data-dynamic-key="CTA" width="105" height="30"></netflix-cta>
         </div>
 
       </div>
@@ -67,8 +60,7 @@
     </div>
 
     <!-- video elements -->
-
-    <component type="netflix-video" id="trailerComponent"
+    <netflix-video
                width="390"
                height="220"
                data-dynamic-key="Trailer"
@@ -78,11 +70,11 @@
                close-color-2="#fff"
                hideOnComplete="true"
                controls>
-    </component>
+    </netflix-video>
 
     <div class="ribbonClick bannerClick"></div>
 
-    <component type="netflix-video" id="supercutComponent"
+    <netflix-video
                width="970"
                height="250"
                data-dynamic-key="Supercut"
@@ -90,22 +82,18 @@
                close-color-2="#fff"
                hideOnComplete="true"
                muted="true">
-    </component>
+    </netflix-video>
 
     <div class="supercutOverlay">
-      <component type="netflix-brand-logo" id="supercutLogoComponent" width="96"></component>
-      <component type="netflix-text" id="supercutCopyComponent" class="boldFont" data-dynamic-key="Supercut_Tune_In"></component>
+      <netflix-brand-logo width="96"></netflix-brand-logo>
+      <netflix-text class="boldFont" data-dynamic-key="Supercut_Tune_In"></netflix-text>
     </div>
 
-    <component type="netflix-flushed-ribbon" id="ribbonComponent" width="970" height="250"></component>
+    <netflix-flushed-ribbon width="970" height="250"></netflix-flushed-ribbon>
 
   </div>
 
-</div>
-
   <script src="https://s0.2mdn.net/ads/studio/Enabler.js"></script>
   <script src="https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_2.0.1_min.js"></script>
-  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>-->
-  <!--Probably smarter to have the latest always there, but need to check if it's fine with DoubleClick and QA-->
 </body>
 </html>

@@ -62,7 +62,7 @@ body {
     }
   }
 
-  #pedigreeComponent {
+  .pedigreeComponent {
     &.ar {
       letter-spacing: 0px !important;
     }
