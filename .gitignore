@@ -1,4 +1,4 @@
 node_modules
 coverage
-
-generators/app/templates/\.DS_Store
+/.idea
+/.DS_Store
