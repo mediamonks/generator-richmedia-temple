@@ -149,6 +149,11 @@ module.exports = class extends Generator {
           }
         );
 
+        this.fs.copyTpl(
+          this.templatePath('doubleclick/img/**'),
+          this.destinationPath(path.join(this.result.outputPath), 'img/'),
+        );
+
         // main javascript
         this.fs.copyTpl(
           this.templatePath('doubleclick/script/main.js'),
@@ -178,13 +183,6 @@ module.exports = class extends Generator {
           this.destinationPath(path.join(this.result.outputPath, '.richmediarc')),
           json,
         );
-
-        mkdirp(this.destinationPath(path.join(this.result.outputPath, 'img')), err => {
-          if (err) console.error(err);
-        });
-        mkdirp(this.destinationPath(path.join(this.result.outputPath, 'video')), err => {
-          if (err) console.error(err);
-        });
 
         break;
       }
