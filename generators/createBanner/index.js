@@ -53,7 +53,9 @@ module.exports = class extends Generator {
             type: 'checkbox',
             name: 'libs',
             message: 'Please check all libs you are going to use for this rm unit.',
-            choices: NetflixAdSengLibs,
+            choices: [
+              ...NetflixAdSengLibs
+            ],
           },
         ]);
         break;

@@ -1,21 +1,19 @@
 import Entity from '@mediamonks/temple/Entity';
 import DoubleClickPlatformComponent from '@mediamonks/temple/component/platform/DoubleClickPlatformComponent';
 import EventDispatcherComponent from "@mediamonks/temple/component/EventDispatcherComponent";
+import ConfigComponent from "@mediamonks/temple/component/ConfigComponent";
 import DoubleClickEventEnum from "@mediamonks/temple/event/DoubleClickEventEnum";
 
 import config from '../.richmediarc';
 
 class Banner extends Entity {
-  /**
-   *
-   * @type {{entry: {js: string, html: string}, size: {width: number, height: number}}|settings|{entry, size}|module:cluster.ClusterSettings|*|{}}
-   */
-  settings = config.settings;
 
   constructor() {
     super();
 
     this.addComponent(new DoubleClickPlatformComponent());
+    this.addComponent(new ConfigComponent(config));
+    this.addComponent(new EventDispatcherComponent());
   }
 
   async init() {
