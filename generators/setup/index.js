@@ -13,6 +13,7 @@ module.exports = class Setup extends Generator {
         name: 'projectName',
         message: 'Your project name',
         default: this.appname.replace(' ', '-'), // Default to current folder name
+        validate: input => /^\S*$/.test(input),
       },
     ]);
   }
