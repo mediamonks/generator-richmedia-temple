@@ -1,4 +1,6 @@
 node_modules
-coverage
-
-generators/app/templates/\.DS_Store
+/coverage
+.idea
+.DS_Store
+bash.exe.stackdump
+.nyc_output
