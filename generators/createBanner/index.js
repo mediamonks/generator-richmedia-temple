@@ -68,7 +68,6 @@ module.exports = class extends Generator {
   action() {
     switch (this.result.type) {
       case PlatformChoices.NETFLIX: {
-
         const [width, height] = this.result.size.split('x');
 
         this.fs.extendJSON(this.destinationPath('package.json'), {
@@ -77,6 +76,9 @@ module.exports = class extends Generator {
               prev[curr] = '';
               return prev;
             }, {}),
+
+            '@netflixadseng/wc-monet-integrator': 'latest',
+            '@netflixadseng/wc-netflix-fonts': 'latest',
           },
         });
 
@@ -85,8 +87,8 @@ module.exports = class extends Generator {
           this.destinationPath(path.join(this.result.outputPath, 'index.html')),
           {
             banner_width: width,
-            banner_height: height
-          }
+            banner_height: height,
+          },
         );
 
         this.fs.copyTpl(
@@ -94,8 +96,8 @@ module.exports = class extends Generator {
           this.destinationPath(path.join(this.result.outputPath, 'css/style.css')),
           {
             banner_width: width,
-            banner_height: height
-          }
+            banner_height: height,
+          },
         );
 
         this.fs.copyTpl(
@@ -112,10 +114,7 @@ module.exports = class extends Generator {
           },
         });
 
-        this.fs.writeJSON(
-          this.destinationPath(path.join(this.result.outputPath, '.richmediarc')),
-          json,
-        );
+        this.fs.writeJSON(this.destinationPath(path.join(this.result.outputPath, '.richmediarc')), json);
 
         // removing this since the img folder has to be there for the loader, therefore I'' not creating the folder but just copyTpl
 
@@ -136,7 +135,6 @@ module.exports = class extends Generator {
       }
 
       case PlatformChoices.DOUBLECLICK: {
-
         const [width, height] = this.result.size.split('x');
 
         // main html
@@ -145,8 +143,13 @@ module.exports = class extends Generator {
           this.destinationPath(path.join(this.result.outputPath, 'index.html')),
           {
             banner_width: width,
-            banner_height: height
-          }
+            banner_height: height,
+          },
+        );
+
+        this.fs.copyTpl(
+          this.templatePath('doubleclick/img/**'),
+          this.destinationPath(path.join(this.result.outputPath), 'img/'),
         );
 
         // main javascript
@@ -161,8 +164,8 @@ module.exports = class extends Generator {
           this.destinationPath(path.join(this.result.outputPath, 'css/style.css')),
           {
             banner_width: width,
-            banner_height: height
-          }
+            banner_height: height,
+          },
         );
 
         const json = deepmerge(this.fs.readJSON(this.templatePath('doubleclick/.richmediarc')), {
@@ -174,17 +177,7 @@ module.exports = class extends Generator {
           },
         });
 
-        this.fs.writeJSON(
-          this.destinationPath(path.join(this.result.outputPath, '.richmediarc')),
-          json,
-        );
-
-        mkdirp(this.destinationPath(path.join(this.result.outputPath, 'img')), err => {
-          if (err) console.error(err);
-        });
-        mkdirp(this.destinationPath(path.join(this.result.outputPath, 'video')), err => {
-          if (err) console.error(err);
-        });
+        this.fs.writeJSON(this.destinationPath(path.join(this.result.outputPath, '.richmediarc')), json);
 
         break;
       }
