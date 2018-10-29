@@ -118,13 +118,7 @@ module.exports = class extends Generator {
 
         this.fs.writeJSON(this.destinationPath(path.join(this.result.outputPath, '.richmediarc')), json);
 
-        // removing this since the img folder has to be there for the loader, therefore I'' not creating the folder but just copyTpl
-
-        // mkdirp(this.destinationPath(path.join(this.result.outputPath, 'img')), err => {
-        //   if (err) console.error(err);
-        // });
-
-        this.fs.copyTpl(
+        this.fs.copy(
           this.templatePath('netflix/img/**'),
           this.destinationPath(path.join(this.result.outputPath), 'img/'),
         );
@@ -149,7 +143,7 @@ module.exports = class extends Generator {
           },
         );
 
-        this.fs.copyTpl(
+        this.fs.copy(
           this.templatePath('doubleclick/img/**'),
           this.destinationPath(path.join(this.result.outputPath), 'img/'),
         );
@@ -171,6 +165,55 @@ module.exports = class extends Generator {
         );
 
         const json = deepmerge(this.fs.readJSON(this.templatePath('doubleclick/.richmediarc')), {
+          settings: {
+            size: {
+              width: parseInt(width, 10),
+              height: parseInt(height, 10),
+            },
+          },
+        });
+
+        this.fs.writeJSON(this.destinationPath(path.join(this.result.outputPath, '.richmediarc')), json);
+
+        break;
+      }
+
+
+      case PlatformChoices.PLAIN: {
+        const [width, height] = this.result.size.split('x');
+
+        // main html
+        this.fs.copyTpl(
+          this.templatePath('plain/index.html'),
+          this.destinationPath(path.join(this.result.outputPath, 'index.html')),
+          {
+            banner_width: width,
+            banner_height: height,
+          },
+        );
+
+        this.fs.copy(
+          this.templatePath('plain/img/**'),
+          this.destinationPath(path.join(this.result.outputPath), 'img/'),
+        );
+
+        // main javascript
+        this.fs.copyTpl(
+          this.templatePath('plain/script/main.js'),
+          this.destinationPath(path.join(this.result.outputPath, 'script/main.js')),
+        );
+
+        // copy pasting css
+        this.fs.copyTpl(
+          this.templatePath('plain/css/style.css'),
+          this.destinationPath(path.join(this.result.outputPath, 'css/style.css')),
+          {
+            banner_width: width,
+            banner_height: height,
+          },
+        );
+
+        const json = deepmerge(this.fs.readJSON(this.templatePath('plain/.richmediarc')), {
           settings: {
             size: {
               width: parseInt(width, 10),
