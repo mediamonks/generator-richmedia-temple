@@ -5,6 +5,7 @@ import ConfigComponent from "@mediamonks/temple/component/ConfigComponent";
 import DoubleClickEventEnum from "@mediamonks/temple/event/DoubleClickEventEnum";
 
 import config from '../.richmediarc';
+import "./GSDevTools.js"
 
 class Banner extends Entity {
 
@@ -18,6 +19,9 @@ class Banner extends Entity {
 
   async init() {
     await super.init();
+    global.GSDevTools.create();
+    this.setUpTimeLine();
+    this.onBannerShow();
 
     // EventDispatcherComponent is added by DoubleClickPlatformComponent
     const dispatcher = this.getComponent(EventDispatcherComponent);
@@ -42,6 +46,16 @@ class Banner extends Entity {
     dispatcher.addEventListener(DoubleClickEventEnum.DC_PAGE_LOADED, this.handlePageLoaded);
     dispatcher.addEventListener(DoubleClickEventEnum.DC_VISIBLE, this.handleVisible);
   }
+
+  setUpTimeLine = () => {
+    this.masterTL = new TimelineMax({ paused: true, repeat:3, yoyo:true });
+    this.masterTL
+      .to(document.querySelector(".characters"), 0.5, { y: -100, ease: Power4.easeNone }, 1);
+  };
+
+  onBannerShow = () => {
+    this.masterTL.play(0);
+  };
 
   /**
    * Dispatched when an exit is invoked.

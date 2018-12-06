@@ -43,7 +43,20 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+
+  .characters {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 30px;
+    height: 50px;
+    background-color: #fff;
+    
+  }
 }
+
+
 
 .mainExit {
   position: absolute;

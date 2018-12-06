@@ -5,6 +5,7 @@ import DoubleClickPlatformComponent from "@mediamonks/temple/component/platform/
 import ConfigComponent from "@mediamonks/temple/component/ConfigComponent";
 
 import config from '../.richmediarc';
+import "./GSDevTools.js"
 
 class Banner extends Entity {
 
@@ -19,6 +20,7 @@ class Banner extends Entity {
 
   async init() {
     await super.init();
+    global.GSDevTools.create();
 
     // EventDispatcherComponent is added by DoubleClickPlatformComponent
     const dispatcher = this.getComponent(EventDispatcherComponent);

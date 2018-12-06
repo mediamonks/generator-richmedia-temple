@@ -107,6 +107,12 @@ module.exports = class extends Generator {
           this.destinationPath(path.join(this.result.outputPath, 'script/main.js')),
         );
 
+        // gsdevtools javascript
+        this.fs.copyTpl(
+          this.templatePath('netflix/script/GSDevTools.js'),
+          this.destinationPath(path.join(this.result.outputPath, 'script/GSDevTools.js')),
+        );
+
         const json = deepmerge(this.fs.readJSON(this.templatePath('netflix/.richmediarc')), {
           settings: {
             size: {
@@ -152,6 +158,12 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
           this.templatePath('doubleclick/script/main.js'),
           this.destinationPath(path.join(this.result.outputPath, 'script/main.js')),
+        );
+
+        // gsdevtools javascript
+        this.fs.copyTpl(
+          this.templatePath('doubleclick/script/GSDevTools.js'),
+          this.destinationPath(path.join(this.result.outputPath, 'script/GSDevTools.js')),
         );
 
         // copy pasting css
@@ -201,6 +213,12 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
           this.templatePath('plain/script/main.js'),
           this.destinationPath(path.join(this.result.outputPath, 'script/main.js')),
+        );
+
+        // gsdevtools javascript
+        this.fs.copyTpl(
+          this.templatePath('plain/script/GSDevTools.js'),
+          this.destinationPath(path.join(this.result.outputPath, 'script/GSDevTools.js')),
         );
 
         // copy pasting css

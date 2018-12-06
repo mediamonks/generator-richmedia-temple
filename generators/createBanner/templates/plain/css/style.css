@@ -27,5 +27,48 @@ body {
   height: 100%;
 }
 
-.banner {}
-.cta {}
+.hide {
+  border:0!important;
+  clip:rect(0 0 0 0)!important;
+  height:1px!important;
+  margin:-1px!important;
+  overflow:hidden!important;
+  padding:0!important;
+  position: absolute!important;
+  width:1px!important;
+}
+
+#banner {
+  position: relative;
+  width: var(--width);
+  height: var(--height);
+  border: solid 1px #000;
+  overflow: hidden;
+  background-color: #000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+
+  .characters {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 30px;
+    height: 50px;
+    background-color: #fff;
+    
+  }
+
+  .cta{}
+}
+
+.mainExit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background: url('../img/1x1_blank.png');
+}
