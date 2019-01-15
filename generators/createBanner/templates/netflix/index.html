@@ -1,99 +1,58 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><%= banner_width %>x<%= banner_height %></title>
+  <title><%= banner_width %>x<%= banner_height %></title>
 
-    <link rel="stylesheet" href="./css/style.css" type="text/css">
+  <link rel="stylesheet" href="./css/style.css" type="text/css">
+
+  <script type="text/javascript">
+    var clickTag = "http://www.google.com";
+  </script>
 </head>
 
 <body>
-  <div class="preloader-spinner"></div>
+<monet-integrator dynamic-feed-sheet-name="" backup="./backup.json"></monet-integrator>
 
-  <div id="banner">
+<div class="preloader-spinner"></div>
 
-    <div class="background wrapper"></div>
-    <div class="characters wrapper"></div>
+<div id="banner">
 
-    <div class="content wrapper">
+  <div class="pedegree-container">
+    <netflix-text class="pedigree" data-dynamic-key="Pedigree"></netflix-text>
+    <netflix-img width="250" class="titleTreatment" data-dynamic-key="Title_Treatment_Vertical"></netflix-img>
 
-      <div class="titleLockup wrapper">
-        <netflix-text class="boldFont pedigreeComponent" data-dynamic-key="Pedigree"></netflix-text>
-        <div class="titleTreatment">
-          <netflix-img data-dynamic-key="Title_Treatment_Vertical"></netflix-img>
-          <div class="ttsub"></div>
-        </div>
-      </div>
-
-      <div id="titleTreatment2">
-        <netflix-img data-dynamic-key="Title_Treatment_Vertical"></netflix-img>
-        <netflix-text class="boldFont" data-dynamic-key="Pedigree"></netflix-text>
-      </div>
-
-      <div class="copyContainer">
-        <netflix-text class="boldFont" data-dynamic-key="Tune_In"></netflix-text>
-
-        <netflix-brand-logo width="109"></netflix-brand-logo>
-
-        <div class="ctaContainer">
-          <netflix-cta class="boldFont" arrow data-dynamic-key="CTA" width="105" height="30"></netflix-cta>
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="mainExit"></div>
-
-    <div class="trailerPoster">
-
-      <div class="trailerPlayButton">
-        <div class="circle">
-          <svg height="20" width="20">
-            <path class="playShape" d="M6 5 L6 15 L15 10 Z" />
-          </svg>
-        </div>
-      </div>
-    </div>
-
-    <!-- video elements -->
-    <netflix-video
-       width="390"
-       height="220"
-       data-dynamic-key="Trailer"
-       color-1="#d51b28"
-       color-2="#fff"
-       close-color-1="#000"
-       close-color-2="#fff"
-       hideOnComplete="true"
-       controls>
-    </netflix-video>
-
-    <div class="ribbonClick bannerClick"></div>
-
-    <netflix-video
-               width="970"
-               height="250"
-               data-dynamic-key="Supercut"
-               close-color-1="#000"
-               close-color-2="#fff"
-               hideOnComplete="true"
-               muted="true">
-    </netflix-video>
-
-    <div class="supercutOverlay">
-      <netflix-brand-logo width="96"></netflix-brand-logo>
-      <netflix-text class="boldFont" data-dynamic-key="Supercut_Tune_In"></netflix-text>
-    </div>
-
-    <netflix-flushed-ribbon width="970" height="250"></netflix-flushed-ribbon>
-
+    <netflix-text class="supercut-tune-in" data-dynamic-key="Supercut_Tune_In"></netflix-text>
+    <netflix-text class="tune-in" data-dynamic-key="Tune_In"></netflix-text>
   </div>
 
-  <script src="https://ae.nflximg.net/monet/scripts/monet.min.js"></script>
-  <script src="https://s0.2mdn.net/ads/studio/Enabler.js"></script>
-  <script src="https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_2.0.1_min.js"></script>
+  <netflix-cta class="cta-btn" max-width="150" width="150" data-dynamic-key="CTA" arrow></netflix-cta>
+
+  <div class="main-exit" href="javascript:window.open(window.clickTag)"></div>
+
+  <netflix-video
+    width="<%= banner_width %>"
+    height="<%= banner_height %>"
+    data-dynamic-key="Supercut"
+    close-color-1="#000"
+    close-color-2="#fff"
+    hideOnComplete="true"
+    muted="true" class="hide">
+  </netflix-video>
+
+  <netflix-brand-logo width="120" height="30"></netflix-brand-logo>
+
+  <div class="initial-load-hider"></div>
+  <netflix-flushed-ribbon width="<%= banner_width %>" height="<%= banner_height %>"></netflix-flushed-ribbon>
+
+</div>
+<netflix-fonts></netflix-fonts>
+
+<script src="https://ae.nflximg.net/monet/scripts/monet.min.js"></script>
+<script src="https://s0.2mdn.net/ads/studio/Enabler.js"></script>
+<script src="https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_2.0.1_min.js"></script>
 </body>
 </html>
