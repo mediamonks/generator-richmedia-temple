@@ -1,5 +1,14 @@
-import Banner from './Banner';
 import config from '../.richmediarc';
+import MainBanner from './MainBanner';
 
-const banner = new Banner(config);
+const arr = [
+  'ads',
+  'ads',
+  'ads',
+  'ads',
+  'ads',
+]
+
+const banner = new MainBanner(config);
+banner.setArray(arr);
 banner.init();
