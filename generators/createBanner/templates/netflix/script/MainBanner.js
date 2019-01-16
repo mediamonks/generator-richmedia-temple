@@ -6,9 +6,9 @@ export default class MainBanner extends BaseBanner {
     super.init();
   }
 
-  setArray(arr) {
-    super.setArray(arr);
-  }
+  // setArray(arr) {
+  //   super.setArray(arr);
+  // }
 
   async start() {
     super.start();

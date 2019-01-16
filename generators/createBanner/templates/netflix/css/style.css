@@ -73,9 +73,6 @@ body {
   left: 10px;
   top: 10px;
 
-  width: 250px;
-  height: 58px;
-
   > * {
     position: absolute;
   }
@@ -84,8 +81,43 @@ body {
     top: 20px;
   }
 
+  .pedigree {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: left;
+    font-size: 60px;
+    line-height: 60px;
+    font-weight: bold;
+    width: 150px;
+    height: 80px;
+    white-space: nowrap;
+
+    span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
   .tuneIn {
     top: 80px;
+    left: 0;
+    text-align: left;
+    font-size: 60px;
+    line-height: 60px;
+    font-weight: bold;
+    width: 150px;
+    height: 80px;
+    white-space: nowrap;
+
+    span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 }
 

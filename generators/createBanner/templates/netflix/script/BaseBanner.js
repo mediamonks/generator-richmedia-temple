@@ -21,6 +21,7 @@ import isRibbonComplete from './util/isRibbonComplete';
 import isVideoComplete from './util/isVideoComplete';
 import isVideoAboutToEnd from './util/isVideoAboutToEnd';
 import findElements from './util/findElements';
+import fitText from '@mediamonks/temple/util/fitText';
 import getVideoDuration from './util/getVideoDuration';
 
 export default class BaseBanner extends Entity {
@@ -53,6 +54,15 @@ export default class BaseBanner extends Entity {
 
 
     const elements = await findElements(this.domBanner, ["supercutScreen" , "low_touch",  this.locale]);
+
+    // this.fitTextArray = [
+    //   document.body.querySelector('.pedigree span'),
+    //   document.body.querySelector('.tuneIn span')
+    // ]
+
+    fitText(document.body.querySelector('.pedigree span'));
+    fitText(document.body.querySelector('.tuneIn span'));
+
     this.setupTimeline();
 
     if (monetComponent.getData('Toggle_Supercut')) {

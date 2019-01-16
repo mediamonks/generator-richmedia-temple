@@ -10,5 +10,5 @@ const arr = [
 ]
 
 const banner = new MainBanner(config);
-banner.setArray(arr);
+// banner.setArray(arr);
 banner.init();
