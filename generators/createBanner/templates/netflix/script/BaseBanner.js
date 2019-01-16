@@ -21,7 +21,8 @@ import isRibbonComplete from './util/isRibbonComplete';
 import isVideoComplete from './util/isVideoComplete';
 import isVideoAboutToEnd from './util/isVideoAboutToEnd';
 import findElements from './util/findElements';
-import fitText from '@mediamonks/temple/util/fitText';
+import css from "../css/style.css";
+import fitText from './util/fitText';
 import getVideoDuration from './util/getVideoDuration';
 
 export default class BaseBanner extends Entity {
@@ -53,15 +54,17 @@ export default class BaseBanner extends Entity {
     this.domNetflixSupercutTuneIn = document.body.querySelector('.supercutTuneIn');
 
 
-    const elements = await findElements(this.domBanner, ["supercutScreen" , "low_touch",  this.locale]);
+    const elements = await findElements(this.domBanner, ["supercutScreen" , "low_touch",  this.locale], ["NETFLIX-TEXT", "NETFLIX-BRAND-LOGO", "NETFLIX-FLUSHED-RIBBON", "NETFLIX-VIDEO", "NETFLIX-CTA"],css);
+    console.log(elements);
+    
 
-    // this.fitTextArray = [
-    //   document.body.querySelector('.pedigree span'),
-    //   document.body.querySelector('.tuneIn span')
-    // ]
+    this.fitTextArray = [
+      document.body.querySelector('.pedigree span'),
+      document.body.querySelector('.tuneIn span')
+    ]
 
-    fitText(document.body.querySelector('.pedigree span'));
-    fitText(document.body.querySelector('.tuneIn span'));
+    fitText(this.fitTextArray);
+    // fitText(document.body.querySelector('.tuneIn span'));
 
     this.setupTimeline();
 

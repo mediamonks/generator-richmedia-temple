@@ -1,19 +1,23 @@
-export default function findElements(e, styles, sheet) {
+export default function findElements(e, styles, customTypes, sheet) {
   return new Promise(function(resolve) {
+
+    var arr = ["DIV", "SPAN", "IMG", "CANVAS", "SVG", "CIRCLE", "PATH"];
+    arr = arr.concat(customTypes)
+
     if (styles) {
       var obj = {}
       obj.all = [];
-      findElement(e, styles, sheet);
+      findElement(e, styles, customTypes, sheet);
     } else {
       var obj = [];
       findElement(e);
     }
 
-    function findElement(e, styles, sheet) {
+    function findElement(e, styles, customTypes, sheet) {
       if (e && e.childNodes && e.childNodes.length > 0) {
         for (var i = 0; i < e.childNodes.length; i++) {
           var child = e.childNodes[i];
-          if (child.type == "image/svg+xml" || ["DIV", "SPAN", "IMG", "CANVAS", "SVG", "CIRCLE", "PATH", "NETFLIX-TEXT", "NETFLIX-BRAND-LOGO", "NETFLIX-FLUSHED-RIBBON", "NETFLIX-VIDEO", "NETFLIX-CTA"].indexOf(child.nodeName.toUpperCase()) != -1) {
+          if (child.type == "image/svg+xml" || arr.indexOf(child.nodeName.toUpperCase()) != -1) {
             if (child.id || child.className) {
               if (styles) {
                 styles = (typeof(styles) == "string") ? [styles] : styles;
@@ -29,10 +33,10 @@ export default function findElements(e, styles, sheet) {
                       obj[styles[j]].push(child);
                     }
                   }
-
                   var c = (typeof(child.className) == "object") ? String(child.className.baseVal).split(" ") : String(child.className).split(" ");
 
                   for (var k = 0; k < c.length; k++) {
+
                     if (c[k] && obj[styles[j]].indexOf(child) == -1) {
                       var val = getStyleRuleValue("." + styles[j], "." + c[k], sheet);
                       if (val) {
