@@ -3,6 +3,7 @@ import EventDispatcherComponent from '@mediamonks/temple/component/EventDispatch
 import MonetPlatformComponent from '@mediamonks/temple/component/platform/MonetPlatformComponent';
 import DoubleClickPlatformComponent from '@mediamonks/temple/component/platform/DoubleClickPlatformComponent';
 import ConfigComponent from '@mediamonks/temple/component/ConfigComponent';
+import Enabler from 'Enabler';
 
 import '@netflixadseng/pk-component-utils';
 import '@netflixadseng/wc-monet-integrator';
@@ -16,14 +17,14 @@ import '@netflixadseng/wc-netflix-cta';
 import '@netflixadseng/wc-netflix-preloader';
 import '@netflixadseng/wc-netflix-ratings-bug';
 
-// import getEnabler from '@mediamonks/temple/util/getEnabler';
 import isRibbonComplete from './util/isRibbonComplete';
 import isVideoComplete from './util/isVideoComplete';
 import isVideoAboutToEnd from './util/isVideoAboutToEnd';
 import findElements from './util/findElements';
-import css from "../css/style.css";
+import css from '../css/style.css';
 import fitText from './util/fitText';
 import getVideoDuration from './util/getVideoDuration';
+import DoubleClickEventEnum from '@mediamonks/temple/event/DoubleClickEventEnum';
 
 export default class BaseBanner extends Entity {
   constructor(config) {
@@ -38,9 +39,17 @@ export default class BaseBanner extends Entity {
   async init() {
     await super.init();
     const monetComponent = this.getComponent(MonetPlatformComponent);
+    const dispatcher = this.getComponent(EventDispatcherComponent);
+
+    const elements = findElements(
+      this.domBanner,
+      [monetComponent.getLocale().language],
+      ['NETFLIX-TEXT', 'NETFLIX-BRAND-LOGO', 'NETFLIX-FLUSHED-RIBBON', 'NETFLIX-VIDEO', 'NETFLIX-CTA'],
+      css,
+    );
 
     this.domBanner = document.body.querySelector('#banner');
-    this.domInitialLoadHider = document.body.querySelector('.initial-load-hider');
+    this.domNetflixPreloader = document.body.querySelector('netflix-preloader');
     this.domNetflixRibbon = document.body.querySelector('netflix-flushed-ribbon');
     this.domNetflixVideo = document.body.querySelector('netflix-video');
     this.domNetflixVideoEl = document.body.querySelector('netflix-video video');
@@ -51,51 +60,48 @@ export default class BaseBanner extends Entity {
     this.domNetflixPedigree = document.body.querySelector('.pedigree');
     this.domNetflixTitleTreatment = document.body.querySelector('.titleTreatment');
     this.domNetflixTuneIn = document.body.querySelector('.tuneIn');
+
     this.domNetflixSupercutTuneIn = document.body.querySelector('.supercutTuneIn');
 
+    //prefix for when onetComponent.setImpressionPixel has been created
+    if (monetComponent.setImpressionPixel) {
+      monetComponent.setImpressionPixel('RICH_MEDIA', ['SINGLE_TITLE', 'VIDEO']);
+    }
 
-    const elements = await findElements(this.domBanner, ["supercutScreen" , "low_touch",  this.locale], ["NETFLIX-TEXT", "NETFLIX-BRAND-LOGO", "NETFLIX-FLUSHED-RIBBON", "NETFLIX-VIDEO", "NETFLIX-CTA"],css);
-    console.log(elements);
-    
+    this.mainTl = this.getMainTimeline();
 
-    this.fitTextArray = [
-      document.body.querySelector('.pedigree span'),
-      document.body.querySelector('.tuneIn span')
-    ]
-
+    this.fitTextArray = [document.body.querySelector('.pedigree span'), document.body.querySelector('.tuneIn span')];
     fitText(this.fitTextArray);
-    // fitText(document.body.querySelector('.tuneIn span'));
 
-    this.setupTimeline();
-
-    if (monetComponent.getData('Toggle_Supercut')) {
-      this.domVideoExit = document.body.querySelector('.videoClick');
-    }
-
-    if (monetComponent.getData('Toggle_Supercut')) {
-      this.domVideoExit.addEventListener('click', this.handleMainClick);
-    }
-
-    this.domMainExit.addEventListener('click', this.handleMainClick);
+    this.domMainExit.addEventListener('click', monetComponent.gotoExit.bind(monetComponent));
     this.domMainExit.addEventListener('mouseover', this.handleRollOver);
     this.domMainExit.addEventListener('mouseout', this.handleRollOut);
 
-    this.domNetflixVideoEl.setAttribute('loadedmetadata', 'preload');
+    //prefix for when dispatcher.dispatchEvent has been renamed to dispatcher.dispatch
+    if(dispatcher.dispatch) {
+      dispatcher.addEventListener(DoubleClickEventEnum.DC_EXIT, this.handleOnExitClick);
+    }
 
-    // START INITIAL ANIMATION
-    this.domNetflixRibbon.play();
+    // remove initial hider after ribbon is covering page.
+    TweenMax.to(this.domNetflixPreloader, 0.2, {
+      autoAlpha: 0,
+      onComplete: () => {
+        this.domNetflixRibbon.play();
+      },
+    });
 
     // wait for ribbon to cover unit
     await isRibbonComplete(this.domNetflixRibbon);
 
-    // remove initial hider after ribbon is covering page.
-    TweenMax.to(this.domInitialLoadHider, 0.2, { autoAlpha: 0 });
-
     if (monetComponent.getData('Toggle_Supercut')) {
+      this.domVideoExit = document.body.querySelector('.videoClick');
+      this.domVideoExit.addEventListener('click', monetComponent.gotoExit.bind(monetComponent));
       TweenMax.set(this.domNetflixBrandLogo, { opacity: 1 });
+
       this.domNetflixVideo.play();
       this.domNetflixBrandLogo.progress(1);
 
+      this.domNetflixVideoEl.setAttribute('loadedmetadata', 'preload');
       const duration = await getVideoDuration(this.domNetflixVideo);
 
       this.domNetflixBrandLogo.reverse();
@@ -112,17 +118,17 @@ export default class BaseBanner extends Entity {
     }
 
     // do the rest
-
     this.start();
   }
 
-  setupTimeline = () => {
-    this.masterTL = new TimelineMax({ paused: true });
-    this.masterTL.add(this.animateNetflixElements(), '0');
+  getMainTimeline = () => {
+    const tl = new TimelineMax({ paused: true });
+    tl.add(this.getIntroAnimationNetflixElements());
+    return tl;
   };
 
-  animateNetflixElements = () => {
-    const tl = new TimelineMax({});
+  getIntroAnimationNetflixElements(vars) {
+    const tl = new TimelineMax(vars);
     tl.addLabel('start', 0);
     tl.to(this.domNetflixSupercutTuneIn, 0.5, { opacity: 0 }, 'start');
     tl.from(this.domNetflixTuneIn, 2, { opacity: 0 }, 'start+=1.5');
@@ -132,16 +138,7 @@ export default class BaseBanner extends Entity {
     tl.call(this.domNetflixBrandLogo.play, null, this.domNetflixBrandLogo, 'start+=2.5');
     tl.fromTo(this.domnNetflixCtaContainer, 1, { width: 0 }, { width: 110, ease: Quad.easeOut }, 'start+=2.5');
     return tl;
-  };
-
-  handleMainClick() {
-    this.domNetflixRibbon.progress(1, true);
-    this.domNetflixBrandLogo.progress(1, true);
-    this.domInitialLoadHider.style.display = 'none';
-    this.masterTL.progress(1);
-    this.domNetflixVideo.pause();
-    this.domNetflixVideo.close();
-  };
+  }
 
   handleRollOver = () => {
     this.domnNetflixCta.mouseover();
@@ -151,7 +148,19 @@ export default class BaseBanner extends Entity {
     this.domnNetflixCta.mouseout();
   };
 
-  async start() {
-    this.masterTL.play();
+  handleOnExitClick = () => {
+    this.domNetflixRibbon.progress(1, true);
+    this.domNetflixBrandLogo.progress(1, true);
+    this.domNetflixPreloader.style.display = 'none';
+    this.mainTl.progress(1);
+    this.domNetflixVideo.pause();
+    this.domNetflixVideo.close();
+    setTimeout(() => {
+      this.domnNetflixCta.mouseout();
+    }, 1000);
+  };
+
+  start() {
+    this.mainTl.play();
   }
 }
