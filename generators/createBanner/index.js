@@ -117,6 +117,7 @@ module.exports = class extends Generator {
           this.destinationPath(path.join(this.result.outputPath, 'script')),
         );
 
+
         this.fs.copy(this.templatePath('netflix/img'), this.destinationPath(path.join(this.result.outputPath), 'img'));
 
         mkdirp(this.destinationPath(path.join(this.result.outputPath, 'video')), err => {
@@ -226,5 +227,11 @@ module.exports = class extends Generator {
         break;
       }
     }
+
+    // always create a static directory
+    mkdirp(this.destinationPath(path.join(this.result.outputPath, 'static')), err => {
+      if (err) console.error(err);
+    });
+
   }
 };
