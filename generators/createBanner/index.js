@@ -53,9 +53,7 @@ module.exports = class extends Generator {
             type: 'checkbox',
             name: 'libs',
             message: 'Please check all libs you are going to use for this rm unit.',
-            choices: [
-              ...NetflixAdSengLibs
-            ],
+            choices: [...NetflixAdSengLibs],
           },
         ]);
         break;
@@ -93,6 +91,18 @@ module.exports = class extends Generator {
           },
         );
 
+        this.fs.writeJSON(
+          this.destinationPath(path.join(this.result.outputPath, '.richmediarc')),
+          deepmerge(this.fs.readJSON(this.templatePath('netflix/.richmediarc')), {
+            settings: {
+              size: {
+                width: parseInt(width, 10),
+                height: parseInt(height, 10),
+              },
+            },
+          }),
+        );
+
         this.fs.copyTpl(
           this.templatePath('netflix/css/style.css'),
           this.destinationPath(path.join(this.result.outputPath, 'css/style.css')),
@@ -102,26 +112,12 @@ module.exports = class extends Generator {
           },
         );
 
-        this.fs.copyTpl(
-          this.templatePath('netflix/script/main.js'),
-          this.destinationPath(path.join(this.result.outputPath, 'script/main.js')),
-        );
-
-        const json = deepmerge(this.fs.readJSON(this.templatePath('netflix/.richmediarc')), {
-          settings: {
-            size: {
-              width: parseInt(width, 10),
-              height: parseInt(height, 10),
-            },
-          },
-        });
-
-        this.fs.writeJSON(this.destinationPath(path.join(this.result.outputPath, '.richmediarc')), json);
-
         this.fs.copy(
-          this.templatePath('netflix/img/**'),
-          this.destinationPath(path.join(this.result.outputPath), 'img/'),
+          this.templatePath('netflix/script'),
+          this.destinationPath(path.join(this.result.outputPath, 'script')),
         );
+
+        this.fs.copy(this.templatePath('netflix/img'), this.destinationPath(path.join(this.result.outputPath), 'img'));
 
         mkdirp(this.destinationPath(path.join(this.result.outputPath, 'video')), err => {
           if (err) console.error(err);
@@ -177,7 +173,6 @@ module.exports = class extends Generator {
 
         break;
       }
-
 
       case PlatformChoices.PLAIN: {
         const [width, height] = this.result.size.split('x');
