@@ -9,9 +9,6 @@
 
   <link rel="stylesheet" href="./css/style.css" type="text/css">
 
-  <script type="text/javascript">
-    var clickTag = "http://www.google.com";
-  </script>
 </head>
 
 <body>
@@ -21,17 +18,16 @@
 
 <div id="banner">
 
-  <div class="pedegree-container">
+  <div class="pedigreeContainer">
     <netflix-text class="pedigree" data-dynamic-key="Pedigree"></netflix-text>
     <netflix-img width="250" class="titleTreatment" data-dynamic-key="Title_Treatment_Vertical"></netflix-img>
-
-    <netflix-text class="supercut-tune-in" data-dynamic-key="Supercut_Tune_In"></netflix-text>
-    <netflix-text class="tune-in" data-dynamic-key="Tune_In"></netflix-text>
+    <netflix-text class="tuneIn" data-dynamic-key="Tune_In"></netflix-text>
   </div>
 
-  <netflix-cta class="cta-btn" max-width="150" width="150" data-dynamic-key="CTA" arrow></netflix-cta>
-
-  <div class="main-exit" href="javascript:window.open(window.clickTag)"></div>
+  <div class="ctaContainer">
+    <netflix-cta class="ctaBtn" data-dynamic-key="CTA" arrow></netflix-cta>
+  </div>
+  <div class="main-exit"></div>
 
   <netflix-video
     width="<%= banner_width %>"
@@ -43,9 +39,10 @@
     muted="true" class="hide">
   </netflix-video>
 
+  <netflix-text class="supercutTuneIn boldFont" data-dynamic-key="Supercut_Tune_In"></netflix-text>
   <netflix-brand-logo width="120" height="30"></netflix-brand-logo>
 
-  <div class="initial-load-hider"></div>
+  <netflix-preloader class="" width="<%= banner_width %>" height="<%= banner_height %>" bg-color="#000000" frame-color="#000000"></netflix-preloader>
   <netflix-flushed-ribbon width="<%= banner_width %>" height="<%= banner_height %>"></netflix-flushed-ribbon>
 
 </div>
