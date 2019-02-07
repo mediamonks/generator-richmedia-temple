@@ -1,6 +1,6 @@
 # generator-richmedia-temple [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 
-> Create a richmedia temple project
+> Create a richmedia temple project !
 
 ## Installation
 
