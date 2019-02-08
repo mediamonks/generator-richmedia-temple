@@ -1,6 +1,6 @@
 import BaseBanner from './BaseBanner';
 
-export default class MainBanner extends BaseBanner {
+export default class Banner extends BaseBanner {
 
   async init() {
     super.init();
