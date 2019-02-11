@@ -42,13 +42,12 @@ export default class BaseBanner extends Entity {
     const dispatcher = this.getComponent(EventDispatcherComponent);
 
     const elements = findElements(
-      this.domBanner,
+      document.body.querySelector('#banner'),
       [monetComponent.getLocale().language],
-      ['NETFLIX-TEXT', 'NETFLIX-BRAND-LOGO', 'NETFLIX-FLUSHED-RIBBON', 'NETFLIX-VIDEO', 'NETFLIX-CTA'],
+      ['netflix-text', 'netflix-brand-logo', 'netflix-flushed-ribbon', 'netflix-video', 'netflix-cta'],
       css,
     );
 
-    this.domBanner = document.body.querySelector('#banner');
     this.domNetflixPreloader = document.body.querySelector('netflix-preloader');
     this.domNetflixRibbon = document.body.querySelector('netflix-flushed-ribbon');
     this.domNetflixVideo = document.body.querySelector('netflix-video');
@@ -70,8 +69,8 @@ export default class BaseBanner extends Entity {
 
     this.mainTl = this.getMainTimeline();
 
-    this.fitTextArray = [document.body.querySelector('.pedigree span'), document.body.querySelector('.tuneIn span')];
-    fitText(this.fitTextArray);
+    this.fitTextElementsList = [document.body.querySelector('.pedigree span'), document.body.querySelector('.tuneIn span')];
+    fitText(this.fitTextElementsList);
 
     this.domMainExit.addEventListener('click', monetComponent.gotoExit.bind(monetComponent));
     this.domMainExit.addEventListener('mouseover', this.handleRollOver);
@@ -102,7 +101,7 @@ export default class BaseBanner extends Entity {
       this.domNetflixBrandLogo.progress(1);
 
       this.domNetflixVideoEl.setAttribute('loadedmetadata', 'preload');
-      const duration = await getVideoDuration(this.domNetflixVideo);
+      const duration = getVideoDuration(this.domNetflixVideo);
 
       this.domNetflixBrandLogo.reverse();
 
