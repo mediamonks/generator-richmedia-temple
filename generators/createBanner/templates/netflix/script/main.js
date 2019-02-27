@@ -1,5 +1,5 @@
 import config from '../.richmediarc';
-import MainBanner from './Banner';
+import Banner from './Banner';
 
 const arr = [
   'ads',
@@ -9,5 +9,5 @@ const arr = [
   'ads',
 ]
 
-const banner = new MainBanner(config);
+const banner = new Banner(config);
 banner.init();
