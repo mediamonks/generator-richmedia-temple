@@ -142,10 +142,9 @@ module.exports = class extends Generator {
           this.destinationPath(path.join(this.result.outputPath), 'img/'),
         );
 
-        // main javascript
-        this.fs.copyTpl(
-          this.templatePath('doubleclick/script/main.js'),
-          this.destinationPath(path.join(this.result.outputPath, 'script/main.js')),
+        this.fs.copy(
+          this.templatePath('doubleclick/script'),
+          this.destinationPath(path.join(this.result.outputPath, 'script')),
         );
 
         // copy pasting css
@@ -191,9 +190,10 @@ module.exports = class extends Generator {
         );
 
         // main javascript
-        this.fs.copyTpl(
-          this.templatePath('plain/script/main.js'),
-          this.destinationPath(path.join(this.result.outputPath, 'script/main.js')),
+
+        this.fs.copy(
+          this.templatePath('plain/script'),
+          this.destinationPath(path.join(this.result.outputPath, 'script')),
         );
 
         // copy pasting css
