@@ -1,19 +1,4 @@
-import Entity from '@mediamonks/temple/Entity';
-
-class Banner extends Entity {
-
-  constructor() {
-    super();
-
-
-  }
-
-  init() {
-    return super.init().then(() => {
-
-    })
-  }
-}
+import Banner from "./Banner";
 
 const banner = new Banner();
-banner.init();
+banner.start();
