@@ -73,7 +73,7 @@ export default class AbstractBanner extends Entity {
     this.domMainExit.addEventListener('mouseover', this.handleRollOver);
     this.domMainExit.addEventListener('mouseout', this.handleRollOut);
 
-    dispatcher.addEventListener(DoubleClickEventEnum.EXIT, this.handleOnExitClick);
+    dispatcher.addEventListener(DoubleClickEventEnum.DC_EXIT, this.handleOnExitClick);
   }
 
   animateToEndFrame(){
@@ -143,6 +143,7 @@ export default class AbstractBanner extends Entity {
   };
 
   async start() {
+    const monetComponent = this.getComponent(MonetPlatformComponent);
     const timeline = this.getMainTimeline();
 
     timeline.play();
