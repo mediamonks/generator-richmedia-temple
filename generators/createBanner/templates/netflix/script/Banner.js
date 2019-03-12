@@ -1,20 +1,4 @@
-import BaseBanner from './BaseBanner';
+import AbstractBanner from './AbstractBanner';
 
-export default class Banner extends BaseBanner {
-
-  async init() {
-    super.init();
-  }
-
-  // setArray(arr) {
-  //   super.setArray(arr);
-  // }
-
-  async start() {
-    super.start();
-  }
-
-  handleMainClick() {
-    super.handleMainClick();
-  }
+export default class Banner extends AbstractBanner {
 }

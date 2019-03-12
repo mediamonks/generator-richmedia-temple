@@ -76,9 +76,6 @@ module.exports = class extends Generator {
               prev[curr] = '';
               return prev;
             }, {}),
-
-            '@netflixadseng/wc-monet-integrator': 'latest',
-            '@netflixadseng/wc-netflix-fonts': 'latest',
           },
         });
 

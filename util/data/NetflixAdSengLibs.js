@@ -9,5 +9,4 @@ module.exports = [
   { name: '@netflixadseng/wc-netflix-video', checked: true },
   { name: '@netflixadseng/wc-netflix-brand-logo', checked: true },
   { name: '@netflixadseng/wc-netflix-text', checked: true },
-  { name: '@netflixadseng/wc-netflix-supercut', checked: true },
 ];

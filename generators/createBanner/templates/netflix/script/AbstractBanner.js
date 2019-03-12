@@ -3,7 +3,13 @@ import EventDispatcherComponent from '@mediamonks/temple/component/EventDispatch
 import MonetPlatformComponent from '@mediamonks/temple/component/platform/MonetPlatformComponent';
 import DoubleClickPlatformComponent from '@mediamonks/temple/component/platform/DoubleClickPlatformComponent';
 import ConfigComponent from '@mediamonks/temple/component/ConfigComponent';
-import Enabler from 'Enabler';
+import isRibbonComplete from '@mediamonks/temple/util/isRibbonComplete';
+import isVideoComplete from '@mediamonks/temple/util/isVideoComplete';
+import isVideoAboutToEnd from '@mediamonks/temple/util/isVideoAboutToEnd';
+// import findElementsByCSS from '@mediamonks/temple/util/findElementsByCSS';
+import fitText from '@mediamonks/temple/util/fitText';
+import getVideoDuration from '@mediamonks/temple/util/getVideoDuration';
+import DoubleClickEventEnum from '@mediamonks/temple/event/DoubleClickEventEnum';
 
 import '@netflixadseng/pk-component-utils';
 import '@netflixadseng/wc-monet-integrator';
@@ -17,16 +23,9 @@ import '@netflixadseng/wc-netflix-cta';
 import '@netflixadseng/wc-netflix-preloader';
 import '@netflixadseng/wc-netflix-ratings-bug';
 
-import isRibbonComplete from './util/isRibbonComplete';
-import isVideoComplete from './util/isVideoComplete';
-import isVideoAboutToEnd from './util/isVideoAboutToEnd';
-import findElements from './util/findElements';
-import css from '../css/style.css';
-import fitText from './util/fitText';
-import getVideoDuration from './util/getVideoDuration';
-import DoubleClickEventEnum from '@mediamonks/temple/event/DoubleClickEventEnum';
+// import css from '../css/style.css';
 
-export default class BaseBanner extends Entity {
+export default class AbstractBanner extends Entity {
   constructor(config) {
     super();
 
@@ -38,15 +37,16 @@ export default class BaseBanner extends Entity {
 
   async init() {
     await super.init();
+
     const monetComponent = this.getComponent(MonetPlatformComponent);
     const dispatcher = this.getComponent(EventDispatcherComponent);
 
-    const elements = findElements(
-      document.body.querySelector('#banner'),
-      [monetComponent.getLocale().language],
-      ['netflix-text', 'netflix-brand-logo', 'netflix-flushed-ribbon', 'netflix-video', 'netflix-cta'],
-      css,
-    );
+    // const elements = findElementsByCSS(
+    //   document.body.querySelector('#banner'),
+    //   [monetComponent.getLocale().language],
+    //   ['netflix-text', 'netflix-brand-logo', 'netflix-flushed-ribbon', 'netflix-video', 'netflix-cta'],
+    //   css,
+    // );
 
     this.domNetflixPreloader = document.body.querySelector('netflix-preloader');
     this.domNetflixRibbon = document.body.querySelector('netflix-flushed-ribbon');
@@ -62,24 +62,90 @@ export default class BaseBanner extends Entity {
 
     this.domNetflixSupercutTuneIn = document.body.querySelector('.supercutTuneIn');
 
-    //prefix for when onetComponent.setImpressionPixel has been created
-    if (monetComponent.setImpressionPixel) {
-      monetComponent.setImpressionPixel('RICH_MEDIA', ['SINGLE_TITLE', 'VIDEO']);
-    }
+    monetComponent.setImpressionPixel('RICH_MEDIA', ['SINGLE_TITLE', 'VIDEO']);
 
-    this.mainTl = this.getMainTimeline();
-
-    this.fitTextElementsList = [document.body.querySelector('.pedigree span'), document.body.querySelector('.tuneIn span')];
-    fitText(this.fitTextElementsList);
+    fitText([
+      document.body.querySelector('.pedigree span'),
+      document.body.querySelector('.tuneIn span')
+    ]);
 
     this.domMainExit.addEventListener('click', monetComponent.gotoExit.bind(monetComponent));
     this.domMainExit.addEventListener('mouseover', this.handleRollOver);
     this.domMainExit.addEventListener('mouseout', this.handleRollOut);
 
-    //prefix for when dispatcher.dispatchEvent has been renamed to dispatcher.dispatch
-    if(dispatcher.dispatch) {
-      dispatcher.addEventListener(DoubleClickEventEnum.DC_EXIT, this.handleOnExitClick);
+    dispatcher.addEventListener(DoubleClickEventEnum.EXIT, this.handleOnExitClick);
+  }
+
+  animateToEndFrame(){
+    this.domNetflixRibbon.progress(1, true);
+    this.domNetflixBrandLogo.progress(1, true);
+    this.domNetflixPreloader.style.display = 'none';
+
+    const mainTimeline = this.getMainTimeline();
+    mainTimeline.progress(1);
+
+    this.domNetflixVideo.pause();
+    this.domNetflixVideo.close();
+
+    setTimeout(() => {
+      this.domnNetflixCta.mouseout();
+    }, 1000);
+  }
+
+  getMainTimeline(){
+    if(!this._mainTimeline){
+      const tl = new TimelineMax({ paused: true });
+      tl.add(this.getIntroAnimationNetflixElements());
+
+      this._mainTimeline = tl;
     }
+
+    return this._mainTimeline;
+  };
+
+  /**
+   *
+   * @param {object} timelineOptions
+   * @return {TimelineMax}
+   */
+  getIntroAnimationNetflixElements(timelineOptions = {}) {
+    const tl = new TimelineMax(timelineOptions);
+    tl.addLabel('start', 0);
+    tl.to(this.domNetflixSupercutTuneIn, 0.5, { opacity: 0 }, 'start');
+    tl.from(this.domNetflixTuneIn, 2, { opacity: 0 }, 'start+=1.5');
+    tl.from(this.domNetflixTitleTreatment, 2, { opacity: 0 }, 'start+=1.5');
+    tl.from(this.domNetflixPedigree, 2, { opacity: 0 }, 'start+=1.5');
+    tl.from(this.domNetflixBrandLogo, 1, { opacity: 0 }, 'start+=2');
+    tl.call(this.domNetflixBrandLogo.play, null, this.domNetflixBrandLogo, 'start+=2.5');
+    tl.fromTo(this.domnNetflixCtaContainer, 1, { width: 0 }, { width: 110, ease: Quad.easeOut }, 'start+=2.5');
+    return tl;
+  }
+
+  /**
+   * When mouse rolls over unit.
+   */
+  handleRollOver = () => {
+    this.domnNetflixCta.mouseover();
+  };
+
+  /**
+   * When mouse rolls out unit.
+   */
+  handleRollOut = () => {
+    this.domnNetflixCta.mouseout();
+  };
+
+  /**
+   * When on exit click is registered from double click
+   */
+  handleOnExitClick = () => {
+    this.animateToEndFrame();
+  };
+
+  async start() {
+    const timeline = this.getMainTimeline();
+
+    timeline.play();
 
     // remove initial hider after ribbon is covering page.
     TweenMax.to(this.domNetflixPreloader, 0.2, {
@@ -101,7 +167,7 @@ export default class BaseBanner extends Entity {
       this.domNetflixBrandLogo.progress(1);
 
       this.domNetflixVideoEl.setAttribute('loadedmetadata', 'preload');
-      const duration = getVideoDuration(this.domNetflixVideo);
+      const duration = await getVideoDuration(this.domNetflixVideo);
 
       this.domNetflixBrandLogo.reverse();
 
@@ -115,51 +181,5 @@ export default class BaseBanner extends Entity {
       // wait for video to complete playing
       await isVideoComplete(this.domNetflixVideo);
     }
-
-    // do the rest
-    this.start();
-  }
-
-  getMainTimeline = () => {
-    const tl = new TimelineMax({ paused: true });
-    tl.add(this.getIntroAnimationNetflixElements());
-    return tl;
-  };
-
-  getIntroAnimationNetflixElements(vars) {
-    const tl = new TimelineMax(vars);
-    tl.addLabel('start', 0);
-    tl.to(this.domNetflixSupercutTuneIn, 0.5, { opacity: 0 }, 'start');
-    tl.from(this.domNetflixTuneIn, 2, { opacity: 0 }, 'start+=1.5');
-    tl.from(this.domNetflixTitleTreatment, 2, { opacity: 0 }, 'start+=1.5');
-    tl.from(this.domNetflixPedigree, 2, { opacity: 0 }, 'start+=1.5');
-    tl.from(this.domNetflixBrandLogo, 1, { opacity: 0 }, 'start+=2');
-    tl.call(this.domNetflixBrandLogo.play, null, this.domNetflixBrandLogo, 'start+=2.5');
-    tl.fromTo(this.domnNetflixCtaContainer, 1, { width: 0 }, { width: 110, ease: Quad.easeOut }, 'start+=2.5');
-    return tl;
-  }
-
-  handleRollOver = () => {
-    this.domnNetflixCta.mouseover();
-  };
-
-  handleRollOut = () => {
-    this.domnNetflixCta.mouseout();
-  };
-
-  handleOnExitClick = () => {
-    this.domNetflixRibbon.progress(1, true);
-    this.domNetflixBrandLogo.progress(1, true);
-    this.domNetflixPreloader.style.display = 'none';
-    this.mainTl.progress(1);
-    this.domNetflixVideo.pause();
-    this.domNetflixVideo.close();
-    setTimeout(() => {
-      this.domnNetflixCta.mouseout();
-    }, 1000);
-  };
-
-  start() {
-    this.mainTl.play();
   }
 }
