@@ -6,7 +6,7 @@ import DoubleClickEventEnum from "@mediamonks/temple/event/DoubleClickEventEnum"
 
 import config from '../.richmediarc';
 
-class Banner extends Entity {
+export default class Banner extends Entity {
 
   constructor() {
     super();
@@ -106,7 +106,10 @@ class Banner extends Entity {
    * Dispatched when the creative has finished collapsing from fullscreen state to collapsed state.
    */
   handleFullscreenCollapseFinish = () => {};
-}
 
-const banner = new Banner();
-banner.init();
+  async start(){
+    await this.init();
+
+    // put your start code here
+  }
+}
