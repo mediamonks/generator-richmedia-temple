@@ -21,7 +21,6 @@ import '@netflixadseng/wc-netflix-img';
 import '@netflixadseng/wc-netflix-brand-logo';
 import '@netflixadseng/wc-netflix-cta';
 import '@netflixadseng/wc-netflix-preloader';
-import '@netflixadseng/wc-netflix-ratings-bug';
 
 // import css from '../css/style.css';
 
@@ -55,7 +54,7 @@ export default class AbstractBanner extends Entity {
     this.domNetflixBrandLogo = document.body.querySelector('netflix-brand-logo');
     this.domnNetflixCta = document.body.querySelector('netflix-cta');
     this.domnNetflixCtaContainer = document.body.querySelector('.ctaContainer');
-    this.domMainExit = document.body.querySelector('.main-exit');
+    this.domMainExit = document.body.querySelector('#main-exit');
     this.domNetflixPedigree = document.body.querySelector('.pedigree');
     this.domNetflixTitleTreatment = document.body.querySelector('.titleTreatment');
     this.domNetflixTuneIn = document.body.querySelector('.tuneIn');
@@ -92,6 +91,10 @@ export default class AbstractBanner extends Entity {
     }, 1000);
   }
 
+  /**
+   *
+   * @return {TimelineMax}
+   */
   getMainTimeline(){
     if(!this._mainTimeline){
       const tl = new TimelineMax({ paused: true });
@@ -143,11 +146,12 @@ export default class AbstractBanner extends Entity {
   };
 
   async start() {
+    await this.init();
     const monetComponent = this.getComponent(MonetPlatformComponent);
     const timeline = this.getMainTimeline();
 
     timeline.play();
-
+    //
     // remove initial hider after ribbon is covering page.
     TweenMax.to(this.domNetflixPreloader, 0.2, {
       autoAlpha: 0,
