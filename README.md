@@ -2,6 +2,9 @@
 
 > Create a richmedia temple project !
 
+## Getting started
+See https://assets-at-scale.gitbook.io/temple-suite/ for documentation to getting started.
+
 ## Installation
 
 First, install [Yeoman](http://yeoman.io) and generator-richmedia-temple using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
