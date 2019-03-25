@@ -1,4 +1,4 @@
-import Banner from "../../netflix/script/Banner";
+import Banner from "./Banner";
 
 const banner = new Banner();
 banner.start();
