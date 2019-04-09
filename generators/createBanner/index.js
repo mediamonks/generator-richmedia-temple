@@ -73,7 +73,7 @@ module.exports = class extends Generator {
         this.fs.extendJSON(this.destinationPath('package.json'), {
           dependencies: {
             ...this.netflix.libs.reduce((prev, curr) => {
-              prev[curr] = '';
+              prev[curr] = '^2.0.0';
               return prev;
             }, {}),
           },
