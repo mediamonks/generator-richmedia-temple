@@ -1,10 +1,8 @@
 import Entity from '@mediamonks/temple/Entity';
 import DoubleClickPlatformComponent from '@mediamonks/temple/component/platform/DoubleClickPlatformComponent';
 import EventDispatcherComponent from "@mediamonks/temple/component/EventDispatcherComponent";
-import ConfigComponent from "@mediamonks/temple/component/ConfigComponent";
-import DoubleClickEventEnum from "@mediamonks/temple/event/DoubleClickEventEnum";
 
-import config from '../.richmediarc';
+import DoubleClickEventEnum from "@mediamonks/temple/event/DoubleClickEventEnum";
 
 export default class Banner extends Entity {
 
@@ -12,7 +10,6 @@ export default class Banner extends Entity {
     super();
 
     this.addComponent(new DoubleClickPlatformComponent());
-    this.addComponent(new ConfigComponent(config));
     this.addComponent(new EventDispatcherComponent());
   }
 
