@@ -6,7 +6,6 @@ const isPathInside = require('is-path-inside');
 const path = require('path');
 
 const PlatformChoices = require('../../util/data/PlatformChoices');
-const NetflixAdSengLibs = require('../../util/data/NetflixAdSengLibs');
 
 module.exports = class extends Generator {
   async questions() {
