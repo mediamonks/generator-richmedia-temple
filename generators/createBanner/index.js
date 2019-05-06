@@ -45,24 +45,6 @@ module.exports = class extends Generator {
         },
       ])),
     };
-
-    switch (this.result.type) {
-      case PlatformChoices.NETFLIX: {
-        this.netflix = await this.prompt([
-          {
-            type: 'checkbox',
-            name: 'libs',
-            message: 'Please check all libs you are going to use for this rm unit.',
-            choices: [...NetflixAdSengLibs],
-          },
-        ]);
-        break;
-      }
-
-      default: {
-        break;
-      }
-    }
   }
 
   action() {
@@ -70,14 +52,10 @@ module.exports = class extends Generator {
       case PlatformChoices.NETFLIX: {
         const [width, height] = this.result.size.split('x');
 
-        this.fs.extendJSON(this.destinationPath('package.json'), {
-          dependencies: {
-            ...this.netflix.libs.reduce((prev, curr) => {
-              prev[curr] = '^2.0.0';
-              return prev;
-            }, {}),
-          },
-        });
+        this.fs.extendJSON(
+          this.destinationPath('package.json'),
+          this.fs.readJSON(this.templatePath('netflix/extendPackageJson.json')),
+        );
 
         this.fs.copyTpl(
           this.templatePath('netflix/index.html'),
@@ -113,7 +91,6 @@ module.exports = class extends Generator {
           this.templatePath('netflix/script'),
           this.destinationPath(path.join(this.result.outputPath, 'script')),
         );
-
 
         this.fs.copy(this.templatePath('netflix/img'), this.destinationPath(path.join(this.result.outputPath), 'img'));
 
@@ -229,6 +206,5 @@ module.exports = class extends Generator {
     mkdirp(this.destinationPath(path.join(this.result.outputPath, 'static')), err => {
       if (err) console.error(err);
     });
-
   }
 };

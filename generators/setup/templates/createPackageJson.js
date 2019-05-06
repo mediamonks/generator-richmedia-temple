@@ -11,7 +11,7 @@ module.exports = function createPackageJson({ name = 'richmedia-temple' }) {
     scripts: {
       dev: 'node ./node_modules/@mediamonks/richmedia-temple-server/dev.js',
       build: 'node ./node_modules/@mediamonks/richmedia-temple-server/build.js',
-      preview: 'node ./node_modules/@mediamonks/henk',
+      "preview": "./node_modules/.bin/henk"
     },
     license: 'ISC',
     dependencies: {
