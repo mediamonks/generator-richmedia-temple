@@ -1,6 +1,7 @@
 const PlatformChoices = {
   DOUBLECLICK: 'doubleclick',
-  NETFLIX: 'netflix',
+  NETFLIX_DOUBLECLICK: 'netflix doubleclick',
+  NETFLIX_SITESERVED: 'netflix site served',
   PLAIN: 'plain',
 };
 

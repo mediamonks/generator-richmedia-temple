@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title><%= banner_width %>x<%= banner_height %></title>
+
+  <link rel="stylesheet" href="./css/style.css" type="text/css">
+
+</head>
+
+<body>
+
+  <monet-integrator exit-element-id="main-exit" dynamic-feed-sheet-name="" backup="./backup.json"></monet-integrator>
+
+  <div class="preloader-spinner"></div>
+
+  <div id="banner">
+
+    <div class="pedigreeContainer">
+      <netflix-text class="pedigree" data-dynamic-key="Pedigree"></netflix-text>
+      <netflix-img width="250" class="titleTreatment" data-dynamic-key="Title_Treatment_Vertical"></netflix-img>
+      <netflix-text class="tuneIn" data-dynamic-key="Tune_In"></netflix-text>
+    </div>
+
+    <div class="ctaContainer">
+      <netflix-cta class="ctaBtn" data-dynamic-key="CTA" arrow></netflix-cta>
+    </div>
+
+    <div id="main-exit"></div>
+
+    <netflix-video
+      width="<%= banner_width %>"
+      height="<%= banner_height %>"
+      data-dynamic-key="Supercut"
+      close-color-1="#000"
+      close-color-2="#fff"
+      hideOnComplete="true"
+      muted="true" class="hide">
+    </netflix-video>
+
+    <netflix-text class="supercutTuneIn boldFont" data-dynamic-key="Supercut_Tune_In"></netflix-text>
+    <netflix-brand-logo width="120" height="30"></netflix-brand-logo>
+
+    <netflix-preloader class="" width="<%= banner_width %>" height="<%= banner_height %>" bg-color="#000000" frame-color="#000000"></netflix-preloader>
+    <netflix-flushed-ribbon width="<%= banner_width %>" height="<%= banner_height %>"></netflix-flushed-ribbon>
+
+  </div>
+  <netflix-fonts></netflix-fonts>
+
+  <script src="https://ae.nflximg.net/monet/scripts/monet.min.js"></script>
+  <script src="https://s0.2mdn.net/ads/studio/Enabler.js"></script>
+  <script src="https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_2.0.1_min.js"></script>
+</body>
+</html>

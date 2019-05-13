@@ -1,0 +1,15 @@
+{
+  "settings": {
+    "entry": {
+      "js": "./script/main.js",
+      "html": "./index.html"
+    }
+  },
+  "content": {
+
+  },
+  "monet": {
+    "creative": "",
+    "agency": "Mediamonks"
+  }
+}

@@ -34,10 +34,6 @@ Create, change and start developing your richmedia units
         break;
       }
 
-      case 'edit a banner': {
-        break;
-      }
-
       default: {
         break;
       }
