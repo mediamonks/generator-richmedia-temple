@@ -51,23 +51,23 @@ body {
   height: var(--height);
   background-color: var(--background);
 
-.content {
-.pedigree {
-  position: absolute;
-  left: 20px;
-  top: 20px;
+  .content {
+    .pedigree {
+      position: absolute;
+      left: 20px;
+      top: 20px;
 
-> * {
-  color: #fff;
-  display: block;
-}
+      > * {
+        color: #fff;
+        display: block;
+      }
 
-netflix-img,
-netflix-img img {
-  height: 40px;
-}
-}
-}
+      netflix-img,
+      netflix-img img {
+        height: 40px;
+      }
+    }
+  }
 }
 
 .preloader-spinner {
@@ -107,9 +107,9 @@ netflix-brand-logo {
   left: calc(var(--width) - (10px + 109px));
   bottom: 14px;
 
-netflix-cta {
-  position: relative !important;
-}
+  netflix-cta {
+    position: relative !important;
+  }
 }
 
 netflix-preloader {

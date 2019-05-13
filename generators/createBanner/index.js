@@ -50,8 +50,8 @@ module.exports = class extends Generator {
 
   action() {
     switch (this.result.type) {
-      case PlatformChoices.NETFLIX_NORMAL: {
-        this.composeWith(require.resolve('./netflix-normal'), this.result);
+      case PlatformChoices.NETFLIX_DOUBLECLICK: {
+        this.composeWith(require.resolve('./netflix-doubleclick'), this.result);
         break;
       }
       case PlatformChoices.NETFLIX_SITESERVED: {

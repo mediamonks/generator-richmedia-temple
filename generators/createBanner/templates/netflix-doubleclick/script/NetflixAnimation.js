@@ -4,6 +4,14 @@ import NetflixCTAAnimation from '@mediamonks/temple/animation/netflix/NetflixCTA
 import NetflixRibbonAnimation from '@mediamonks/temple/animation/netflix/NetflixRibbonAnimation';
 
 export default class NetflixAnimation {
+
+  /**
+   *
+   * @type {boolean}
+   * @private
+   */
+  hasVideo_ = true;
+
   /**
    *
    * @param {HTMLDivElement} container
@@ -20,6 +28,14 @@ export default class NetflixAnimation {
     this.pedegree = new StaggerAnimation(container.querySelectorAll('.pedigree [animate]'));
 
     this.domCover = container.querySelector('.cover');
+  }
+
+  /**
+   *
+   * @param {boolean} value
+   */
+  setHasVideo(value){
+    this.hasVideo_ = value;
   }
 
   /**
@@ -116,6 +132,19 @@ export default class NetflixAnimation {
   }
 
   async play() {
+    if(this.hasVideo_){
+      await this.playWithVideo_();
+    } else {
+      await this.playWithOutVideo_();
+    }
+  }
+
+  /**
+   *
+   * @return {Promise<void>}
+   * @private
+   */
+  async playWithVideo_() {
     this.start_ = new TimelineLite();
     this.start_.to(this.domNetflixPreloader, .3, {autoAlpha: 0});
     this.start_.add(this.ribbon.getTransitionIn());
@@ -131,6 +160,25 @@ export default class NetflixAnimation {
 
     this.end_ = this.getAfterVideoAnimation();
     this.end_.call(() => this.end_ = null)
+  }
+
+  /**
+   *
+   * @return {Promise<void>}
+   * @private
+   */
+  async playWithOutVideo_() {
+    this.start_ = new TimelineLite();
+    this.start_.to(this.domNetflixPreloader, .3, {autoAlpha: 0});
+    this.start_.add(this.ribbon.getTransitionIn());
+    this.start_.set(this.domCover, { autoAlpha: 0 });
+    this.start_.add(this.ribbon.getTransitionOut());
+    this.start_.add(
+      [this.brandLogo.getTransitionIn(), this.cta.getTransitionIn(), this.pedegree.getTransitionIn()],
+      '-=0.9',
+      null,
+      0.3,
+    );
   }
 
   stop() {}
