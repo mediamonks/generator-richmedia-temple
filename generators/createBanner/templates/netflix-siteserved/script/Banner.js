@@ -1,14 +1,12 @@
 import Entity from '@mediamonks/temple/Entity';
 import EventDispatcherComponent from '@mediamonks/temple/component/EventDispatcherComponent';
-// import MonetPlatformComponent from '@mediamonks/temple/component/platform/MonetPlatformComponent';
-// import DoubleClickPlatformComponent from '@mediamonks/temple/component/platform/DoubleClickPlatformComponent';
 import ConfigComponent from '@mediamonks/temple/component/ConfigComponent';
-// import findElementsByCSS from '@mediamonks/temple/util/findElementsByCSS';
+
 import fitText from '@mediamonks/temple/util/fitText';
-import DoubleClickEventEnum from '@mediamonks/temple/event/DoubleClickEventEnum';
+
 
 import '@netflixadseng/pk-component-utils';
-// import '@netflixadseng/wc-monet-integrator';
+
 import '@netflixadseng/wc-netflix-fonts';
 import '@netflixadseng/wc-netflix-text';
 import '@netflixadseng/wc-netflix-flushed-ribbon';
@@ -20,13 +18,18 @@ import '@netflixadseng/wc-netflix-preloader';
 import NetflixAnimation from './NetflixAnimation';
 
 export default class Banner extends Entity {
-  constructor(config) {
+  constructor() {
     super();
 
-    this.addComponent(new ConfigComponent(config));
-    // this.addComponent(new DoubleClickPlatformComponent());
-    // this.addComponent(new MonetPlatformComponent());
     this.addComponent(new EventDispatcherComponent());
+  }
+
+  /**
+   * Setting the richmediarc config
+   * @param config
+   */
+  setConfig(config){
+    this.addComponent(new ConfigComponent(config));
   }
 
   async init() {

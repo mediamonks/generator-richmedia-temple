@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>300x250</title>
+  <title><%=banner_width %>x<%=banner_height %></title>
 
   <link rel="stylesheet" href="./css/style.css" type="text/css">
 
@@ -20,8 +20,8 @@
   <div class="content fullscreen">
 
     <netflix-video
-      width="300"
-      height="250"
+      width="<%=banner_width %>"
+      height="<%=banner_height %>"
       data-dynamic-key="Supercut"
       close-color-1="#000"
       close-color-2="#fff"
@@ -31,7 +31,7 @@
 
     <div class="pedigree">
       <netflix-text animate class="start" data-dynamic-key="Pedigree"></netflix-text>
-      <netflix-img animate class="titleTreatment" width="250" height="80" data-dynamic-key="Title_Treatment_Vertical"></netflix-img>
+      <netflix-img animate class="titleTreatment" width="<%=banner_height %>" height="80" data-dynamic-key="Title_Treatment_Vertical"></netflix-img>
       <netflix-text animate class="tuneIn" data-dynamic-key="Tune_In"></netflix-text>
     </div>
 
@@ -44,8 +44,8 @@
     <div class="cover fullscreen"></div>
   </div>
 
-  <netflix-flushed-ribbon width="300" height="250"></netflix-flushed-ribbon>
-  <netflix-preloader width="300" height="250" bg-color="#000000" frame-color="#000000"></netflix-preloader>
+  <netflix-flushed-ribbon width="<%=banner_width %>" height="<%=banner_height %>"></netflix-flushed-ribbon>
+  <netflix-preloader width="<%=banner_width %>" height="<%=banner_height %>" bg-color="#000000" frame-color="#000000"></netflix-preloader>
 
   <div id="main-exit" class="mainExit fullscreen"></div>
 
