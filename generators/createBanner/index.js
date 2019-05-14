@@ -60,98 +60,12 @@ module.exports = class extends Generator {
       }
 
       case PlatformChoices.DOUBLECLICK: {
-        const [width, height] = this.result.size.split('x');
-
-        // main html
-        this.fs.copyTpl(
-          this.templatePath('doubleclick/index.html'),
-          this.destinationPath(path.join(this.result.outputPath, 'index.html')),
-          {
-            banner_width: width,
-            banner_height: height,
-          },
-        );
-
-        this.fs.copy(
-          this.templatePath('doubleclick/img/**'),
-          this.destinationPath(path.join(this.result.outputPath), 'img/'),
-        );
-
-        this.fs.copy(
-          this.templatePath('doubleclick/script'),
-          this.destinationPath(path.join(this.result.outputPath, 'script')),
-        );
-
-        // copy pasting css
-        this.fs.copyTpl(
-          this.templatePath('doubleclick/css/style.css'),
-          this.destinationPath(path.join(this.result.outputPath, 'css/style.css')),
-          {
-            banner_width: width,
-            banner_height: height,
-          },
-        );
-
-        const json = deepmerge(this.fs.readJSON(this.templatePath('doubleclick/.richmediarc')), {
-          settings: {
-            size: {
-              width: parseInt(width, 10),
-              height: parseInt(height, 10),
-            },
-          },
-        });
-
-        this.fs.writeJSON(this.destinationPath(path.join(this.result.outputPath, '.richmediarc')), json);
-
+        this.composeWith(require.resolve('./doubleclick'), this.result);
         break;
       }
 
       case PlatformChoices.PLAIN: {
-        const [width, height] = this.result.size.split('x');
-
-        // main html
-        this.fs.copyTpl(
-          this.templatePath('plain/index.html'),
-          this.destinationPath(path.join(this.result.outputPath, 'index.html')),
-          {
-            banner_width: width,
-            banner_height: height,
-          },
-        );
-
-        this.fs.copy(
-          this.templatePath('plain/img/**'),
-          this.destinationPath(path.join(this.result.outputPath), 'img/'),
-        );
-
-        // main javascript
-
-        this.fs.copy(
-          this.templatePath('plain/script'),
-          this.destinationPath(path.join(this.result.outputPath, 'script')),
-        );
-
-        // copy pasting css
-        this.fs.copyTpl(
-          this.templatePath('plain/css/style.css'),
-          this.destinationPath(path.join(this.result.outputPath, 'css/style.css')),
-          {
-            banner_width: width,
-            banner_height: height,
-          },
-        );
-
-        const json = deepmerge(this.fs.readJSON(this.templatePath('plain/.richmediarc')), {
-          settings: {
-            size: {
-              width: parseInt(width, 10),
-              height: parseInt(height, 10),
-            },
-          },
-        });
-
-        this.fs.writeJSON(this.destinationPath(path.join(this.result.outputPath, '.richmediarc')), json);
-
+        this.composeWith(require.resolve('./plain'), this.result);
         break;
       }
 
