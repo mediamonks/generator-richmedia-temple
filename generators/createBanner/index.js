@@ -1,4 +1,3 @@
-const deepmerge = require('deepmerge');
 const mkdirp = require('mkdirp');
 
 const Generator = require('yeoman-generator');
@@ -15,10 +14,9 @@ module.exports = class extends Generator {
       ...this.result,
       ...(await this.prompt([
         {
-          type: 'select',
+          type: 'list',
           name: 'size',
-          message: 'Please select in size of banner',
-          default: '300x250',
+          message: 'Please select a size for your unit:',
           choices: [
             { name: 'Custom', value: 'custom' },
             { name: '970x250 (Billboard)', value: '970x250' },
@@ -44,7 +42,7 @@ module.exports = class extends Generator {
           {
             type: 'input',
             name: 'size',
-            message: 'Please select in size of banner',
+            message: 'Please fill in the size of unit:',
             default: '300x250',
             validate: input => /^\d+x\d+$/.test(input),
           },
