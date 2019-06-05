@@ -2,22 +2,26 @@ import StaggerAnimation from '@mediamonks/temple/animation/StaggerAnimation';
 import NetflixBrandLogoAnimation from '@mediamonks/temple/animation/netflix/NetflixBrandLogoAnimation';
 import NetflixCTAAnimation from '@mediamonks/temple/animation/netflix/NetflixCTAAnimation';
 import NetflixRibbonAnimation from '@mediamonks/temple/animation/netflix/NetflixRibbonAnimation';
+import untilVideoIsComplete from '@mediamonks/temple/util/netflix/untilVideoIsComplete';
 
-export default class NetflixAnimation {
 
-  /**
-   *
-   * @type {boolean}
-   * @private
-   */
-  hasVideo_ = true;
+
+
+export default class Animation {
+
+  static STATE_IDLE = 1 << 1;
+  static STATE_VIDEOPLAYING = 1 << 2;
+  static STATE_STARTANIMATING = 1 << 3;
+  static STATE_ENDANIMATING = 1 << 4;
+
+  state = Animation.STATE_IDLE;
 
   /**
    *
    * @param {HTMLDivElement} container
    */
   constructor(container) {
-    this.container_ = container;
+    this.container = container;
 
     this.domNetflixPreloader = container.querySelector('netflix-preloader');
     this.domNetflixVideo = container.querySelector('netflix-video');
@@ -36,35 +40,6 @@ export default class NetflixAnimation {
    */
   setHasVideo(value){
     this.hasVideo_ = value;
-  }
-
-  /**
-   *
-   * @param duration
-   * @return {Promise<any>}
-   */
-  untilVideoIsComplete(durationFromEnd) {
-    const { domNetflixVideo } = this;
-
-
-    return new Promise(resolve => {
-      const onComplete = () => {
-        resolve();
-        domNetflixVideo.removeEventListener('video-complete', onComplete);
-        domNetflixVideo.removeEventListener('video-close', onComplete);
-      };
-      domNetflixVideo.addEventListener('video-close', onComplete);
-      domNetflixVideo.addEventListener('video-complete', onComplete);
-
-      const tick = e => {
-        // console.log(e.detail.currentTime, e.detail.duration);
-        if (e.detail.currentTime > e.detail.duration - durationFromEnd) {
-          resolve();
-          domNetflixVideo.removeEventListener('video-time', tick);
-        }
-      };
-      domNetflixVideo.addEventListener('video-time', tick);
-    });
   }
 
   /**
@@ -131,32 +106,24 @@ export default class NetflixAnimation {
     return tl;
   }
 
-  async play() {
-    if(this.hasVideo_){
-      await this.playWithVideo_();
-    } else {
-      await this.playWithOutVideo_();
-    }
-  }
-
   /**
    *
    * @return {Promise<void>}
    * @private
    */
-  async playWithVideo_() {
-    this.start_ = new TimelineLite();
-    this.start_.to(this.domNetflixPreloader, .3, {autoAlpha: 0});
-    this.start_.add(this.ribbon.getTransitionIn());
-    this.start_.set(this.domCover, { autoAlpha: 0 });
+  async playWithVideo() {
+    this.start = new TimelineLite();
+    this.start.to(this.domNetflixPreloader, .3, {autoAlpha: 0});
+    this.start.add(this.ribbon.getTransitionIn());
+    this.start.set(this.domCover, { autoAlpha: 0 });
 
-    this.start_.call(this.domNetflixVideo.play, null, this.domNetflixVideo);
+    this.start.call(this.domNetflixVideo.play, null, this.domNetflixVideo);
 
-    this.start_.add(this.ribbon.getTransitionOut());
-    this.start_.add(this.brandLogo.getTransitionIn(), '-=.7');
-    this.start_.call(() => this.start_ = null);
+    this.start.add(this.ribbon.getTransitionOut());
+    this.start.add(this.brandLogo.getTransitionIn(), '-=.7');
+    this.start.call(() => this.start = null);
 
-    await this.untilVideoIsComplete(this.brandLogo.getTransitionInDuration());
+    await untilVideoIsComplete(this.domNetflixVideo, this.brandLogo.getTransitionInDuration());
 
     this.end_ = this.getAfterVideoAnimation();
     this.end_.call(() => this.end_ = null)
@@ -167,13 +134,13 @@ export default class NetflixAnimation {
    * @return {Promise<void>}
    * @private
    */
-  async playWithOutVideo_() {
-    this.start_ = new TimelineLite();
-    this.start_.to(this.domNetflixPreloader, .3, {autoAlpha: 0});
-    this.start_.add(this.ribbon.getTransitionIn());
-    this.start_.set(this.domCover, { autoAlpha: 0 });
-    this.start_.add(this.ribbon.getTransitionOut());
-    this.start_.add(
+  async playWithOutVideo() {
+    this.start = new TimelineLite();
+    this.start.to(this.domNetflixPreloader, .3, {autoAlpha: 0});
+    this.start.add(this.ribbon.getTransitionIn());
+    this.start.set(this.domCover, { autoAlpha: 0 });
+    this.start.add(this.ribbon.getTransitionOut());
+    this.start.add(
       [this.brandLogo.getTransitionIn(), this.cta.getTransitionIn(), this.pedegree.getTransitionIn()],
       '-=0.9',
       null,
@@ -181,14 +148,12 @@ export default class NetflixAnimation {
     );
   }
 
-  stop() {}
-
   async gotoEnd(){
-    if(this.start_){
+    if(this.start){
       this.domNetflixVideo.pause();
       this.domNetflixVideo.close();
-      this.start_.progress(1);
-      this.start_ = null;
+      this.start.progress(1);
+      this.start = null;
       this.getAfterVideoAnimation().play();
     } else if(this.end_){
       this.end_.progress(1);

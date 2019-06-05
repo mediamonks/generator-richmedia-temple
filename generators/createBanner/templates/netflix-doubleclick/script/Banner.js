@@ -18,7 +18,7 @@ import '@netflixadseng/wc-netflix-brand-logo';
 import '@netflixadseng/wc-netflix-cta';
 import '@netflixadseng/wc-netflix-preloader';
 
-import NetflixAnimation from './NetflixAnimation';
+import Animation from './Animation';
 
 export default class Banner extends Entity {
   constructor(config) {
@@ -41,7 +41,7 @@ export default class Banner extends Entity {
     this.domMainExit.addEventListener('mouseover', this.handleRollOver);
     this.domMainExit.addEventListener('mouseout', this.handleRollOut);
 
-    this.animation = new NetflixAnimation(document.querySelector('.banner'));
+    this.animation = new Animation(document.querySelector('.banner'));
   }
 
   /**
@@ -61,7 +61,10 @@ export default class Banner extends Entity {
   async start() {
     await this.init();
 
-    this.animation.setHasVideo(this.getComponent(MonetPlatformComponent).getData('Toggle_Supercut'));
-    await this.animation.play();
+    if(this.getComponent(MonetPlatformComponent).getData('Toggle_Supercut'))
+    {
+      await this.animation.play();
+
+    }
   }
 }
