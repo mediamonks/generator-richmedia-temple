@@ -7,17 +7,20 @@ import DoubleClickEventEnum from "@mediamonks/temple/event/DoubleClickEventEnum"
 
 export default class Banner extends Entity {
 
-  constructor() {
+  constructor(config = null) {
     super();
 
+    if(config){
+      this.addComponent(new ConfigComponent(config))
+    }
     this.addComponent(new DoubleClickPlatformComponent());
     this.addComponent(new EventDispatcherComponent());
   }
 
-  setConfig(config){
-    this.addComponent(new ConfigComponent(config))
-  }
-
+  /**
+   *
+   * @return {Promise<void>}
+   */
   async init() {
     await super.init();
 
@@ -42,6 +45,8 @@ export default class Banner extends Entity {
     dispatcher.addEventListener(DoubleClickEventEnum.ORIENTATION, this.handleOrientation);
     dispatcher.addEventListener(DoubleClickEventEnum.PAGE_LOADED, this.handlePageLoaded);
     dispatcher.addEventListener(DoubleClickEventEnum.VISIBLE, this.handleVisible);
+
+    this.animation = new Animation(document.querySelector('.banner'))
   }
 
   /**
@@ -113,5 +118,6 @@ export default class Banner extends Entity {
     await this.init();
 
     // put your start code here
+    this.animation.play();
   }
 }
