@@ -4,7 +4,6 @@ import EventDispatcherComponent from '@mediamonks/temple/component/EventDispatch
 import MonetPlatformComponent from '@mediamonks/temple/component/platform/MonetPlatformComponent';
 import DoubleClickPlatformComponent from '@mediamonks/temple/component/platform/DoubleClickPlatformComponent';
 import ConfigComponent from '@mediamonks/temple/component/ConfigComponent';
-// import findElementsByCSS from '@mediamonks/temple/util/findElementsByCSS';
 import fitText from '@mediamonks/temple/util/fitText';
 
 import '@netflixadseng/pk-component-utils';
@@ -30,6 +29,10 @@ export default class Banner extends Entity {
     this.addComponent(new EventDispatcherComponent());
   }
 
+  /**
+   *
+   * @return {Promise<void>}
+   */
   async init() {
     await super.init();
 
@@ -38,11 +41,25 @@ export default class Banner extends Entity {
 
     fitText([document.body.querySelector('.pedigree span'), document.body.querySelector('.tuneIn span')]);
 
+    this.domMainExit.addEventListener('click', this.handleClick);
     this.domMainExit.addEventListener('mouseover', this.handleRollOver);
     this.domMainExit.addEventListener('mouseout', this.handleRollOut);
 
     this.animation = new Animation(document.querySelector('.banner'));
   }
+
+  exit = () => {
+    Enabler.exit('Default Exit');
+    // window.open(this.clickTag, '_blank')
+  };
+
+  /**
+   *
+   */
+  handleClick = () => {
+    this.animation.gotoEnd();
+    this.exit();
+  };
 
   /**
    * When mouse rolls over unit.
@@ -58,13 +75,17 @@ export default class Banner extends Entity {
     this.domnNetflixCta.mouseout();
   };
 
+  /**
+   *
+   * @return {Promise<void>}
+   */
   async start() {
     await this.init();
 
-    if(this.getComponent(MonetPlatformComponent).getData('Toggle_Supercut'))
-    {
-      await this.animation.play();
-
+    if (this.getComponent(MonetPlatformComponent).getData('Toggle_Supercut')) {
+      await this.animation.enableSuperCut();
     }
+
+    await this.animation.play();
   }
 }

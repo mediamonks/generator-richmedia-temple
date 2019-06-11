@@ -5,8 +5,8 @@
 
   --background: #000000;
 
-  --width: 300px;
-  --height: 250px;
+  --width: <%=banner_width %>px;
+  --height: <%=banner_height %>px;
 }
 
 html {
@@ -50,8 +50,10 @@ body {
   width: var(--width);
   height: var(--height);
   background-color: var(--background);
+  overflow: hidden;
 
   .content {
+
     .pedigree {
       position: absolute;
       left: 20px;
@@ -60,6 +62,10 @@ body {
       > * {
         color: #fff;
         display: block;
+      }
+
+      netflix-img.titleTreatment {
+        width: calc(var(--width) - 50px);
       }
 
       netflix-img,

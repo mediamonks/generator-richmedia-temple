@@ -4,7 +4,6 @@ import ConfigComponent from '@mediamonks/temple/component/ConfigComponent';
 
 import fitText from '@mediamonks/temple/util/fitText';
 
-
 import '@netflixadseng/pk-component-utils';
 
 import '@netflixadseng/wc-netflix-fonts';
@@ -15,21 +14,16 @@ import '@netflixadseng/wc-netflix-img';
 import '@netflixadseng/wc-netflix-brand-logo';
 import '@netflixadseng/wc-netflix-cta';
 import '@netflixadseng/wc-netflix-preloader';
-import NetflixAnimation from './NetflixAnimation';
+import Animation from './Animation';
 
 export default class Banner extends Entity {
-  constructor() {
+  constructor(config = null) {
     super();
 
+    if (config) {
+      this.addComponent(new ConfigComponent(config));
+    }
     this.addComponent(new EventDispatcherComponent());
-  }
-
-  /**
-   * Setting the richmediarc config
-   * @param config
-   */
-  setConfig(config){
-    this.addComponent(new ConfigComponent(config));
   }
 
   async init() {
@@ -43,11 +37,25 @@ export default class Banner extends Entity {
 
     fitText([document.body.querySelector('.pedigree span'), document.body.querySelector('.tuneIn span')]);
 
+    this.domMainExit.addEventListener('click', this.handleClick);
     this.domMainExit.addEventListener('mouseover', this.handleRollOver);
     this.domMainExit.addEventListener('mouseout', this.handleRollOut);
 
-    this.animation = new NetflixAnimation(document.querySelector('.banner'));
+    this.animation = new Animation(document.querySelector('.banner'));
   }
+
+  exit = () => {
+    Enabler.exit('Default Exit');
+    // window.open(this.clickTag, '_blank')
+  };
+
+  /**
+   * When client clicks this function will be triggerd.
+   */
+  handleClick = () => {
+    this.animation.gotoEnd();
+    this.exit();
+  };
 
   /**
    * When mouse rolls over unit.
@@ -63,9 +71,20 @@ export default class Banner extends Entity {
     this.domnNetflixCta.mouseout();
   };
 
+  /**
+   * Should be set before start is called
+   */
+  enableSuperCut = () => {
+    this.animation.enableSuperCut();
+  };
+
+  /**
+   *
+   * @return {Promise<void>}
+   */
   async start() {
     await this.init();
 
-    const animationDone = this.animation.play();
+    await this.animation.play();
   }
 }
