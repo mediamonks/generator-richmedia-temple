@@ -86,6 +86,10 @@ export default class Banner extends Entity {
       await this.animation.enableSuperCut();
     }
 
+    // prefix for when one Component.setImpressionPixel has been created
+    const monetComponent = this.getComponent(MonetPlatformComponent);
+    monetComponent.setImpressionPixel('RICH_MEDIA', ['SINGLE_TITLE', 'VIDEO']);
+
     await this.animation.play();
   }
 }

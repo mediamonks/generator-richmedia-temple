@@ -11,13 +11,13 @@ module.exports = function createPackageJson({ name = 'richmedia-temple' }) {
     scripts: {
       dev: 'node ./node_modules/@mediamonks/richmedia-temple-server/dev.js',
       build: 'node ./node_modules/@mediamonks/richmedia-temple-server/build.js',
-      "preview": "./node_modules/.bin/henk"
+      preview: './node_modules/.bin/henk',
     },
     license: 'ISC',
     dependencies: {
       '@mediamonks/richmedia-temple-server': '^2.0.0',
       '@mediamonks/temple': '^2.0.0',
-      '@mediamonks/henk':'^1.1.1'
+      '@mediamonks/henk': '^1.1.1',
     },
   };
 };
