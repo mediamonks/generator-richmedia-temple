@@ -28,11 +28,11 @@
     "nyc": "^13.3.0",
     "uuidv4": "^3.0.1",
     "yeoman-generator": "^3.2.0",
-    "yosay": "^2.0.1"
+    "yosay": "^2.0.1",
+    "gamefroot-texture-packer": "^1.1.2"
   },
   "repository": "mediamonks/generator-richmedia-temple",
   "devDependencies": {
-    "@mediamonks/temple": "^2.1.5",
-    "gamefroot-texture-packer": "^1.1.2"
+    "@mediamonks/temple": "^2.1.5"
   }
 }

@@ -18,7 +18,10 @@ Create, change and start developing your richmedia units
         type: 'list',
         name: 'todo',
         message: 'What do you want to do?',
-        choices: ['create a banner', { name: 'edit a banner', disabled: true }],
+        choices: [
+          'create a banner',
+          {name: 'create spritesheet', disabled: false}
+        ],
       },
     ]);
   }
@@ -31,6 +34,11 @@ Create, change and start developing your richmedia units
     switch (this.result.todo) {
       case 'create a banner': {
         this.composeWith(require.resolve('../createBanner'), { options: '' });
+        break;
+      }
+
+      case 'create spritesheet': {
+        this.composeWith(require.resolve('../createSpritesheet'), { options: '' });
         break;
       }
 
