@@ -69,7 +69,7 @@ export default class Animation {
       }
     }
 
-    return await new Promise(resolve => start.call(resolve));
+    await new Promise(resolve => start.call(resolve));
   }
 
   async gotoEnd() {

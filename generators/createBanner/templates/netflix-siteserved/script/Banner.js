@@ -45,8 +45,7 @@ export default class Banner extends Entity {
   }
 
   exit = () => {
-    Enabler.exit('Default Exit');
-    // window.open(this.clickTag, '_blank')
+    window.open('https://www.google.com', '_blank')
   };
 
   /**
