@@ -7,17 +7,26 @@ const glob = require('glob-promise');
 const pack = require('gamefroot-texture-packer');
 const path = require('path');
 const chalk = require('chalk');
+const Spinner = require('cli-spinner').Spinner;
 
 module.exports = class extends Generator {
   async questions() {
-    this.log(`Creating a spritesheet`);
-    this.log(`searching for images`);
-    this.log(`${chalk.yellow(`!its possible that this will not work on your computer, 
-because you dont have image-magick installed.`)}`);
+    this.log(chalk.bold.green(``));
+    this.log(chalk.bold.green(`  Creating a spritesheet`));
+    this.log(chalk.bold.green(``));
+    this.log(`${chalk.yellow(`! its possible that this will ${chalk.bold(`not`)} work on your computer, 
+  because you dont have image-magick installed.`)}`);
+    this.log(chalk.bold.green(``));
+
+    const spinner = new Spinner(`${chalk.green(`i`)}  searching for images.. %s`);
+    spinner.setSpinnerString('/-\\|');
+    spinner.start();
 
     const files = await glob('**/*.{png,jpg,bpm,jpeg}');
 
-    this.log(`${files.length} image(s) found`);
+    spinner.stop(true);
+
+    this.log(`${chalk.green(`i`)} ${files.length} image(s) found`);
 
     // group per dir;
     const groupedImages = this.groupedImages = files.reduce((acc, item) => {
