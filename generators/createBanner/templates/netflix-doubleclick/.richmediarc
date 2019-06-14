@@ -33,13 +33,6 @@
       "height": 72,
       "width": 473
     },
-    "Title_Treatment_Vertical": {
-      "type": "image",
-      "id": "Title_Treatment_Vertical",
-      "url": "https://ae.nflximg.net/assets/prod/0bc79bb0-41c4-4e2b-b8e9-35451c70ed35/20181113/767dc930-b625-4562-9169-5c86c69ba9a1.svg",
-      "height": 72,
-      "width": 473
-    },
     "Toggle_Supercut": {
       "id": "Toggle_Supercut",
       "type": "bool",
@@ -61,22 +54,16 @@
       "url": "https://www.netflix.com"
     },
     "Supercut": {
-      "type": "video",
       "id": "Supercut",
+      "type": "monetVideo",
       "videoType": "SUPERCUT",
-      "width": 970,
-      "height": 250,
+      "width": 300,
+      "height": 600,
       "duration": 15,
-      "url": "https://ae.nflximg.net/assets/prod/8e7f89a2-1199-443d-833a-ff82a6eaba05/20180313/f85480a7-f7c8-42a3-95a1-711ba4a91a15.mp4"
-    },
-    "Trailer": {
-      "type": "video",
-      "id": "Trailer",
-      "videoType": "TRAILER",
-      "width": 970,
-      "height": 250,
-      "duration": 30,
-      "url": "https://ae.nflximg.net/assets/prod/9481a647-3557-4129-858b-dd2ae6a53813/20181011/cfc16a03-3093-424f-b499-18f1698306a7.mp4"
+      "video": {
+        "url": "https://ae.nflximg.net/assets/prod/8e7f89a2-1199-443d-833a-ff82a6eaba05/20180313/f85480a7-f7c8-42a3-95a1-711ba4a91a15.mp4",
+        "encodes" : []
+      }
     },
     "Ratings_Bug_20x20": {
       "type": "image",

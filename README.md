@@ -31,6 +31,13 @@ yo richmedia-temple
 
 Then follow the instructions on your screen.
 
+ - create Banner
+   - doubleclick
+   - netflix doubleclick
+   - netflix site served
+   - plain
+ - create Spritesheet
+
 ## License
 
 MIT © [Mient-jan Stelling]()
