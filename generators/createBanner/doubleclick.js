@@ -9,12 +9,12 @@ const PlatformChoices = require('../../util/data/PlatformChoices');
 
 module.exports = class extends Generator {
   async action() {
-    const [width, height] = this.result.size.split('x');
+    const [width, height] = this.options.size.split('x');
 
     // main html
     this.fs.copyTpl(
       this.templatePath('doubleclick/index.html'),
-      this.destinationPath(path.join(this.result.outputPath, 'index.html')),
+      this.destinationPath(path.join(this.options.outputPath, 'index.html')),
       {
         banner_width: width,
         banner_height: height,
@@ -23,18 +23,18 @@ module.exports = class extends Generator {
 
     this.fs.copy(
       this.templatePath('doubleclick/img/**'),
-      this.destinationPath(path.join(this.result.outputPath), 'img/'),
+      this.destinationPath(path.join(this.options.outputPath), 'img/'),
     );
 
     this.fs.copy(
       this.templatePath('doubleclick/script'),
-      this.destinationPath(path.join(this.result.outputPath, 'script')),
+      this.destinationPath(path.join(this.options.outputPath, 'script')),
     );
 
     // copy pasting css
     this.fs.copyTpl(
       this.templatePath('doubleclick/css/style.css'),
-      this.destinationPath(path.join(this.result.outputPath, 'css/style.css')),
+      this.destinationPath(path.join(this.options.outputPath, 'css/style.css')),
       {
         banner_width: width,
         banner_height: height,
@@ -50,7 +50,7 @@ module.exports = class extends Generator {
       },
     });
 
-    this.fs.writeJSON(this.destinationPath(path.join(this.result.outputPath, '.richmediarc')), json);
+    this.fs.writeJSON(this.destinationPath(path.join(this.options.outputPath, '.richmediarc')), json);
   }
 
 };
