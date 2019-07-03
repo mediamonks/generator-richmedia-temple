@@ -4,6 +4,7 @@ import ConfigComponent from "@mediamonks/temple/component/ConfigComponent";
 import EventDispatcherComponent from "@mediamonks/temple/component/EventDispatcherComponent";
 
 import DoubleClickEventEnum from "@mediamonks/temple/event/DoubleClickEventEnum";
+import Animation from "./Animation";
 
 export default class Banner extends Entity {
 

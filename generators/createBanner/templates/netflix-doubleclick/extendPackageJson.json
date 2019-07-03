@@ -1,14 +1,14 @@
 {
   "dependencies": {
-    "@netflixadseng/pk-component-utils": "^2.0.0",
-    "@netflixadseng/wc-monet-integrator": "^2.0.0",
-    "@netflixadseng/wc-netflix-fonts": "^2.0.0",
-    "@netflixadseng/wc-netflix-text": "^2.0.0",
-    "@netflixadseng/wc-netflix-flushed-ribbon": "^2.0.0",
-    "@netflixadseng/wc-netflix-video": "^2.0.0",
-    "@netflixadseng/wc-netflix-img": "^2.0.0",
-    "@netflixadseng/wc-netflix-brand-logo": "^2.0.0",
-    "@netflixadseng/wc-netflix-cta": "^2.0.0",
-    "@netflixadseng/wc-netflix-preloader": "^2.0.0"
+    "@netflixadseng/pk-component-utils": "^5.0.0",
+    "@netflixadseng/wc-monet-integrator": "^5.0.0",
+    "@netflixadseng/wc-netflix-fonts": "^5.0.0",
+    "@netflixadseng/wc-netflix-text": "^5.0.0",
+    "@netflixadseng/wc-netflix-flushed-ribbon": "^5.0.0",
+    "@netflixadseng/wc-netflix-video": "^5.0.0",
+    "@netflixadseng/wc-netflix-img": "^5.0.0",
+    "@netflixadseng/wc-netflix-brand-logo": "^5.0.0",
+    "@netflixadseng/wc-netflix-cta": "^6.0.0",
+    "@netflixadseng/wc-netflix-preloader": "^5.0.0"
   }
 }
