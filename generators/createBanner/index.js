@@ -96,6 +96,11 @@ module.exports = class extends Generator {
         break;
       }
 
+      case PlatformChoices.TEMPLATE_A: {
+        this.composeWith(require.resolve('./template-a'), this.result);
+        break;
+      }
+
       default: {
         break;
       }
