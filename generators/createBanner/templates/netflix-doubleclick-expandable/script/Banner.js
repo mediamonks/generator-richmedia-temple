@@ -52,7 +52,6 @@ export default class Banner extends Entity {
 
   exit = () => {
     let url = this.getComponent(MonetPlatformComponent).getData().rootAssets['Exit_URL'].url;
-    url = isValidURL(url) ? url : '';
     Enabler.exitOverride('Default Exit', url );
   };
 
