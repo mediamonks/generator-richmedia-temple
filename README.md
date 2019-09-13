@@ -1,4 +1,4 @@
-# generator-richmedia-temple [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+﻿# generator-richmedia-temple [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 
 > Create a richmedia temple project !
 
@@ -36,6 +36,7 @@ Then follow the instructions on your screen.
    - netflix doubleclick
    - netflix site served
    - plain
+ - create 3D Banner
  - create Spritesheet
 
 ## License

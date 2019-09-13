@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta charset="utf-8">
+  <meta name="generator" content="Google Web Designer 6.0.1.0801">
+  <meta data-template-name="gwd-expandable_fullscreen">
+  <meta name="template" content="Expandable 3.0.0">
+  <meta name="environment" content="gwd-dv360">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="gwdpage_style.css" rel="stylesheet" data-version="12" data-exports-type="gwd-page">
+  <link href="gwdpagedeck_style.css" rel="stylesheet" data-version="12" data-exports-type="gwd-pagedeck">
+  <link href="gwdgooglead_style.css" rel="stylesheet" data-version="5" data-exports-type="gwd-google-ad">
+  <link href="gwdimage_style.css" rel="stylesheet" data-version="13" data-exports-type="gwd-image">
+  <link href="style.css" rel="stylesheet">
+  <style type="text/css" id="gwd-lightbox-style">.gwd-lightbox {
+    overflow: hidden;
+}</style>
+  <style type="text/css" id="gwd-text-style">p {
+    margin: 0px;
+}
+h1 {
+    margin: 0px;
+}
+h2 {
+    margin: 0px;
+}
+h3 {
+    margin: 0px;
+}</style>
+  <style type="text/css">.expand-arrows-button {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    bottom: 3px;
+    left: 3px;
+}
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+.gwd-page-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.gwd-page-content {
+    background-color: transparent;
+    transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    -moz-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    perspective: 1400px;
+    -webkit-perspective: 1400px;
+    -moz-perspective: 1400px;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    position: absolute;
+}
+.gwd-page-wrapper {
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    transform: translateZ(0px);
+    -webkit-transform: translateZ(0px);
+    -moz-transform: translateZ(0px);
+}
+.banner {
+    width: <%= banner_width %>px;
+    height: <%= banner_height %>px;
+}
+.expanded {
+    width: 100%;
+    height: 100%;
+}
+.expand-button {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+}
+.border {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    border: 1px solid rgb(0, 0, 0);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+.close-button-line0 {
+    background-color: rgb(70, 70, 70);
+    height: 2px;
+    left: -0.62886px;
+    position: absolute;
+    top: 0.184303px;
+    width: 32px;
+    transform: matrix(-0.707107, -0.707107, 0.707107, -0.707107, 21, 35);
+    -webkit-transform: matrix(-0.707107, -0.707107, 0.707107, -0.707107, 21, 35);
+    -moz-transform: matrix(-0.707107, -0.707107, 0.707107, -0.707107, 21, 35);
+    transform-origin: 16.0218px 0.497816px 0px;
+    -webkit-transform-origin: 16.0218px 0.497816px 0px;
+    -moz-transform-origin: 16.0218px 0.497816px 0px;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+}
+.close-button-line1 {
+    background-color: rgb(70, 70, 70);
+    height: 2px;
+    left: -0.62886px;
+    position: absolute;
+    top: 0.184303px;
+    width: 32px;
+    transform-origin: 16.0218px 0.497816px 0px;
+    -webkit-transform-origin: 16.0218px 0.497816px 0px;
+    -moz-transform-origin: 16.0218px 0.497816px 0px;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform: translate3d(21px, 37px, 0px) rotateZ(135deg);
+    -webkit-transform: translate3d(21px, 37px, 0px) rotateZ(135deg);
+    -moz-transform: translate3d(21px, 37px, 0px) rotateZ(135deg);
+}
+.gwd-taparea_2 {
+    display: inline;
+    position: static;
+    height: 50px;
+    width: 50px;
+}
+.close-button {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    top: 5px;
+    left: 5px;
+}
+.cta-background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+}
+.cta-copy {
+    position: absolute;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    font-weight: 400;
+    width: 100%;
+    cursor: auto;
+    height: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    text-align: center;
+}
+.collapsed-title {
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(95, 99, 104);
+    font-size: 24px;
+    font-weight: 500;
+    left: 19.13px;
+    line-height: 1.1em;
+    position: absolute;
+    text-align: left;
+    top: 17.01px;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    -webkit-transform: matrix(1, 0, 0, 1, 0, 0);
+    -moz-transform: matrix(1, 0, 0, 1, 0, 0);
+    transform-origin: 59.8914px 33.5574px 0px;
+    -webkit-transform-origin: 59.8914px 33.5574px 0px;
+    -moz-transform-origin: 59.8914px 33.5574px 0px;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    width: 119px;
+}
+.reveal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border: 1px solid black;
+    top: 0px;
+    left: 0px;
+    box-sizing: border-box;
+}
+.border {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    pointer-events: none;
+    background-color: transparent;
+    box-sizing: border-box;
+    left: 0px;
+    top: 0px;
+}
+.title {
+    position: absolute;
+    width: 200px;
+    text-align: center;
+    left: 17%;
+    pointer-events: none;
+    top: -12.8%;
+}
+.swipe-icon {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 57px;
+    height: 62.18px;
+}
+.swipe_icon_arrow_right {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+}
+.swipe_icon_hand {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+}
+.swipe_icon_arrow_left {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    left: -10px;
+}
+.circle-background {
+    position: absolute;
+    border-radius: 50%;
+    box-sizing: border-box;
+    width: 54px;
+    height: 54px;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(189, 74, 208, 0.5);
+    border: 2px solid rgb(189, 74, 208);
+}
+.swipe-to-rotate {
+    position: absolute;
+    width: 57px;
+    height: 61.56px;
+    top: 130px;
+    pointer-events: none;
+    left: 143px;
+}
+.swipe-to-rotate-copy {
+    position: absolute;
+    text-align: center;
+    pointer-events: none;
+    font-size: 10.5px;
+    letter-spacing: -0.3px;
+    color: rgb(189, 74, 208);
+    top: 224px;
+    left: 101px;
+}
+.expand-cta-copy {
+    position: absolute;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 10px;
+    left: 7px;
+    top: 15px;
+}
+.expand-cta {
+    position: absolute;
+    pointer-events: none;
+    left: 50%;
+    transform: translate(-50%, 0px);
+    -webkit-transform: translate(-50%, 0px);
+    -moz-transform: translate(-50%, 0px);
+    width: 194px;
+    height: 25px;
+    top: 85.6%;
+}
+.expand-cta-radial {
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0);
+    box-sizing: border-box;
+    border: 2px solid rgb(189, 74, 208);
+}
+.background-collapsed {
+    display: block;
+    position: absolute;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: auto;
+}
+.background-expand {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    opacity: 1;
+    height: auto;
+    top: 40%;
+    width: 150%;
+}
+.gwd-3d-model {
+    display: block;
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    left: 0%;
+}
+.swipe-to-rotate-expand {
+    position: absolute;
+    height: auto;
+    left: 20%;
+    bottom: 20%;
+    top: 93.9531px;
+    pointer-events: none;
+    width: 225px;
+    opacity: 1;
+}
+.tap-to-go-fullscreen {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 194px;
+    height: 25px;
+}
+.text-swipe-to-rotate {
+    position: absolute;
+    pointer-events: none;
+    transform: translate(-50%, 0px);
+    -webkit-transform: translate(-50%, 0px);
+    -moz-transform: translate(-50%, 0px);
+    top: 174px;
+    width: 204px;
+    height: auto;
+    left: 50%;
+}
+.cta {
+    position: absolute;
+    height: auto;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    -webkit-transform: translate(-50%, 0%);
+    -moz-transform: translate(-50%, 0%);
+    width: 78%;
+    bottom: 6.5%;
+}
+.logo {
+    position: absolute;
+    bottom: 2.5%;
+    right: 7%;
+    width: 21.6%;
+    height: auto;
+}
+.loader-wrapper {
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    pointer-events: none;
+    left: 0px;
+}
+.loader {
+    border-color: rgb(227, 171, 54) rgb(221, 221, 221) rgb(221, 221, 221);
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 2.99831px;
+    margin-left: -37px;
+    margin-top: -37px;
+    pointer-events: none;
+    position: absolute;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    -webkit-transform: matrix(1, 0, 0, 1, 0, 0);
+    -moz-transform: matrix(1, 0, 0, 1, 0, 0);
+}
+.landscape-wrapper {
+    left: 0px;
+    pointer-events: none;
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    opacity: 0;
+    width: 100%;
+}
+.background {
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    left: 0px;
+    pointer-events: none;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+}
+.landscape-rotate-icon {
+    display: block;
+    left: 50%;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    width: 200.01px;
+    height: 212.41px;
+}
+.gwd-3d-model-disable {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 90%;
+}
+.cta-over {
+    opacity: 0;
+    pointer-events: none;
+}
+.gwd-div-m8ix {
+    font-family: Montserrat, sans-serif;
+}
+.gwd-image-14hynext {
+    display: block;
+    font-family: Montserrat, sans-serif;
+    height: 11.99px;
+    left: 118px;
+    position: absolute;
+    top: 7px;
+    width: 4.99132px;
+}
+.gwd-div-1ulq {
+    font-family: Montserrat, sans-serif;
+}
+.gwd-image-zdqjnext {
+    display: block;
+    font-family: Montserrat, sans-serif;
+    height: 11.99px;
+    left: 122px;
+    position: absolute;
+    top: 7px;
+    width: 4.99132px;
+}
+.gwd-div-jhb6 {
+    font-family: Montserrat, sans-serif;
+}
+.gwd-image-wvwt13 {
+    display: block;
+    font-family: Montserrat, sans-serif;
+    height: 11.99px;
+    left: 126px;
+    position: absolute;
+    top: 7px;
+    width: 4.99132px;
+}
+.gwd-div-1i3f {
+    font-family: Montserrat, sans-serif;
+}
+.gwd-div-1maj {
+    font-family: Montserrat, sans-serif;
+}
+.gwd-div-g0j5 {
+    font-family: Montserrat, sans-serif;
+}
+.gwd-div-1okn {
+    font-family: Montserrat, sans-serif;
+}
+.gwd-p-14sp {
+    height: auto;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: auto;
+}
+.gwd-div-1on8 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+}
+.gwd-image-jirf {
+    position: absolute;
+    transform: translate(-50%, 0px);
+    -webkit-transform: translate(-50%, 0px);
+    -moz-transform: translate(-50%, 0px);
+    height: 74px;
+    width: 204px;
+    left: 53%;
+    top: 174px;
+}
+.gwd-image-1qj8 {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 50%;
+    left: 0px;
+    transform: translate(0%, -50%);
+    -webkit-transform: translate(0%, -50%);
+    -moz-transform: translate(0%, -50%);
+    pointer-events: none;
+}
+.gwd-image-lcw0 {
+    height: 533.583px;
+    transform: matrix(1, 0, 0, 1, -150.141, -266.847);
+    -webkit-transform: matrix(1, 0, 0, 1, -150.141, -266.847);
+    -moz-transform: matrix(1, 0, 0, 1, -150.141, -266.847);
+}
+.gwd-image-dk5s {
+    position: absolute;
+    height: auto;
+    left: 53%;
+    width: 65px;
+    top: 22%;
+}
+.gwd-image-1uu7 {}
+.gwd-image-1ciz {
+    left: 55%;
+    top: 65%;
+}
+.gwd-image-265z {
+    top: 31%;
+    width: 55px;
+    height: auto;
+    left: 23%;
+}
+.gwd-image-1vkv {
+    position: absolute;
+    height: 12%;
+    width: 28%;
+    left: 5%;
+    top: 40%;
+}
+.gwd-image-rdtr {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    left: 0px;
+    top: 0px;
+    pointer-events: none;
+}
+.gwd-image-1mhf {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    left: 0px;
+    bottom: 0px;
+    pointer-events: none;
+}
+.gwd-image-1psu {
+    position: absolute;
+    left: 0px;
+    height: auto;
+    width: 100%;
+    bottom: 0px;
+    pointer-events: none;
+}
+.gwd-image-spc8 {
+    position: absolute;
+    height: auto;
+    left: 50%;
+    pointer-events: none;
+    transform: translate(-50%, 0%);
+    -webkit-transform: translate(-50%, 0%);
+    -moz-transform: translate(-50%, 0%);
+    top: 2%;
+    width: 40%;
+}
+.gwd-image-3vnp {
+    height: 64.4913px;
+    pointer-events: none;
+}
+.gwd-image-lvub {
+    height: 54.5649px;
+    pointer-events: none;
+}
+.gwd-image-1x4z {
+    height: 64.4913px;
+    pointer-events: none;
+}
+.gwd-image-1bgs {
+    height: 64.4913px;
+    left: 38%;
+    top: 44%;
+}
+.gwd-image-nhw1 {
+    top: 44%;
+    left: 38%;
+}
+.gwd-image-ldhr {}
+.gwd-image-1drw {
+    position: absolute;
+    height: auto;
+    transform-origin: right 50%;
+    -webkit-transform-origin: right 50%;
+    -moz-transform-origin: right 50%;
+    pointer-events: none;
+    width: 166px;
+    left: calc(53% - 157px);
+    top: calc(22% - 39px);
+}
+.gwd-image-dsiv {
+    position: absolute;
+    height: auto;
+    left: 50%;
+    transform: translate(-50%, 0px);
+    -webkit-transform: translate(-50%, 0px);
+    -moz-transform: translate(-50%, 0px);
+    pointer-events: none;
+    bottom: 0px;
+    width: 140px;
+}
+.gwd-image-1ioy {
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+}
+.doorRightCollapsedLogo {
+    position: absolute;
+    width: 75.5px;
+    height: 156px;
+    top: 49px;
+    left: 113px;
+    pointer-events: none;
+}
+.doorRightCollapsed {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    pointer-events: none;
+}
+.doorLeftCollapsed {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    pointer-events: none;
+}
+.gwd-parallax-1o3r {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    top: 0px;
+    left: 0px;
+}
+.swipe-icon-slider {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+}
+.swipe-icon-slider-dot {
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: 27.33%;
+    left: 62.17%;
+    transform-origin: center center;
+    -webkit-transform-origin: center center;
+    -moz-transform-origin: center center;
+}
+.swipe-Icon-slider-dot-ring {
+    position: absolute;
+    border-radius: 50%;
+    border-style: solid;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    border-width: 3px;
+    background-image: none;
+    background-color: transparent;
+    border-color: rgba(0, 0, 0, 0.4);
+    top: 2.27%;
+    transform-origin: center center;
+    -webkit-transform-origin: center center;
+    -moz-transform-origin: center center;
+    left: 62.17%;
+    height: 81.82%;
+    width: 22.36%;
+}
+.expand-ring {
+    position: absolute;
+    border-radius: 50%;
+    border-style: solid;
+    background-image: none;
+    background-color: transparent;
+    border-width: 4px;
+    top: 159px;
+    left: 49%;
+    width: 35px;
+    height: 35px;
+}
+.gwd-div-8rw7 {
+    border-image-source: none;
+    border-image-width: 1;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-color: rgba(0, 0, 0, 0.6);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    top: 50%;
+}
+.expand-ring-fade {
+    left: 50%;
+    height: 49px;
+    width: 49px;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    top: 50%;
+    border-color: rgba(0, 0, 0, 0.3);
+}
+.gwd-div-1pvq {
+    position: absolute;
+    border-image-source: none;
+    border-image-width: 1;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-color: rgba(0, 0, 0, 0.3);
+    height: 49px;
+    width: 49px;
+    left: 50%;
+    transform: translate(-50%);
+    -webkit-transform: translate(-50%);
+    -moz-transform: translate(-50%);
+    top: 62.4%;
+}
+.gwd-div-xce1 {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 27px;
+    width: 27px;
+    transform: translate(-50%, -50%) scale(0.75);
+    -webkit-transform: translate(-50%, -50%) scale(0.75);
+    -moz-transform: translate(-50%, -50%) scale(0.75);
+}
+.gwd-div-1o0t {}
+.gwd-div-mc92 {
+    width: 300px;
+    height: 250px;
+}
+.gwd-page-wyxv {
+    width: 300px;
+    height: 250px;
+}
+.swipe-icon-slider-wrapper {
+    position: absolute;
+    transform-origin: center center;
+    -webkit-transform-origin: center center;
+    -moz-transform-origin: center center;
+    height: 27.33px;
+    width: 100px;
+    left: 33.67%;
+    top: 74.4%;
+}
+.gwd-div-12n0 {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-color: rgb(0, 0, 0);
+    top: -1.39%;
+}
+.gwd-div-zech {
+    top: -1.39%;
+}
+.gwd-image-immg {
+    top: 69.6%;
+}</style>
+  <script data-source="googbase_min.js" data-version="4" data-exports-type="googbase" src="googbase_min.js"></script>
+  <script data-source="gwd_webcomponents_min.js" data-version="6" data-exports-type="gwd_webcomponents" src="gwd_webcomponents_min.js"></script>
+  <script data-source="https://s0.2mdn.net/ads/studio/Enabler.js" data-exports-type="gwd-google-ad" src="https://s0.2mdn.net/ads/studio/Enabler.js"></script>
+  <script type="text/javascript" id="js-TweenMax" src="https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_2.1.2_min.js"></script>
+  <script data-source="gwdpage_min.js" data-version="12" data-exports-type="gwd-page" src="gwdpage_min.js"></script>
+  <script data-source="gwdpagedeck_min.js" data-version="12" data-exports-type="gwd-pagedeck" src="gwdpagedeck_min.js"></script>
+  <script data-source="gwdgooglead_min.js" data-version="5" data-exports-type="gwd-google-ad" src="gwdgooglead_min.js"></script>
+  <script data-source="gwdimage_min.js" data-version="13" data-exports-type="gwd-image" src="gwdimage_min.js"></script>
+  <script data-source="gwd3dmodel_min.js" data-version="1" data-exports-type="gwd-3d-model" src="gwd3dmodel_min.js"></script>
+  <script data-source="gwdparallax_min.js" data-version="1" data-exports-type="gwd-parallax" src="gwdparallax_min.js"></script>
+<style type="text/css">#pagedeck { overflow: hidden !important; }</style></head>
+
+<body class="document-body">
+  <gwd-google-ad id="gwd-ad" fullscreen="">
+    <gwd-metric-configuration></gwd-metric-configuration>
+    <gwd-pagedeck class="gwd-page-container" id="pagedeck" default-page="banner-page">
+      <gwd-page id="banner-page" data-gwd-name="Banner page" class="gwd-page-wrapper banner gwd-lightbox" data-gwd-width="<%= banner_width %>px" data-gwd-height="<%= banner_height %>px">
+        <div class="gwd-page-content banner gwd-div-mc92">
+          <gwd-image id="backgroundCollapsed" source="background_collapsed.jpg?1568274899462" scaling="stretch" class="background-collapsed"></gwd-image>
+          <gwd-image id="backgroundExpand" source="background_expand.jpg?1568274899462" scaling="stretch" class="background-expand"></gwd-image>
+          <gwd-3d-model id="gwd-3d-model_1" id-url="7dRTsHMsRQT" class="gwd-3d-model" data-gwd-name="gwd_3d_model"></gwd-3d-model>
+          <div class="gwd-3d-model-disable" id="gwd3dModelDisable"></div>
+          <gwd-image id="swipeToRotate" source="swipe_icon_expand.png?1568274899462" scaling="stretch" class="gwd-image-jirf" style="pointer-events: none;"></gwd-image>
+          <gwd-image id="textSwipeToRotate_EXP" source="text_swipe_to_rotate.png?1568274899462" scaling="stretch" class="text-swipe-to-rotate" data-gwd-name="textSwipeToRotate_EXP" style="top: 44px;"></gwd-image>
+          <gwd-image id="swipeToRotate_EXP" source="swipe_icon_expand.png?1568274899462" scaling="stretch" class="gwd-image-jirf" style="pointer-events: none; top: 44px;" data-gwd-name="swipeToRotate_EXP"></gwd-image>
+          <div class="expand-cta" id="expandCta">
+            <gwd-image id="tap_to_go_fullscreen" source="tap_to_go_fullscreen.png?1568274899462" scaling="stretch" class="tap-to-go-fullscreen"></gwd-image>
+          </div>
+          <div class="gwd-div-1pvq" id="expandRingWrapper">
+            <div class="gwd-div-xce1 gwd-div-1o0t" id="expandCircle"></div>
+            <div class="expand-ring gwd-div-8rw7" id="expandRing"></div>
+            <div class="expand-ring gwd-div-1q9i expand-ring-fade" id="expandRingFade"></div>
+          </div>
+          <gwd-image class="gwd-image-1qj8" id="doorLeft" source="doorLeft.png?1568274899462" data-gwd-name="doorLeft" scaling="stretch"></gwd-image>
+          <gwd-image class="gwd-image-1qj8 gwd-image-lcw0" id="doorRight" source="doorRight.png?1568274899462" data-gwd-name="doorRight" scaling="stretch" style="top: 50%; width: 100%; height: auto; left: 0px; transform: translate(0%, -50%);"></gwd-image>
+          <gwd-image id="textSwipeToRotate" source="text_swipe_to_rotate.png?1568274899462" scaling="stretch" class="text-swipe-to-rotate gwd-image-immg"></gwd-image>
+          <div class="swipe-icon-slider-wrapper" id="swipeIconSliderWrapper">
+            <gwd-image id="swipeIconSlider" source="swipe_icon_slider_black.png?1568274899462" scaling="stretch" class="swipe-icon-slider"></gwd-image>
+            <div class="gwd-gen-1g5fgwdanimation swipe-Icon-slider-dot-ring gwd-div-zech" id="swipeIconSliderDotRing"></div>
+            <div class="gwd-gen-1g5fgwdanimation swipe-Icon-slider-dot-ring gwd-div-12n0" id="swipeIconSliderDot"></div>
+          </div>
+          <gwd-image class="gwd-image-1qj8 gwd-image-lcw0 gwd-image-1ioy" id="doorLogo" source="doorLogo.png?1568274899462" data-gwd-name="doorLogo" scaling="stretch" style="top: 50%; width: 100%; left: 0px; height: 907.972px; transform: translate3d(0px, -453.961px, 0px);"></gwd-image>
+          <div class="expand-arrows-button" id="expandArrowsButton">
+            <gwd-image id="expandArrowsButtonImage" source="expand_button.png?1568274899462" scaling="stretch" class="expand-btn"></gwd-image>
+          </div>
+          <gwd-image class="gwd-image-dk5s gwd-image-3vnp" source="hotspot_ring.png?1568274899462" data-gwd-name="hotspot_ring" id="hotspot_ring1"></gwd-image>
+          <gwd-image class="gwd-image-dk5s" id="hotspot1" source="hotspot.png?1568274899462" data-gwd-name="hotspot"></gwd-image>
+          <gwd-image class="gwd-image-dk5s gwd-image-1uu7 gwd-image-265z gwd-image-lvub" id="hotspot_ring2" source="hotspot_ring.png?1568274899462" data-gwd-name="hotspot_ring1"></gwd-image>
+          <gwd-image class="gwd-image-dk5s gwd-image-1uu7 gwd-image-265z" id="hotspot2" source="hotspot.png?1568274899462" data-gwd-name="hotspot_1"></gwd-image>
+          <gwd-image class="gwd-image-dk5s gwd-image-1uu7 gwd-image-1ciz gwd-image-1x4z" id="hotspot_ring3" source="hotspot_ring.png?1568274899462" data-gwd-name="hotspot_ring2"></gwd-image>
+          <gwd-image class="gwd-image-dk5s gwd-image-1uu7 gwd-image-1ciz" id="hotspot3" source="hotspot.png?1568274899462" data-gwd-name="hotspot_2"></gwd-image>
+          <gwd-image class="gwd-image-dk5s gwd-image-1uu7 gwd-image-1ciz gwd-image-1x4z gwd-image-nhw1" id="hotspot_ring4" source="hotspot_ring.png?1568274899462" data-gwd-name="hotspot_ring3"></gwd-image>
+          <gwd-image class="gwd-image-dk5s gwd-image-1uu7 gwd-image-1ciz gwd-image-1bgs" id="hotspot4" source="hotspot.png?1568274899462" data-gwd-name="hotspot_3"></gwd-image>
+          <gwd-image class="gwd-image-1drw" id="tap-to-discover-copy" source="tap_to_discover_copy.png?1568274899462" data-gwd-name="tap-to-discover-copy" scaling="contain"></gwd-image>
+          <div class="gwd-div-1on8" id="disableGestureLayer"></div>
+          <gwd-image id="closeButton" source="close_btn.png?1568274899462" scaling="contain" class="close-button" alignment="top left"></gwd-image>
+          <gwd-image class="gwd-image-dsiv" id="collapsed_logo" data-gwd-name="collapsed_logo" source="ysl_logo_collapse.png?1568274899462"></gwd-image>
+          <gwd-image id="cta" source="cta.png?1568274899462" scaling="stretch" class="cta" alignment="center"></gwd-image>
+          <gwd-image id="cta_over" source="cta_over.png?1568274899462" scaling="stretch" class="cta cta-over" alignment="bottom left"></gwd-image>
+          <gwd-image class="gwd-image-rdtr" id="copy_chain" data-gwd-name="copy_chain" source="copy_chain.png?1568274899462"></gwd-image>
+          <gwd-image class="gwd-image-1mhf" id="copy_cassandre" data-gwd-name="copy_cassandre" source="copy_cassandre.png?1568274899462"></gwd-image>
+          <gwd-image class="gwd-image-1mhf gwd-image-ldhr" id="copy_liquid" data-gwd-name="copy_liquid" source="copy_liquid.png?1568274899462"></gwd-image>
+          <gwd-image class="gwd-image-1psu" id="copy_cap" data-gwd-name="copy_cap" source="copy_cap.png?1568274899462"></gwd-image>
+          <gwd-image class="gwd-image-1vkv" id="backBtn" data-gwd-name="backBtn" source="backBtn.png?1568274899462" scaling="contain"></gwd-image>
+          <gwd-image class="gwd-image-spc8" id="ysl_logo" data-gwd-name="ysl_logo" source="ysl_logo.png?1568274899462"></gwd-image>
+          <gwd-image id="doorRightCollapsed" source="door_right_collapsed.png?1568274899462" scaling="stretch" class="doorRightCollapsed"></gwd-image>
+          <gwd-image id="doorLeftCollapsed" source="door_left_collapsed.png?1568274899462" scaling="stretch" class="doorLeftCollapsed"></gwd-image>
+          <gwd-image id="doorRightCollapsedLogo" source="door_right_collapsed_logo.png?1568274899462" scaling="stretch" class="doorRightCollapsedLogo"></gwd-image>
+          <div class="landscape-wrapper" id="landscapeWrapper">
+            <div class="background" id="background"></div>
+            <gwd-image id="rotate_icon" source="landscape_rotate_icon.png?1568274899462" scaling="stretch" class="landscape-rotate-icon"></gwd-image>
+          </div>
+          <div class="loader-wrapper" id="loaderWrapper">
+            <div class="loader" id="loader"></div>
+          </div>
+          <div id="border" class="border"></div>
+          <gwd-parallax id="gwd-parallax_1" class="gwd-parallax-1o3r"></gwd-parallax>
+        </div>
+      </gwd-page>
+    </gwd-pagedeck>
+  </gwd-google-ad>
+  <script type="text/javascript" id="gwd-init-code">
+    (function() {
+      var gwdAd = document.getElementById('gwd-ad');
+
+      /**
+       * Handles the DOMContentLoaded event. The DOMContentLoaded event is
+       * fired when the document has been completely loaded and parsed.
+       */
+      function handleDomContentLoaded(event) {
+        /*         Enabler.setHint('expansionMode', 'lightbox');
+                Enabler.setHint('expansionTrigger', 'onHover'); */
+        Enabler.addEventListener(studio.events.StudioEvent.FULLSCREEN_EXPAND_FINISH,
+          function() {
+            Enabler.counter('Expansion_Ctr');
+            Enabler.startTimer('Expansion_Timer');
+          }, false);
+        Enabler.addEventListener(studio.events.StudioEvent.FULLSCREEN_COLLAPSE_FINISH,
+          function() {
+            Enabler.finishCollapse();
+            Enabler.counter('Collapse_Ctr');
+            Enabler.stopTimer('Expansion_Timer');
+          }, false);
+      }
+
+      /**
+       * Handles the WebComponentsReady event. This event is fired when all
+       * custom elements have been registered and upgraded.
+       */
+      function handleWebComponentsReady(event) {
+        // Start the Ad lifecycle.
+        setTimeout(function() {
+          gwdAd.initAd();
+        }, 0);
+      }
+
+      /**
+       * Handles the event that is dispatched after the Ad has been
+       * initialized and before the default page of the Ad is shown.
+       */
+      function handleAdInitialized(event) {
+
+      }
+
+      window.addEventListener('DOMContentLoaded',
+        handleDomContentLoaded, false);
+      window.addEventListener('WebComponentsReady',
+        handleWebComponentsReady, false);
+      window.addEventListener('adinitialized',
+        handleAdInitialized, false);
+    })();
+  </script>
+  <script type="text/javascript" id="sharedLogic" src="sharedLogic.js"></script>
+  <script type="text/javascript" id="sharedAnimation" src="sharedAnimation.js"></script>
+  <script type="text/javascript" id="settings" src="settings.js"></script>
+  <script type="text/javascript" id="logic" src="logic.js"></script>
+  <script type="text/javascript" id="animation" src="animation.js"></script>
+
+
+<script data-exports-type="dclk-quick-preview">studio.Enabler.setRushSimulatedLocalEvents(true);</script><script data-exports-type="gwd-studio-registration">function StudioExports() {
+Enabler.requestFullscreenExpand();
+}</script><script type="text/gwd-admetadata">{"version":1,"type":"GoogleAd","format":"","template":"Expandable 3.0.0","politeload":false,"fullscreen":true,"counters":[],"timers":[],"exits":[],"creativeProperties":{"minWidth":300,"minHeight":250,"maxWidth":300,"maxHeight":250},"components":["gwd-3d-model","gwd-google-ad","gwd-image","gwd-page","gwd-pagedeck","gwd-parallax"],"responsive":false}</script></body></html>

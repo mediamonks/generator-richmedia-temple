@@ -1,6 +1,6 @@
 {
-  "name": "generator-richmedia-temple",
-  "version": "2.2.6",
+  "name": "test",
+  "version": "1.0.0",
   "description": "",
   "homepage": "",
   "author": "",
@@ -14,14 +14,22 @@
     "yeoman-generator"
   ],
   "engines": {
-    "npm": ">= 4.0.0"
+    "npm": ">= 8.0.0"
   },
-  "scripts": {},
+  "scripts": {
+    "dev": "node ./node_modules/@mediamonks/richmedia-temple-server/dev.js",
+    "build": "node ./node_modules/@mediamonks/richmedia-temple-server/build.js",
+    "preview": "./node_modules/.bin/henk"
+  },
   "license": "ISC",
   "dependencies": {
+    "@mediamonks/henk": "^1.1.1",
+    "@mediamonks/richmedia-temple-server": "^2.0.0",
+    "@mediamonks/temple": "^2.0.0",
     "chalk": "^2.4.2",
     "cli-spinner": "^0.2.10",
     "deepmerge": "^2.2.1",
+    "file-set": "^2.0.1",
     "gamefroot-texture-packer": "^1.1.2",
     "glob-promise": "^3.4.0",
     "is-path-inside": "^2.1.0",

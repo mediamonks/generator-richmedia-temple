@@ -20,6 +20,7 @@ Create, change and start developing your richmedia units
         message: 'What do you want to do?',
         choices: [
           'create a banner',
+          'create a 3D banner',
           {name: 'create spritesheet', disabled: false}
         ],
       },
@@ -34,6 +35,11 @@ Create, change and start developing your richmedia units
     switch (this.result.todo) {
       case 'create a banner': {
         this.composeWith(require.resolve('../createBanner'), { options: '' });
+        break;
+      }
+
+      case 'create a 3D banner': {
+        this.composeWith(require.resolve('../create3DBanner'), { options: '' });
         break;
       }
 
