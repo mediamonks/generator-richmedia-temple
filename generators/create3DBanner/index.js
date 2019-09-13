@@ -44,7 +44,12 @@ module.exports = class extends Generator {
       };
     }
     // --------------------- model choice ------------------------------------------------------------------------------
-    let model_list = (new FileSet('./model/*')).dirs ;
+    let model_list = (new FileSet('./generators/create3DBanner/templates/*')).dirs ;
+    for(let i=0; i<model_list.length ; i++)
+    {
+      model_list[i] = path.basename(model_list[i]);
+    }
+    console.log(model_list);
     this.result = {
       ...this.result,
       ...(await this.prompt([
