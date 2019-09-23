@@ -44,12 +44,8 @@ module.exports = class extends Generator {
       };
     }
     // --------------------- model choice ------------------------------------------------------------------------------
-    let model_list = (new FileSet('./generators/create3DBanner/templates/*')).dirs ;
-    for(let i=0; i<model_list.length ; i++)
-    {
-      model_list[i] = path.basename(model_list[i]);
-    }
-    console.log(model_list);
+
+
     this.result = {
       ...this.result,
       ...(await this.prompt([
@@ -57,7 +53,10 @@ module.exports = class extends Generator {
           type: 'list',
           name: 'model',
           message: 'Please select the model of your unit:',
-          choices: model_list
+          choices: [
+            'next_previous',
+            'zoom_back'
+          ]
         },
       ])),
     };
