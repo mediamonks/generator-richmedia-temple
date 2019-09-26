@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+		<title>VideoExpandable - Panel</title>
+		<link rel="stylesheet" href="styles/style.css"/>
+		<script>EBModulesToLoad = ['Video','EBAPI'];</script>
+		<script type="text/javascript" src="../../scripts/videoExpandable_script.js"></script>
+		<script type="text/javascript" src="http://ds.serving-sys.com/BurstingScript/adKit/adkit.js"></script>
+		<script type="text/javascript" src="../../scripts/localPreview.js"></script><!-- COMMENT OUT LOCAL PREVIEW INCLUDE WHEN RELEASING AD -->
+		<script type="text/javascript" src="scripts/script.js"></script>
+	</head>
+	<body>
+	<div id="container">
+		<div id="panel">
+			<div id="panel-background" class="button"></div>
+			<div id="social-toolbar"> 
+				<div id="social-toolbar-background"></div>
+				<div id="social-buttons">
+					<div id="logo" class="social"></div>
+					<div id="facebook-LANDING" class="social button"></div>
+					<div id="twitter-SHARE" class="social button"></div>
+					<div id="twitter-LANDING" class="social button"></div>
+					<div id="youtube-LANDING" class="social button"></div>
+					<div id="pinterest-SHARE" class="social button"></div>
+					<div id="pinterest-LANDING" class="social button"></div>
+					<div id="linkedin-SHARE" class="social button"></div>
+					<div id="linkedin-LANDING" class="social button"></div>
+					<div id="instagram-LANDING" class="social button"></div>
+					<div id="email-SHARE" class="social button"></div>
+				</div>
+				<div id="video-controls">
+					<div id="play-pause" class="button btn-play-paused"></div>
+					<div id="mute" class="button btn-mute-muted"></div>
+				</div>
+				<div id="close-button" class="button">
+					<span>X</span>
+				</div>
+			</div> 
+			<div id="video-container">
+				<video id="video" class="button" muted>
+					Your browser does not support the <code>video</code> element.
+				</video>
+				<div id="replay" class="button">
+				</div>
+			</div>
+			<div id="progress-bar-track">
+				<div id="progress-bar"></div>
+			</div>
+			<div id="expand-button">EXPAND</div>
+		</div>
+	</div>
+	</body>
+</html>

@@ -1,0 +1,310 @@
+/************ TAG STYLES ************/
+ html, body {
+     height: 100%;
+     margin: 0;
+}
+ body {   
+     font-size: 12px;
+     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/************************ CREATIVE CONTENT STYLES ************************/
+ .button {
+     user-select: none;
+     cursor: pointer;
+}
+ #panel {
+     height: 100%;
+     width: 100%;
+}
+ #panel-background {
+     background-repeat: no-repeat;
+     position:absolute;
+     top:0;
+     left:0;
+     z-index: 0;
+     background-size: cover;
+}
+ #container {
+     position:relative;
+     visibility: hidden;
+     overflow: hidden;
+}
+ #expand-button {
+     position: absolute;
+     width: 100%;
+     height: 30px;
+     background-repeat: no-repeat;
+     background-position: center center;
+     display:none;
+}
+
+/************************  EXPAND BUTTON STYLES ************************/
+#panel.positive #expand-button,#panel.positive #expand-button:hover,#panel.negative #expand-button,#panel.negative #expand-button:hover{
+     cursor:pointer;
+     font-family:Lato,sans-serif;
+     font-size:11px;
+     user-select: none;
+     text-align:center; 
+     box-sizing:border-box;
+     padding:8px 8px;
+}
+
+#panel.positive #expand-button,#panel.negative #expand-button:hover{
+     background-color:#0068FF;
+     color:white;
+}
+
+#panel.negative #expand-button,#panel.positive #expand-button:hover{
+     background-color:white;
+     color:#0068FF;
+}
+/************************  VIDEO STYLES ************************/
+ #video-container {
+     position: absolute;
+     margin: 0;
+     padding: 0;
+     line-height:0;
+}
+ #progress-bar-track {
+     margin: 0;
+     padding: 0;
+     height: 2px;
+     width: 100%;
+     position:absolute;
+}
+ #progress-bar {
+     height: 100%;
+     width: 0%;
+}
+ #video-controls {
+     margin-right: 5px;
+     display:none;
+     height: 35px;
+}
+ .collapsed #video-controls, .expanded #video-controls {
+     display: inline-block;
+}
+ #play-pause, #mute {
+     background-repeat: no-repeat;
+     background-position: center center;
+     width: 35px;
+}
+ #close-button {
+    color: #FFFFFF;
+    background-color: #0267ff;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    position: relative;
+    font-weight: bold;
+    font-size: 14px;
+     display:none;
+}
+ #close-button span {
+     display: inline-block;
+     vertical-align: middle;
+     height: 0;
+}
+ #close-button:hover {
+    background-color: #FFFFFF;
+    color: #0267ff;
+}
+ .collapsed #close-button {
+     display:none;
+}
+ .expanded #close-button {
+     display: inline-block;
+}
+ .expanded #expand-button {
+     display:none;
+}
+ .collapsed #expand-button {
+     display:inline-block;
+}
+ #close-background {
+     background-color: black;
+     filter: alpha(Opacity=50);
+     opacity: 0.5;
+     width: 70px;
+     height: 35px;
+     position:absolute;
+     top:0;
+     left:0;
+     z-index: -1;
+}
+ #social-toolbar {
+     height: 35px;
+     position: absolute;
+     z-index: 100;
+}
+ #social-toolbar-background {
+     width: 100%;
+     height: 100%;
+     position: absolute;
+     top: 0;
+     left: 0;
+     background-color: #000000;
+     filter: alpha(Opacity=50);
+     opacity: 0.5;
+     z-index: -1;
+}
+ .social {
+     width: 24px;
+     height: 32px;
+     display: none;
+     background-repeat: no-repeat;
+     background-position: center center;
+     margin-left: 2px;
+     margin-top: 2px;
+     user-select: none;
+}
+ div.social.enabled {
+     display: inline-block !important;
+}
+ #panel.positive #facebook-LANDING {
+     background-image: url("../images/social/FACEBOOK_OFF.png");
+}
+ #panel.positive #facebook-LANDING:hover {
+     background-image: url("../images/social/FACEBOOK_ON.png");
+}
+ #panel.negative #facebook-LANDING {
+     background-image: url("../images/social/FACEBOOK_ON.png");
+}
+ #panel.negative #facebook-LANDING:hover {
+     background-image: url("../images/social/FACEBOOK_OFF.png");
+}
+ #panel.positive #twitter-SHARE {
+     background-image: url("../images/social/TWITTER_OFF.png");
+}
+ #panel.positive #twitter-SHARE:hover {
+     background-image: url("../images/social/TWITTER_ON.png");
+}
+ #panel.negative #twitter-SHARE {
+     background-image: url("../images/social/TWITTER_ON.png");
+}
+ #panel.negative #twitter-SHARE:hover {
+     background-image: url("../images/social/TWITTER_OFF.png");
+}
+ #panel.positive #twitter-LANDING {
+     background-image: url("../images/social/TWITTER_OFF.png");
+}
+ #panel.positive #twitter-LANDING:hover {
+     background-image: url("../images/social/TWITTER_ON.png");
+}
+ #panel.negative #twitter-LANDING {
+     background-image: url("../images/social/TWITTER_ON.png");
+}
+ #panel.negative #twitter-LANDING:hover {
+     background-image: url("../images/social/TWITTER_OFF.png");
+}
+ #panel.positive #youtube-LANDING {
+     background-image: url("../images/social/YOUTUBE_OFF.png");
+}
+ #panel.positive #youtube-LANDING:hover {
+     background-image: url("../images/social/YOUTUBE_ON.png");
+}
+ #panel.negative #youtube-LANDING {
+     background-image: url("../images/social/YOUTUBE_ON.png");
+}
+ #panel.negative #youtube-LANDING:hover {
+     background-image: url("../images/social/YOUTUBE_OFF.png");
+}
+ #panel.positive #pinterest-SHARE {
+     background-image: url("../images/social/PINTEREST_OFF.png");
+}
+ #panel.positive #pinterest-SHARE:hover {
+     background-image: url("../images/social/PINTEREST_ON.png");
+}
+ #panel.negative #pinterest-SHARE {
+     background-image: url("../images/social/PINTEREST_ON.png");
+}
+ #panel.negative #pinterest-SHARE:hover {
+     background-image: url("../images/social/PINTEREST_OFF.png");
+}
+ #panel.positive #pinterest-LANDING {
+     background-image: url("../images/social/PINTEREST_OFF.png");
+}
+ #panel.positive #pinterest-LANDING:hover {
+     background-image: url("../images/social/PINTEREST_ON.png");
+}
+ #panel.negative #pinterest-LANDING {
+     background-image: url("../images/social/PINTEREST_ON.png");
+}
+ #panel.negative #pinterest-LANDING:hover {
+     background-image: url("../images/social/PINTEREST_OFF.png");
+}
+ #panel.positive #linkedin-SHARE {
+     background-image: url("../images/social/LINKEDIN_OFF.png");
+}
+ #panel.positive #linkedin-SHARE:hover {
+     background-image: url("../images/social/LINKEDIN_ON.png");
+}
+ #panel.negative #linkedin-SHARE {
+     background-image: url("../images/social/LINKEDIN_ON.png");
+}
+ #panel.negative #linkedin-SHARE:hover {
+     background-image: url("../images/social/LINKEDIN_OFF.png");
+}
+ #panel.positive #linkedin-LANDING {
+     background-image: url("../images/social/LINKEDIN_OFF.png");
+}
+ #panel.positive #linkedin-LANDING:hover {
+     background-image: url("../images/social/LINKEDIN_ON.png");
+}
+ #panel.negative #linkedin-LANDING {
+     background-image: url("../images/social/LINKEDIN_ON.png");
+}
+ #panel.negative #linkedin-LANDING:hover {
+     background-image: url("../images/social/LINKEDIN_OFF.png");
+}
+ #panel.positive #instagram-LANDING {
+     background-image: url("../images/social/INSTAGRAM_OFF.png");
+}
+ #panel.positive #instagram-LANDING:hover {
+     background-image: url("../images/social/INSTAGRAM_ON.png");
+}
+ #panel.negative #instagram-LANDING {
+     background-image: url("../images/social/INSTAGRAM_ON.png");
+}
+ #panel.negative #instagram-LANDING:hover {
+     background-image: url("../images/social/INSTAGRAM_OFF.png");
+}
+ #panel.positive #email-SHARE {
+     background-image: url("../images/social/EMAIL_OFF.png");
+}
+ #panel.positive #email-SHARE:hover {
+     background-image: url("../images/social/EMAIL_ON.png");
+}
+ #panel.negative #email-SHARE {
+     background-image: url("../images/social/EMAIL_ON.png");
+}
+ #panel.negative #email-SHARE:hover {
+     background-image: url("../images/social/EMAIL_OFF.png");
+}
+
+ #social-buttons, #video-controls div {
+     display: inline-block;
+     height: 35px;
+}
+
+#social-buttons{
+     overflow:hidden;
+}
+
+ #replay {
+     position:absolute;
+     background-size: contain;
+     background-repeat: no-repeat;
+     background-position: center;
+}
+ .shown {
+     visibility:visible;
+}
+ .hidden {
+     display:none;
+}
+
+#logo{
+     width: 75px;
+     background-position: left;
+}
