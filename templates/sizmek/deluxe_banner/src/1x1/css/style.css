@@ -3,13 +3,12 @@
   --grey: #221f1f;
   --white: #221f1f;
 
-  --width: 1px;
-  --height: 1px;
+  --width: 100%;
+  --height: 100%;
 }
 
 html {
   box-sizing: border-box;
-  width: 100%;
   height: 100%;
 }
 *,
@@ -23,7 +22,6 @@ body {
   background-color: #fff;
   margin: 0;
   padding: 0;
-  width: 100%;
   height: 100%;
 }
 
