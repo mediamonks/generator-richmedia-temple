@@ -145,7 +145,7 @@ function change3dModelEffectIn(material,time,func,arg){
 // change3DColor('CapMat',1,{r:10,g:50,b:100});
 function change3DColor(material, percentage, color)
 {
-  window.gwd3dModelContent.postMessage(
+  window.gwd3dModelContent.handleMessage(
     {
       name: 'setMaterialColor',
       material: material,
@@ -159,13 +159,13 @@ function change3DColor(material, percentage, color)
 function glowInTheDark(material,percentage)
 {
   // put 3d model dark and add reflexion
-  window.gwd3dModelContent.postMessage({
+  window.gwd3dModelContent.handleMessage({
     name:'setIblAtlas',
     iblUrl:'https://poly.googleusercontent.com/downloads/1dXdp27zkZl/9Pkt37NW6ct/poly_pmrem_cubeuv_studio.jpg',
     intensity:1 * (1 - percentage)
   }, "*");
   // put part of the object glowing
-  window.gwd3dModelContent.postMessage({
+  window.gwd3dModelContent.handleMessage({
     name:'setMaterialEmissive',
     material:material,
     r: 0.0,

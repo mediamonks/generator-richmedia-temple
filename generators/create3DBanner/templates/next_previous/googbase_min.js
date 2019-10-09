@@ -1,1 +1,1 @@
-(function(){(window.goog=window.goog||{}).inherits=function(a,c){function d(){}d.prototype=c.prototype;a.b=c.prototype;a.prototype=new d;a.prototype.constructor=a;a.a=function(f,g,h){for(var e=Array(arguments.length-2),b=2;b<arguments.length;b++)e[b-2]=arguments[b];return c.prototype[g].apply(f,e)}};}).call(this);
+(function(){(window.goog=window.goog||{}).inherits=function(a,c){function b(){}b.prototype=c.prototype;a.prototype=new b;a.prototype.constructor=a};}).call(this);
