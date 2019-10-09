@@ -34,13 +34,8 @@
     "nyc": "^13.3.0",
     "uuidv4": "^3.0.1",
     "yeoman-generator": "^3.2.0",
-    "yosay": "^2.0.1",
-    "@mediamonks/richmedia-temple-server": "^2.0.0",
-    "@mediamonks/temple": "^2.0.0",
-    "@mediamonks/henk": "^1.1.1"
+    "yosay": "^2.0.1"
   },
   "repository": "mediamonks/generator-richmedia-temple",
-  "devDependencies": {
-    "@mediamonks/temple": "^2.1.5"
-  }
+  "devDependencies": {}
 }
