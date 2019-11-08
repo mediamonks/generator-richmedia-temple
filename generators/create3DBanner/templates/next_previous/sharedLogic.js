@@ -26,6 +26,7 @@ function sharedInit() {
   window.gwd3dModel.addEventListener('scene-rendered', handle3dModelEvents, false);
   window.gwd3dModel.addEventListener('interaction-start', handle3dModelEvents, false);
   window.gwd3dModel.addEventListener('interaction-end', handle3dModelEvents, false);
+  window.gwd3dModel.addEventListener('camera-changed', handle3dModelEvents, false);
 
   //check when gwd has loaded the page, if there is no 3dmodel, you should use this event to start your animation/banner
   window.bannerPage.addEventListener('pageload', handleBannerPageLoad.bind(window));
@@ -83,7 +84,8 @@ function sharedInitBanner() {
 //                                             EVENT HANDLER
 // *********************************************************************************************************************
 // ------------------------------------- INTERACTION WITH 3D MODEL -----------------------------------------------------
-function sharedHandle3dModelEvents(e) {
+function
+(e) {
   // ---- check if 3dModel is available
   if (!window.gwd3dModelContent) {
     window.gwd3dModelContent = window.gwd3dModel.children[0];
