@@ -73,11 +73,9 @@ function handleBannerPageLoad() {
 // ------------------------------------- INTERACTION WITH 3D MODEL -----------------------------------------------------
 function handle3dModelEvents(e) {
   // for checking yaw, pivot and zoom when positioning 3dmodel
-  /*
-  if (typeof e.data == 'string') {
-     console.log(e.data);
+  if(e.type == "camera-changed") {
+    // console.log(e.detail)
   }
-*/
 
   sharedHandle3dModelEvents(e);
 
