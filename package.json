@@ -20,8 +20,8 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "cli-spinner": "^0.2.10",
-    "deepmerge": "4.1.1",
-    "file-set": "^2.0.1",
+    "deepmerge": "4.2.2",
+    "file-set": "3.0.0",
     "gamefroot-texture-packer": "^1.1.2",
     "glob-promise": "^3.4.0",
     "is-path-inside": "3.0.2",
@@ -29,7 +29,7 @@
     "mkdirp": "^0.5.1",
     "nyc": "14.1.1",
     "uuidv4": "5.0.1",
-    "yeoman-generator": "4.1.0",
+    "yeoman-generator": "4.2.0",
     "yosay": "^2.0.1"
   },
   "repository": "mediamonks/generator-richmedia-temple",
