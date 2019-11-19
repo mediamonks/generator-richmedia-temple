@@ -15,9 +15,9 @@ module.exports = function createPackageJson({ name = 'richmedia-temple' }) {
     },
     license: 'ISC',
     dependencies: {
-      '@mediamonks/richmedia-temple-server': '^2.0.0',
-      '@mediamonks/temple': '^2.0.0',
-      '@mediamonks/henk': '^1.1.1',
+      "@mediamonks/richmedia-temple-server": "^3.0.2",
+      "@mediamonks/temple": "^2.1.6",
+      "@mediamonks/henk": "^1.1.1",
     },
   };
 };

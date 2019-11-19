@@ -56,6 +56,15 @@ module.exports = class extends Generator {
     mkdirp(this.destinationPath(path.join(this.options.outputPath, 'video')), err => {
       if (err) console.error(err);
     });
+
+    this.fs.copy(
+      this.templatePath('netflix-doubleclick/webpack.config.js'),
+      this.destinationPath(path.join(this.options.outputPath, 'webpack.config.js')),
+      {
+        banner_width: width,
+        banner_height: height,
+      },
+    );
   }
 
 };
