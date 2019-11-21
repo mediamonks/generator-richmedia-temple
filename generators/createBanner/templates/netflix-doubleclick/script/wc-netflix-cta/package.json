@@ -1,0 +1,49 @@
+{
+  "_from": "@netflixadseng/wc-netflix-cta@^6.0.0",
+  "_id": "@netflixadseng/wc-netflix-cta@6.2.0",
+  "_inBundle": false,
+  "_integrity": "sha512-l4mDx4n/uPtio1ZvpqnVjQdCDqFzshnBV+vO3r1gkA8brTtOkJqiqYXrPPcZv7JVtDJaetTTlAULOzMJX4Uuew==",
+  "_location": "/@netflixadseng/wc-netflix-cta",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@netflixadseng/wc-netflix-cta@^6.0.0",
+    "name": "@netflixadseng/wc-netflix-cta",
+    "escapedName": "@netflixadseng%2fwc-netflix-cta",
+    "scope": "@netflixadseng",
+    "rawSpec": "^6.0.0",
+    "saveSpec": null,
+    "fetchSpec": "^6.0.0"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@netflixadseng/wc-netflix-cta/-/wc-netflix-cta-6.2.0.tgz",
+  "_shasum": "51845539aa40e87b5af6c420e1a5f8710da8fd3e",
+  "_spec": "@netflixadseng/wc-netflix-cta@^6.0.0",
+  "_where": "/Applications/MAMP/htdocs/banners/netflix-emea-dach-6-underground",
+  "author": {
+    "name": "Netflix"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "@netflixadseng/utils-text-measurer": "^1.0.1"
+  },
+  "deprecated": false,
+  "description": "Netflix CTA Web Component",
+  "devDependencies": {
+    "np": "^2.18.3"
+  },
+  "license": "ISC",
+  "main": "main.js",
+  "name": "@netflixadseng/wc-netflix-cta",
+  "peerDependencies": {
+    "@netflixadseng/wc-monet-integrator": "^6.0.0"
+  },
+  "scripts": {
+    "pub": "np",
+    "version": "cd ../../ && npm run syncVersion"
+  },
+  "version": "6.2.0"
+}

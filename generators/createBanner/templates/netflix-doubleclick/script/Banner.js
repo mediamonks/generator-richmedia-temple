@@ -6,6 +6,7 @@ import DoubleClickPlatformComponent from '@mediamonks/temple/component/platform/
 import ConfigComponent from '@mediamonks/temple/component/ConfigComponent';
 import fitText from '@mediamonks/temple/util/fitText';
 
+import 'core-js/es/reflect';
 import '@netflixadseng/pk-component-utils';
 import '@netflixadseng/wc-monet-integrator';
 import '@netflixadseng/wc-netflix-fonts';
@@ -14,7 +15,7 @@ import '@netflixadseng/wc-netflix-flushed-ribbon';
 import '@netflixadseng/wc-netflix-video';
 import '@netflixadseng/wc-netflix-img';
 import '@netflixadseng/wc-netflix-brand-logo';
-import '@netflixadseng/wc-netflix-cta';
+import './wc-netflix-cta';
 import '@netflixadseng/wc-netflix-preloader';
 
 import Animation from './Animation';
