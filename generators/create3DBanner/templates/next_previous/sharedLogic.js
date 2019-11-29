@@ -84,8 +84,7 @@ function sharedInitBanner() {
 //                                             EVENT HANDLER
 // *********************************************************************************************************************
 // ------------------------------------- INTERACTION WITH 3D MODEL -----------------------------------------------------
-function
-(e) {
+function sharedHandle3dModelEvents(e) {
   // ---- check if 3dModel is available
   if (!window.gwd3dModelContent) {
     window.gwd3dModelContent = window.gwd3dModel.children[0];
