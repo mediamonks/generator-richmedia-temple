@@ -91,6 +91,10 @@ function
     window.gwd3dModelContent = window.gwd3dModel.children[0];
   }
 
+  if (e && e.type === 'camera-changed') {
+    // console.log(e.detail);
+  }
+
   if (e && e.type === 'scene-rendered') {
     initBanner();
   }

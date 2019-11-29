@@ -140,11 +140,11 @@ function resetPositions() {
   TweenMax.to([window.settings.hotspots.hotspots, '#tap-to-discover-copy'], 0.25, { autoAlpha: 1 });
   TweenMax.set(window.settings.hotspots.hotspots, { pointerEvents: 'auto', delay: 0.55 });
 
-  this.gwd3dModelContent.postMessage({ name: 'setTargetZoom', scale: 1500 }, '*'); // update the position of the 3d model
-  this.gwd3dModelContent.postMessage({ name: 'setTargetLocalPan', X: 0, Y: 0, Z: 0 }, '*');
-  this.gwd3dModelContent.postMessage({ name: 'setTargetPivot', X: 1, Y: -3, Z: -1.8 }, '*');
-  this.gwd3dModelContent.postMessage({ name: 'setTargetYaw', yawAngle: -24 }, '*');
-  this.gwd3dModelContent.postMessage({ name: 'setTargetPitch', pitchAngle: 0 }, '*');
+  window.gwd3dModel.setTargetZoom(1500); // update the position of the 3d model
+  window.gwd3dModel.setTargetLocalPan(0,0,0);
+  window.gwd3dModel.setTargetPivot(1, -3, -1.8);
+  window.gwd3dModel.setTargetYaw(-24);
+  window.gwd3dModel.setTargetPitch(0);
 
   clearTimeout(window.endframeTimeout);
   setEndframeTimeout();
