@@ -74,7 +74,6 @@ function handleBannerPageLoad() {
 function handle3dModelEvents(e) {
   // for checking yaw, pivot and zoom when positioning 3dmodel
   if(e.type == "camera-changed") {
-    // console.log(e.detail)
   }
 
   sharedHandle3dModelEvents(e);
@@ -334,12 +333,10 @@ function update3dModelPosition(state) {
 
   switch (state) {
     case 'collapse_end':
-      console.log('collapse_end state');
 
       break;
 
     case 'expand_start':
-      console.log('expand_start state');
 
       // window.gwd3dModel.setTargetZoom(1500);
       // window.gwd3dModel.setTargetLocalPan(0, 0, 0);
@@ -349,7 +346,6 @@ function update3dModelPosition(state) {
       break;
 
     default:
-      console.log('default state');
       window.gwd3dModel.setTargetZoom(1500);
       window.gwd3dModel.setTargetLocalPan(0, 0, 0);
       window.gwd3dModel.setTargetPivot(1, -3, -1.8);
