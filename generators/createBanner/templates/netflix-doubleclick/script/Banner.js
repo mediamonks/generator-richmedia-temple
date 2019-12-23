@@ -20,6 +20,7 @@ import '@netflixadseng/wc-netflix-preloader';
 
 import Animation from './Animation';
 import Enabler from 'Enabler';
+import politeLoadImages from '@mediamonks/temple/util/politeLoadImages'
 import isValidURL from "@mediamonks/temple/util/isValidURL";
 
 export default class Banner extends Entity {
@@ -39,6 +40,9 @@ export default class Banner extends Entity {
   async init() {
     await super.init();
 
+    await politeLoadImages(document.body.querySelector('.content'));
+
+    this.domNetflixVideoSupercut = document.body.querySelector('[data-dynamic-key="Supercut"]');
     this.domMainExit = document.body.querySelector('.mainExit');
     this.domnNetflixCta = document.body.querySelector('netflix-cta');
 
@@ -49,6 +53,11 @@ export default class Banner extends Entity {
     this.domMainExit.addEventListener('mouseout', this.handleRollOut);
 
     this.animation = new Animation(document.querySelector('.banner'));
+
+    if(this.animation.hasSuperCut) {
+      this.domNetflixVideoSupercut.addEventListener('video-complete', this.handleVideoEndedSupercut);
+      this.domNetflixVideoSupercut.addEventListener('video-close', this.handleVideoEndedSupercut);
+    }
   }
 
   exit = () => {
@@ -77,6 +86,10 @@ export default class Banner extends Entity {
    */
   handleRollOut = () => {
     this.domnNetflixCta.mouseout();
+  };
+
+  handleVideoEndedSupercut = () => {
+    this.animation.start.play("outro");
   };
 
   /**

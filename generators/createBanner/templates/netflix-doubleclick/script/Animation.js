@@ -24,6 +24,10 @@ export default class Animation {
     this.pedegree = new StaggerAnimation(container.querySelectorAll('.pedigree [animate]'));
 
     this.domCover = container.querySelector('.cover');
+
+    if(this.container.querySelector('[data-dynamic-key="Supercut"]') != null) {
+      this.domNetflixVideoSupercut = container.querySelector('[data-dynamic-key="Supercut"]');
+    }
   }
 
   enableSuperCut() {
@@ -79,5 +83,10 @@ export default class Animation {
     this.domNetflixVideo.pause();
     this.domNetflixVideo.close();
     this.brandLogo.element.timeline.progress(1).pause();
+
+    if(this.container.querySelector('[data-dynamic-key="Supercut"]') != null) {
+      this.domNetflixVideoSupercut.pause();
+      this.domNetflixVideoSupercut.close();
+    }
   }
 }
