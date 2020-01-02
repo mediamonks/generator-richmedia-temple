@@ -32,18 +32,20 @@ body {
   left: 0;
   top: 0;
   width: var(--width);
-  height: var(--width);
+  height: var(--height);
 }
 
 .border {
   border: 1px solid #000000;
+
 }
 
 .banner {
   position: relative;
   overflow: hidden;
   width: var(--width);
-  height: var(--width);
+  height: var(--height);
+  opacity: 0;
 }
 
 .cta {}

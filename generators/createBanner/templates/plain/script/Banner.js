@@ -1,14 +1,17 @@
 import Entity from '@mediamonks/temple/Entity';
 import ConfigComponent from "@mediamonks/temple/component/ConfigComponent";
 
+import Animation from './Animation';
+
 export default class Banner extends Entity {
 
   constructor(config) {
     super();
 
     // add required components here
-    if(config){
-      this.addComponent(new ConfigComponent(config))
+    if (config) {
+      this.addComponent(new ConfigComponent(config));
+      this.config = config;
     }
   }
 
@@ -20,10 +23,18 @@ export default class Banner extends Entity {
     this.domMainExit.addEventListener('click', this.handleClick);
     this.domMainExit.addEventListener('mouseover', this.handleRollOver);
     this.domMainExit.addEventListener('mouseout', this.handleRollOut);
+    this.animation = new Animation(document.querySelector('.banner'), this.config);
+    this.timeline = this.animation.createTimeline();
+    this.timeline.play();
   }
 
   exit = () => {
-    window.open('https://www.google.com', '_blank')
+    window.open(window.clickTag, '_blank');
+    this.handleExit();
+  };
+
+  handleExit = () => {
+   
   };
 
   /**
