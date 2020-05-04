@@ -96,6 +96,11 @@ module.exports = class extends Generator {
         break;
       }
 
+      case PlatformChoices.DYNAMIC: {
+        this.composeWith(require.resolve('./dynamic'), this.result);
+        break;
+      }
+
       default: {
         break;
       }
