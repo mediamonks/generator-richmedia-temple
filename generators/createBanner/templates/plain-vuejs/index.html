@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>300x250</title>
+      <link rel="stylesheet" href="./css/style.css" type="text/css">
+  </head>
+
+  <body>
+    <div id="app" class="banner border">
+
+      <!-- EXAMPLE: https://blog.usejournal.com/vue-js-gsap-animations-26fc6b1c3c5a -->
+
+      <div class="bubble-wrapper" ref="bubbleWrapper">
+        <div ref="bubble" class="bubble">
+          <img ref="bubbleImage"
+                class="bubble-image"
+                :src="currentLogo" />
+        </div>
+        <div ref="bubblePulse" class="bubble-pulse"></div>
+      </div>
+
+      <div class="mainExit"
+        ref="mainExit"
+        v-bind:class="{ fullscreen: isExitActive }"
+        v-on:click="mainExitOnClick()"
+        v-on:mouseover="onMouseover()"
+        v-on:mouseleave="onMouseleave()"
+      ></div>
+    </div>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script> -->
+    <script src="https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.0.1_min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  </body>
+</html>

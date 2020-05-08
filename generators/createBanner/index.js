@@ -101,6 +101,11 @@ module.exports = class extends Generator {
         break;
       }
 
+      case PlatformChoices.PLAIN_VUEJS: {
+        this.composeWith(require.resolve('./plain-vuejs'), this.result);
+        break;
+      }
+
       default: {
         break;
       }
