@@ -7,8 +7,8 @@
       "html": "./index.html"
     },
     "size": {
-      "width": 300,
-      "height": 250
+      "width": 0,
+      "height": 0
     }
   },
   "content": {},

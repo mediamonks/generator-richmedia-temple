@@ -1,7 +1,6 @@
 :root {
-  --width: 300px;
-  --height: 250px;
-  --background: #5fbfff;
+  --width: <%= banner_width %>px;
+  --height: <%= banner_height %>px;
 }
 
 html {
@@ -23,17 +22,6 @@ body {
   height: 100%;
 }
 
-.hide {
-  border:0!important;
-  clip:rect(0 0 0 0)!important;
-  height:1px!important;
-  margin:-1px!important;
-  overflow:hidden!important;
-  padding:0!important;
-  position: absolute!important;
-  width:1px!important;
-}
-
 .fullscreen {
   position: absolute;
   left: 0;
@@ -51,7 +39,7 @@ body {
   width: var(--width);
   height: var(--height);
   background-color: var(--background);
-  /* visibility: hidden; */
+  visibility: hidden;
 }
 
 .mainExit {
@@ -62,40 +50,4 @@ body {
   height: 100%;
   cursor: pointer;
   background: url('../img/1x1_blank.png');
-}
-
-#bannerReady {
-  position: absolute;
-  width: 100%;
-  height: auto;
-  top: 50px;
-  left: 0;
-  text-align: center;
-  font-size: 23px;
-  color: #fff;
-}
-
-.bubble-wrapper {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  margin: 25% auto;
-}
-
-.bubble {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid white;
-  background: #272727;
-  border-radius: 50%;
-  height: 100px;
-  width: 100px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-}
-
-.bubble-image {
-  width: 50%;
 }
