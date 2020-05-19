@@ -5,13 +5,17 @@ export default class Animation {
     this.timeline = null;
   }
 
-  onCompleteAnimation() {
-    console.log("onCompleteAnimation");
+  onMouseoverAnimation = () => {}
+
+  onMouseleaveAnimation = () => {}
+
+  onCompleteAnimation() {};
+
+  gotoEndframe = () => {
+    this.timeline.progress(1);
   };
 
   createMainTimeline = () => {
-    console.log("createMainTimeline");
-
     const { app } = this.banner.$refs;
 
     this.timeline = new TimelineLite({ onComplete: () => this.onCompleteAnimation() });

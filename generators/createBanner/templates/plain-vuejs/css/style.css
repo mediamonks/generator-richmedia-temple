@@ -50,4 +50,5 @@ body {
   height: 100%;
   cursor: pointer;
   background: url('../img/1x1_blank.png');
+  z-index: 10;
 }

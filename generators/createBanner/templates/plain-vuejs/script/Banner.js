@@ -24,13 +24,14 @@ let banner = (config) => {
     */
     methods: {
       mainExitOnClick() {
-        console.log('mainExitOnClick');
+        this.animation.gotoEndframe();
+        window.open(window.clickTag, '_blank');
       },  
       onMouseover() {
-        console.log('onMouseover');
+        this.animation.onMouseoverAnimation();
       },    
       onMouseleave() {
-        console.log('onMouseleave');
+        this.animation.onMouseleaveAnimation();
       }
     },
 
