@@ -18,7 +18,7 @@ export default class Animation {
   createMainTimeline = () => {
     const { app } = this.banner.$refs;
 
-    this.timeline = new TimelineLite({ onComplete: () => this.onCompleteAnimation() });
+    this.timeline = gsap.timeline({ onComplete: () => this.onCompleteAnimation() });
 
     this.timeline
       .add("init")
