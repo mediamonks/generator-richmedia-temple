@@ -5,11 +5,17 @@ export default class Animation {
     this.timeline = null;
   }
 
-  onMouseoverAnimation = () => {}
+  onMouseoverAnimation = () => {
+    console.log("onMouseoverAnimation");
+  }
 
-  onMouseleaveAnimation = () => {}
+  onMouseleaveAnimation = () => {
+    console.log("onMouseleaveAnimation");
+  }
 
-  onCompleteAnimation() {};
+  onCompleteAnimation() {
+    this.banner.animationEnd = true;
+  };
 
   gotoEndframe = () => {
     this.timeline.progress(1);

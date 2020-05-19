@@ -14,6 +14,7 @@ let banner = (config) => {
       return {
         bannerSize: `${size.width}x${size.height}`,
         isExitActive: true,
+        animationEnd: false,
         animation: null,
         message: 'Ready to work'
       };
