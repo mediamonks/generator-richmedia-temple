@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title><%= banner_width %>x<%= banner_height %></title>
+      <link rel="stylesheet" href="./css/style.css" type="text/css">
+  </head>
+
+  <body>
+    <div id="app" class="banner border" ref="app">
+      <div class="content fullscreen" ref="content">
+        <div class="cta">{{message}}</div>
+      </div>
+
+      <div class="mainExit"
+        ref="mainExit"
+        v-bind:class="{ fullscreen: isExitActive }"
+        v-on:click="mainExitOnClick()"
+        v-on:mouseover="onMouseover()"
+        v-on:mouseleave="onMouseleave()"
+      ></div>
+    </div>
+
+    <script src="https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.0.1_min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  </body>
+</html>
