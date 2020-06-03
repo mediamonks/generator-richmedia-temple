@@ -1,4 +1,3 @@
-import Animation from './Animation';
 import Lifecycle from './Lifecycle';
 
 let banner = (config) => {
