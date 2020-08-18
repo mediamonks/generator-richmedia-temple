@@ -11,6 +11,11 @@ module.exports = class extends Generator {
   async action() {
     const [width, height] = this.options.size.split('x');
 
+    this.fs.extendJSON(
+      this.destinationPath('package.json'),
+      this.fs.readJSON(this.templatePath('plain/extendPackageJson.json')),
+    );
+
     // main html
     this.fs.copyTpl(
       this.templatePath('plain/index.html'),

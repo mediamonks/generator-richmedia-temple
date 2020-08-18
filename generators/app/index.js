@@ -21,7 +21,7 @@ Create, change and start developing your richmedia units
         choices: [
           'create a banner',
           'create a 3D banner',
-          {name: 'create spritesheet', disabled: false}
+          // {name: 'create spritesheet', disabled: false}
         ],
       },
     ]);

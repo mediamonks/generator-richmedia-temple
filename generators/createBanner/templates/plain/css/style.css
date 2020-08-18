@@ -3,8 +3,8 @@
   --grey: #221f1f;
   --white: #221f1f;
 
-  --width: <%= banner_width %>px;
-  --height: <%= banner_height %>px;
+  --width: var(--settings-size-width)px;
+  --height: var(--settings-size-height)px;
 }
 
 html {
@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  background-color: #fff;
+  background-color: var(--content-bgcolor);
   margin: 0;
   padding: 0;
   width: 100%;

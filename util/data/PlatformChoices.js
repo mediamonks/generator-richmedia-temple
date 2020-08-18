@@ -1,8 +1,6 @@
 const PlatformChoices = {
-  DOUBLECLICK: 'doubleclick',
-  NETFLIX_DOUBLECLICK: 'netflix doubleclick',
-  NETFLIX_SITESERVED: 'netflix site served',
   PLAIN: 'plain',
+  DOUBLECLICK: 'doubleclick',
   DYNAMIC: 'dynamic',
   PLAIN_VUEJS: 'plain with VueJS',
 };

@@ -61,7 +61,7 @@ module.exports = class extends Generator {
       })),
     };
 
-    // checking if package.json is already there
+
     this.result = {
       ...this.result,
       ...(await this.prompt([
@@ -77,22 +77,14 @@ module.exports = class extends Generator {
 
   action() {
     switch (this.result.type) {
-      case PlatformChoices.NETFLIX_DOUBLECLICK: {
-        this.composeWith(require.resolve('./netflix-doubleclick'), this.result);
-        break;
-      }
-      case PlatformChoices.NETFLIX_SITESERVED: {
-        this.composeWith(require.resolve('./netflix-siteserved'), this.result);
+
+      case PlatformChoices.PLAIN: {
+        this.composeWith(require.resolve('./plain'), this.result);
         break;
       }
 
       case PlatformChoices.DOUBLECLICK: {
         this.composeWith(require.resolve('./doubleclick'), this.result);
-        break;
-      }
-
-      case PlatformChoices.PLAIN: {
-        this.composeWith(require.resolve('./plain'), this.result);
         break;
       }
 
