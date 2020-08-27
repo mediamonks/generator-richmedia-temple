@@ -1,6 +1,5 @@
 import Entity from '@mediamonks/temple/Entity';
 import DoubleClickPlatformComponent from '@mediamonks/temple/component/platform/DoubleClickPlatformComponent';
-import ConfigComponent from "@mediamonks/temple/component/ConfigComponent";
 import EventDispatcherComponent from "@mediamonks/temple/component/EventDispatcherComponent";
 
 import DoubleClickEventEnum from "@mediamonks/temple/event/DoubleClickEventEnum";
@@ -11,9 +10,8 @@ export default class Banner extends Entity {
   constructor(config = null) {
     super();
 
-    if(config){
-      this.addComponent(new ConfigComponent(config))
-    }
+    this.config = config;
+
     this.addComponent(new DoubleClickPlatformComponent());
     this.addComponent(new EventDispatcherComponent());
   }

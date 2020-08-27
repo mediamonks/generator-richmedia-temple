@@ -1,0 +1,13 @@
+{
+  "name": "hello_moto 2",
+  "parent": "./.richmediarc.300x250",
+  "settings": {
+    "size": {
+      "width": 160,
+      "height": 600
+    }
+  },
+  "content": {
+    "bgimage": "./img/160x600.jpg"
+  }
+}
