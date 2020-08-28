@@ -102,10 +102,5 @@ module.exports = class extends Generator {
         break;
       }
     }
-
-    // always create a static directory
-    mkdirp(this.destinationPath(path.join(this.result.outputPath, 'static')), err => {
-      if (err) console.error(err);
-    });
   }
 };

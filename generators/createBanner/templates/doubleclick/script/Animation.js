@@ -1,5 +1,3 @@
-import StaggerAnimation from '@mediamonks/temple/animation/StaggerAnimation';
-
 export default class Animation {
 
   hasEnded = false;

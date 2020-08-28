@@ -33,6 +33,11 @@ module.exports = class extends Generator {
       this.destinationPath(path.join(this.options.outputPath, 'script')),
     );
 
+    this.fs.copy(
+      this.templatePath('dynamic/static'),
+      this.destinationPath(path.join(this.options.outputPath, 'static')),
+    );
+
     // copy pasting css
     this.fs.copyTpl(
       this.templatePath('dynamic/css/style.css'),

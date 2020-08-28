@@ -10,8 +10,6 @@ export default class Banner extends Entity {
 
     this.config = config;
 
-    console.log(this.config.content);
-
     // bind variable to html
     dataBind(this.config.content, document.body);
   }
