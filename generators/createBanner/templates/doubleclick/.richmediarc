@@ -10,7 +10,9 @@
     }
   },
 
-  "content": {},
+  "content": {
+    "background": "#000"
+  },
   "doubleclick": {
     "creative": "",
     "agency": "Mediamonks"

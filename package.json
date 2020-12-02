@@ -33,5 +33,8 @@
     "yosay": "^2.0.1"
   },
   "repository": "mediamonks/generator-richmedia-temple",
-  "devDependencies": {}
+  "devDependencies": {
+    "@mediamonks/richmedia-temple-server": "^6.0.2",
+    "@mediamonks/temple": "^4.1.0"
+  }
 }

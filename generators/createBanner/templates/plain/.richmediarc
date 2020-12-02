@@ -1,5 +1,6 @@
 {
   "settings": {
+    "type": "plain",
     "entry": {
       "js": "./script/main.js",
       "html": "./index.html"

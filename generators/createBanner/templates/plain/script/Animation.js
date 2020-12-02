@@ -2,6 +2,7 @@ export default class Animation {
   /**
    *
    * @param {HTMLDivElement} container
+   * @param {null} config
    */
   constructor(container, config) {
     this.container = container;
@@ -10,15 +11,16 @@ export default class Animation {
     this.fadeIn = new TimelineMax({pause: true});
     this.fadeIn.to(".banner", 1, {opacity: 1});
 
+    this.fadeOut = new TimelineMax({pause: true});
+    this.fadeOut.to(".banner", 1, {opacity: 0});
+
   }
 
-  async playFadeIn() {
+  playFadeIn() {
     this.fadeIn.play();
   }
 
-  async playFadeOut() {
-    const tl = new TimelineMax({pause: true});
-    tl.to(".banner", 1, {opacity: 0});
-    tl.play();
+  playFadeOut() {
+    this.fadeOut.play();
   }
 }

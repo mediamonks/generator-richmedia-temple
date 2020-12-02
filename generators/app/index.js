@@ -28,23 +28,19 @@ Create, change and start developing your richmedia units
   }
 
   async action() {
-    if (!hasInitialSetup(this)) {
-      this.composeWith(require.resolve('../setup'), { options: '' });
-    }
 
     switch (this.result.todo) {
       case 'create a banner': {
+        if (!hasInitialSetup(this)) {
+          this.composeWith(require.resolve('../setup'), { options: '' });
+        }
+
         this.composeWith(require.resolve('../createBanner'), { options: '' });
         break;
       }
 
       case 'create a 3D banner': {
         this.composeWith(require.resolve('../create3DBanner'), { options: '' });
-        break;
-      }
-
-      case 'create spritesheet': {
-        this.composeWith(require.resolve('../createSpritesheet'), { options: '' });
         break;
       }
 

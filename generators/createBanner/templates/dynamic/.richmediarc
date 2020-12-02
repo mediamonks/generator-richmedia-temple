@@ -11,7 +11,9 @@
       "height": 0
     }
   },
-  "content": {},
+  "content": {
+    "background": "#5fbfff"
+  },
   "doubleclick": {
     "creative": "",
     "agency": "Mediamonks"

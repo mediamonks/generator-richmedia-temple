@@ -1,7 +1,5 @@
 :root {
-  --width: <%= banner_width %>px;
-  --height: <%= banner_height %>px;
-  --background: #000;
+
 }
 
 html {
@@ -48,9 +46,9 @@ body {
 
 .banner {
   position: relative;
-  width: var(--width);
-  height: var(--height);
-  background-color: var(--background);
+  width: var(--settings-size-width);
+  height: var(--settings-size-height);
+  background-color: var(--content-background);
 }
 
 .mainExit {

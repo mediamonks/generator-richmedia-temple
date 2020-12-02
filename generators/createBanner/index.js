@@ -10,6 +10,8 @@ module.exports = class extends Generator {
   async questions() {
     this.log(`Creating banner`);
 
+    // searching for existing
+
     this.result = {
       ...this.result,
       ...(await this.prompt([
