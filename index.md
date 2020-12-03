@@ -1,37 +1,79 @@
-## Welcome to GitHub Pages
+First lets get started with something simple.
 
-You can use the [editor on GitHub](https://github.com/mediamonks/generator-richmedia-temple/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## Initial Setup
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+So for this you need [yeoman](https://yeoman.io/). [yeoman](https://yeoman.io/) is web scaffolding tool for modern webtools. Please go to there website if you want to know more.
+Lets install yeoman globaly so its available in your terminal / command prompt as "yo"
 
-### Markdown
+`npm install -G yo`
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+_yeoman has been installed globally_
 
-```markdown
-Syntax highlighted code block
+Now lets install the richmedia generator globally so yeoman can use this generator to start scaffolding you richmedia unit, used for scaffolding all your initial projects. 
 
-# Header 1
-## Header 2
-### Header 3
+`npm install -G generator-richmedia-temple`
 
-- Bulleted
-- List
+_richmedia-temple generator for yemoan has been installed globally_
 
-1. Numbered
-2. List
+## Lets get started
 
-**Bold** and _Italic_ and `Code` text
+Its advisable when creating a new richmedia unit to first scaffold the initial project. This will save you a lot of time and effort.
 
-[Link](url) and ![Image](src)
+Lets run the richmedia-temple generator.
+
+`yo richmedia-temple`
+
+_Your now running the richmedia-temple generator. generator-richmedia-temple._
+
+And follow the instructions, like you see below. You can use the arrow keys and enter key on your keyboard to make choices.
+
+```bash
+Welcome to Richmedia Temple Generator v1.4.1
+-
+Create, change and start developing your richmedia units
+
+? What do you want to do? (Use arrow keys)
+❯ create a banner 
+  edit a banner
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+```bash
+I'm seeing you did not setup your project yet
+? Your project name (yo-test)
+```
 
-### Jekyll Themes
+```bash
+Creating banner
+? Please fill in size of banner (300x250) 
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/mediamonks/generator-richmedia-temple/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+```bash
+? Where do you want to put it? (./src/300x250/) 
+```
 
-### Support or Contact
+```bash
+? Type of banner is this (Use arrow keys)
+  doubleclick 
+  netflix 
+❯ plain
+```
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Building and Running.
+
+You now should see a few files in the directory that you executed the generator on.
+
+| Filename                     | Description                                                                                                                                                |
+|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| .editorconfig                | configuration file for you editor. So everyone atleasts uses the same basic settings.                                                                      |
+| .gitignore                   | configuration file used by git so it knows which files to ignore.                                                                                          |
+| .prettierrc                  | A configuration file for prettier printer                                                                                                                  |
+| package.json                 | A configuration file for NPM / YARN, one of the most important files in your project.                                                                      |
+| node_modules                 | all the packages / libraries your project uses.                                                                                                            |
+| src/300x250/.richmediarc     | The configuration file for the richmedia-temple-server, This file is used so that the richmedia-temple-server knows what directories are richmedia units.  |
+| src/300x250/script/main.js   | Javascript File this is referenced by the .richmediarc file.                                                                                               |
+| src/300x250/script/Banner.js | The banner javascript code.                                                                                                                                |
+| src/300x250/index.html       | Main html file, this file is referenced by the .richmediarc file.                                                                                          |
+
+To start developing you need to run a server a webpack server. Setting up a webpack server is a bit of a hassle thats why the generator and the richmedia-temple-server do this for you in conjuction with the .richmediarc file.
+
+You should now go to the documentation of the [@mediamonks/richmedia-temple-server](https://mediamonks.github.io/richmedia-temple-server/) https://mediamonks.github.io/richmedia-temple-server/
