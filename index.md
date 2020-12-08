@@ -5,7 +5,7 @@ First lets get started with something simple.
 So for this you need [yeoman](https://yeoman.io/). [yeoman](https://yeoman.io/) is web scaffolding tool for modern webtools. Please go to there website if you want to know more.
 Lets install yeoman globaly so its available in your terminal / command prompt as "yo"
 
-`npm install -G yo`
+`npm install --global yo`
 
 _yeoman has been installed globally_
 
