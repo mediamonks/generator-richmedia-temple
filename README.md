@@ -3,7 +3,7 @@
 > Create a richmedia temple project !
 
 ## Getting started
-See https://assets-at-scale.gitbook.io/temple-suite/ for documentation to getting started.
+See https://mediamonks.github.com/generator-richmedia-temple for documentation to getting started.
 
 ## Installation
 
