@@ -72,7 +72,11 @@ You now should see a few files in the directory that you executed the generator 
 | src/300x250/.richmediarc     | The configuration file for the richmedia-temple-server, This file is used so that the richmedia-temple-server knows what directories are richmedia units.  |
 | src/300x250/script/main.js   | Javascript File this is referenced by the .richmediarc file.                                                                                               |
 | src/300x250/script/Banner.js | The banner javascript code.                                                                                                                                |
+| src/300x250/Animation.js     | The banner javascript code where you create and invoke the animation.
+                       |
 | src/300x250/index.html       | Main html file, this file is referenced by the .richmediarc file.                                                                                          |
+| src/300x250/css/style.css    | Style sheet language used for describing the presentation of a document written in a markup language such as HTML
+                       |
 
 To start developing you need to run a server a webpack server. Setting up a webpack server is a bit of a hassle thats why the generator and the richmedia-temple-server do this for you in conjuction with the .richmediarc file.
 
