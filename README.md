@@ -32,12 +32,7 @@ yo richmedia-temple
 Then follow the instructions on your screen.
 
  - create Banner
-   - doubleclick
-   - netflix doubleclick
-   - netflix site served
-   - plain
  - create 3D Banner
- - create Spritesheet
 
 ## License
 
