@@ -32,7 +32,7 @@ Software required
 
 Now, open a terminal and do the following:
 
-- **Step 1** install [Yeoman](https://yeoman.io/) globally
+**Step 1** install [Yeoman](https://yeoman.io/) globally
 
 $ `npm install -g yo`
 
@@ -40,7 +40,7 @@ $ `npm install -g yo`
 <img src="https://res.cloudinary.com/frankie-dev/image/upload/v1608809628/MM_Temple_Server_docs/Screenshot_yoeman_install.png" />
 </div>  
 
-- **Step 2** Install Media Monks generator globally
+**Step 2** Install Media Monks generator globally
 
 $ `npm install -g generator-richmedia-temple`
 
@@ -62,7 +62,7 @@ If it shows you the version number, continue to the next step
 
 In the terminal, make your way to a new project folder of your choosing, i.e. documents/work/my-banner-project
 
-- **Step 3** generate (scaffold) a new banner project. This will generate all the necessary files and folder structure
+**Step 3** generate (scaffold) a new banner project. This will generate all the necessary files and folder structure
   you need for the project.
 
 $ `yo richmedia-temple`
@@ -89,7 +89,7 @@ After you make your selection, the following menu appears
 
 In this menu you can use the arrow keys to navigate the cursor.
 
-- **Step 4** We’re just going to create a standard banner in this guide, so in this case, just hit Enter to select
+**Step 4** We’re just going to create a standard banner in this guide, so in this case, just hit Enter to select
   ‘create a banner’.
 
 Enter the name of the project or just hit enter to use the default, which is the folder name.
@@ -98,7 +98,7 @@ Enter the name of the project or just hit enter to use the default, which is the
 <img src="https://res.cloudinary.com/frankie-dev/image/upload/v1608811916/MM_Temple_Server_docs/Screenshot_banner-name.png" />
 </div>
 
-- **Step 5** Select the first unit you would like the generator to create. Use the arrow keys to navigate and hit Enter
+**Step 5** Select the first unit you would like the generator to create. Use the arrow keys to navigate and hit Enter
   when ready.
 
 <div style="display: flex; justify-content: center">
@@ -160,7 +160,7 @@ package.json ([more info](https://docs.google.com/document/d/18yvVCWTs0-tUXli90f
 
 package-lock.json
 
-- **Step 6** Make sure everything works by running
+**Step 6** Make sure everything works by running
 
 $ `npm run dev` ([more info](https://docs.google.com/document/d/18yvVCWTs0-tUXli90fnnok4tv4JzQVo3DLaQRDtSlIY/edit#heading=h.pbe720401c8i))
 
@@ -200,7 +200,7 @@ The .richmediarc file is one of the files that gets generated when you start a n
 
 You can find it in the root directory of your creative, i.e. /src/300x250.
 
-**Important:** Each creative requires at least one .richmediarc file
+> **_Important_** Each creative requires at least one .richmediarc file
 
 In a freshly generated project, the .richmediarc will look something like this
 
@@ -235,8 +235,8 @@ compiled creative which you see in the preview.
 
 It’s possible to make changes to this file while the preview server is running.
 
-**Note: in older versions of generator-richmedia-temple changes made to the .richmediarc file require stopping and
-restarting the dev server**
+> **_Note:_** in older versions of generator-richmedia-temple changes made to  the 
+.richmediarc file require stopping and restarting the dev server.
 
 Go ahead and change content.bgcolor to something else and save the file. In the terminal, you’ll see the creative
 getting recompiled. Once done, you can refresh the preview page and see the changes you made reflected in the preview
@@ -283,7 +283,7 @@ In .richmediarc:
 }
 ```
 
-**Important: Paths are *ALWAYS* relative to the .richmediarc file**
+> **_Important:_** Paths are *ALWAYS* relative to the .richmediarc file
 
 In index.html:
 
@@ -566,8 +566,9 @@ at [http://localhost:8000](http://localhost:8000).
 
 (if port 8000 is busy, it will automatically use the next available port, 8001, 8002, etc)
 
-**Important: You don’t have to restart the server if you make any changes to your banner’s code. It will automatically
-recompile your units when it detects changes in the source code.**
+> **_Note:_** You don’t have to restart the server if you make any changes to 
+your banner’s code. It will automatically recompile your units when it detects changes in the source 
+code.
 
 # Build and upload your preview
 
