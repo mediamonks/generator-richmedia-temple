@@ -1,17 +1,24 @@
 # Contents
 
-- [Installation](#installations)
-- [Creating a new project](#creating-a-new-project)
-- [.richmediarc](#richmediarc)
-    - [Basic .richmediarc concepts](#basic-.richmediarc-concepts)
-    - [Advanced .richmediarc concepts](#advanced-.richmediarc-concepts)
-    - [Google Sheets](#google-sheets)
-- [Running a development server locally](#running-a-development-server-locally)
-- [Build and upload your preview](#build-and-upload-your-preview)
-    - [Build](#build)
-    - [Upload](#upload)
-- [Types of banners](#types-of-banners)
-- [Package.json](#package.json)
+[Installation](#installations)
+
+[Creating a new project](#creating-a-new-project)
+
+[.richmediarc](#richmediarc)
+- [Basic .richmediarc concepts](#basic-.richmediarc-concepts)
+- [Advanced .richmediarc concepts](#advanced-.richmediarc-concepts)
+  
+[Google Sheets](#google-sheets)
+  
+[Running a development server locally](#running-a-development-server-locally)
+
+[Build and upload your preview](#build-and-upload-your-preview)
+- [Build](#build)
+- [Upload](#upload)
+  
+[Types of banners](#types-of-banners)
+
+[Package.json](#package.json)
 
 # Installation
 
@@ -260,7 +267,7 @@ In index.html:
 ```html
 
 <body>
-<div class="cta" data-bind="text: cta"></div>
+  <div class="cta" data-bind="text: cta"></div>
 </body>
 ``` 
 
@@ -283,7 +290,7 @@ In index.html:
 ```html
 
 <body>
-<img class="background-image" data-bind="src: bg-img-url"></div>
+  <img class="background-image" data-bind="src: bg-img-url"></div>
 </body>
 ```  
 
