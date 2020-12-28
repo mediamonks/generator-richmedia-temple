@@ -6,7 +6,7 @@
 
 [Creating a new project](#creating-a-new-project)
 
-[Adjusting a banner](#adjust-a-banner) 
+[Adjusting a banner](#adjusting)
 
 [.richmediarc](#richmediarc)
 - [Basic .richmediarc concepts](#basic-.richmediarc-concepts)
