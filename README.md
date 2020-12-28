@@ -1,4 +1,5 @@
 # Contents
+
 - [Installation](#installations)
 - [Creating a new project](#creating-a-new-project)
 - [.richmediarc](#richmediarc)
@@ -16,14 +17,11 @@
 
 Software required
 
--   Terminal i.e Windows Powershell, iTerm (Mac OS) etc
+- Terminal i.e Windows Powershell, iTerm (Mac OS) etc
 
--   Code editor, i.e. [VSCode](https://code.visualstudio.com/), [Webstorm](https://www.jetbrains.com/webstorm/) etc
+- Code editor, i.e. [VSCode](https://code.visualstudio.com/), [Webstorm](https://www.jetbrains.com/webstorm/) etc
 
--   [NodeJS](https://nodejs.org/en/) V12 or higher
-
-
-
+- [NodeJS](https://nodejs.org/en/) V12 or higher
 
 Now, open a terminal and do the following:
 
@@ -57,7 +55,8 @@ If it shows you the version number, continue to the next step
 
 In the terminal, make your way to a new project folder of your choosing, i.e. documents/work/my-banner-project
 
-- **Step 3** generate (scaffold) a new banner project. This will generate all the necessary files and folder structure you need for the project.
+- **Step 3** generate (scaffold) a new banner project. This will generate all the necessary files and folder structure
+  you need for the project.
 
 $ `yo richmedia-temple`
 
@@ -83,7 +82,8 @@ After you make your selection, the following menu appears
 
 In this menu you can use the arrow keys to navigate the cursor.
 
-- **Step 4** We’re just going to create a standard banner in this guide, so in this case, just hit Enter to select ‘create a banner’.
+- **Step 4** We’re just going to create a standard banner in this guide, so in this case, just hit Enter to select
+  ‘create a banner’.
 
 Enter the name of the project or just hit enter to use the default, which is the folder name.
 
@@ -91,14 +91,15 @@ Enter the name of the project or just hit enter to use the default, which is the
 <img src="https://res.cloudinary.com/frankie-dev/image/upload/v1608811916/MM_Temple_Server_docs/Screenshot_banner-name.png" />
 </div>
 
-
-- **Step 5** Select the first unit you would like the generator to create. Use the arrow keys to navigate and hit Enter when ready.
+- **Step 5** Select the first unit you would like the generator to create. Use the arrow keys to navigate and hit Enter
+  when ready.
 
 <div style="display: flex; justify-content: center">
 <img src="https://res.cloudinary.com/frankie-dev/image/upload/v1608812165/MM_Temple_Server_docs/Screenshot_select-unit-size.png" />
 </div> 
 
-Enter the directory where you wish the source files to be placed. Just hit enter to use the default, which is something like “./src/{size}x{width}”
+Enter the directory where you wish the source files to be placed. Just hit enter to use the default, which is something
+like “./src/{size}x{width}”
 
 <div style="display: flex; justify-content: center">
 <img src="https://res.cloudinary.com/frankie-dev/image/upload/v1608812294/MM_Temple_Server_docs/Screenshot_source-directory.png" />
@@ -112,9 +113,8 @@ Select the type of banner (refer to [types of banners](#types-of-banners) for mo
 
 For the purposes of this guide, select ‘plain’.
 
-
-
-The generator will generate the basic template files and install the according node modules as well. This process will take a minute.
+The generator will generate the basic template files and install the according node modules as well. This process will
+take a minute.
 
 When it’s done, you’ll end up with a directory looking something like this
 
@@ -122,14 +122,14 @@ When it’s done, you’ll end up with a directory looking something like this
 <img src="https://res.cloudinary.com/frankie-dev/image/upload/v1608814657/MM_Temple_Server_docs/Screenshot_project-structure.png" />
 </div>
 
-/node_modules/
-/src
+/node_modules/ /src
+
 - /**300x250** (assuming you created a 300x250)
 
     - /**css**/
-        -  styles.css
+        - styles.css
 
-    -  /**img**/
+    - /**img**/
         - 1x1_blank.png
 
     - /**script**/
@@ -139,7 +139,8 @@ When it’s done, you’ll end up with a directory looking something like this
 
     - /static/
         - 1x1_blank.png
-    - .richmediarc ([more info](https://docs.google.com/document/d/18yvVCWTs0-tUXli90fnnok4tv4JzQVo3DLaQRDtSlIY/edit#heading=h.i6sft07plj7m))
+    -
+  .richmediarc ([more info](https://docs.google.com/document/d/18yvVCWTs0-tUXli90fnnok4tv4JzQVo3DLaQRDtSlIY/edit#heading=h.i6sft07plj7m))
     - index.html
 
 .editorconfig
@@ -177,7 +178,8 @@ In your terminal, you’ll be able to see the output of webpack, compiling the s
 <img src="https://res.cloudinary.com/frankie-dev/image/upload/v1608815327/MM_Temple_Server_docs/Screenshot_webpack-compiling.png" />
 </div>  
 
-In your browser, the preview environment will load along with a preview of the compiled version of the banner you just created. The banner should display as a simple unit with a red background.
+In your browser, the preview environment will load along with a preview of the compiled version of the banner you just
+created. The banner should display as a simple unit with a red background.
 
 <div style="display: flex; justify-content: center">
 <img src="https://res.cloudinary.com/frankie-dev/image/upload/v1608815492/MM_Temple_Server_docs/Screenshot_banner-browser.png" />
@@ -215,17 +217,23 @@ In a freshly generated project, the .richmediarc will look something like this
   }  
 }
 ```
-As you can see this file contains configuration settings for your creative, as well as key-value pairs which you can use for content, styling or even functionality.
+
+As you can see this file contains configuration settings for your creative, as well as key-value pairs which you can use
+for content, styling or even functionality.
 
 Size and height should already be set to the correct values based on the selection made during the generator process.
 
-This file is parsed when you run “npm run dev”. Webpack grabs the values from this file and hardcodes them into the compiled creative which you see in the preview.
+This file is parsed when you run “npm run dev”. Webpack grabs the values from this file and hardcodes them into the
+compiled creative which you see in the preview.
 
 It’s possible to make changes to this file while the preview server is running.
 
-**Note: in older versions of generator-richmedia-temple changes made to the .richmediarc file require stopping and restarting the dev server**
+**Note: in older versions of generator-richmedia-temple changes made to the .richmediarc file require stopping and
+restarting the dev server**
 
-Go ahead and change content.bgcolor to something else and save the file. In the terminal, you’ll see the creative getting recompiled. Once done, you can refresh the preview page and see the changes you made reflected in the preview unit.
+Go ahead and change content.bgcolor to something else and save the file. In the terminal, you’ll see the creative
+getting recompiled. Once done, you can refresh the preview page and see the changes you made reflected in the preview
+unit.
 
 ## Basic .richmediarc concepts
 
@@ -233,50 +241,49 @@ Below are some guides on how you can use these values in your creative.
 
 ### Using .richmediarc values in HTML
 
-In your index.html, you can retrieve .richmediarc values using the data-bind attribute on HTML elements. This is made possible by the databind class which is imported by ./js/Banner.js.
-
-
+In your index.html, you can retrieve .richmediarc values using the data-bind attribute on HTML elements. This is made
+possible by the databind class which is imported by ./js/Banner.js.
 
 For example:
 
 In .richmediarc:
+
 ```
 "content": {
 ...
-	"cta": "Click here!"
+  "cta": "Click here!"
 }
 ```  
 
 In index.html:
 
-
 ```html
+
 <body>
-
 <div class="cta" data-bind="text: cta"></div>
-
 </body>
 ``` 
 
 and
 
 In .richmediarc:
+
 ```
 "content": {
-...
-	"bg-img-url": "../shared/images/background_300x250.jpg"
-...
+  ...
+  "bg-img-url": "../shared/images/background_300x250.jpg"
+  ...
 }
 ```
 
 **Important: Paths are *ALWAYS* relative to the .richmediarc file**
 
 In index.html:
+
 ```html
+
 <body>
-
 <img class="background-image" data-bind="src: bg-img-url"></div>
-
 </body>
 ```  
 
@@ -285,47 +292,54 @@ In index.html:
 In CSS, you can retrieve these values as follows:
 
 ```css
-var(--{node}-{childNode}-{childNode})
+.someSelector {
+  styleRule: var(--{node}-{childNode}-{childNode});
+}
 ```
 
 For example:
 
 In .richmediarc:
+
 ```
 "content": {
-...
-	"bgcolor": "#FFFFFF"
-...
+  ...
+  "bgcolor": "#FFFFFF"
+  ...
 }
 ```
+
 In style.css:
+
 ```css
 body {
-	background-color: var(--content-bgcolor);
+  background-color: var(--content-bgcolor);
 }
 ``` 
 
 and
 
 In .richmediarc:
+
 ```
 "settings": {
-
-	"size": {
-
-		"width": 300,
-
-		"height": 250
+  "size": {
+    "width": 300,
+    "height": 250
   }
+  ...
 }
 ```
+
 In style.css:
+
 ```css
 .banner {
-	width: var(--settings-size-width)px;
-	height: var(--settings-size-height)px;
+    width: var(--settings-size-width) px;
+    height: var(--settings-size-height) px;
 }
 ```
+
 ### Using .richmediarc values in javascript
 
 The main javascript file (conveniently named ./js/main.js) imports the .richmediarc files as follows:
@@ -333,11 +347,13 @@ The main javascript file (conveniently named ./js/main.js) imports the .richmedi
 ```js
 import config from "richmediaconfig";
 ```
+
 and passes this object into the Banner constructor
 
 ```js
 const banner = new Banner(config);
 ```
+
 Which also passes the config object to the Animation constructor.
 
 From there, you are able to retrieve pretty much every value from the .richmediarc.
@@ -345,103 +361,102 @@ From there, you are able to retrieve pretty much every value from the .richmedia
 Example:
 
 In .richmediarc:
+
 ```
 "content": {
-...
-	"intro": false
-...
+  ...
+  "intro": false
+  ...
 }
 ```  
+
 In Animation.js:
+
 ```js
 export default class Animation {
-
-constructor(container, config) {
-
-	if (config.content.intro) {
-	// play intro
-	} else {
-	// play main animation
-	}
-  }
+    constructor(container, config) {
+        if (config.content.intro) {
+            // play intro
+        } else {
+            // play main animation
+        }
+    }
 }
 ```
+
 ## Advanced .richmediarc concepts
 
 Below are advanced techniques you can use in the .richmediarc file.
 
 ### Inheritance
 
-Sometimes you need to set up multiple .richmediarc files in the same creative. For example, when you’re working on a multilingual project and you want the English version to say “Click Here”, whereas the French version says ‘Cliquez Ici’.
+Sometimes you need to set up multiple .richmediarc files in the same creative. For example, when you’re working on a
+multilingual project and you want the English version to say “Click Here”, whereas the French version says ‘Cliquez
+Ici’.
 
 In this case, the most elegant solution would be two .richmediarc files. For example:
 
-.richmediarc.en
+`.richmediarc.en`
 
-.richmediarc.fr
+`.richmediarc.fr`
 
+However, there will be a lot of overlap between these two files, if you’re only changing the copy - and not the
+background colors, the width height, the entry files, etc.
 
-However, there will be a lot of overlap between these two files, if you’re only changing the copy - and not the background colors, the width height, the entry files, etc.
-
-Our system supports inheritance of values, by providing a ‘parent’ file from which to inherit all the values defined in that file. The ‘child’ file can then overwrite only the needed values, thereby completely eliminating any overlap between the parent and child files.
+Our system supports inheritance of values, by providing a ‘parent’ file from which to inherit all the values defined in
+that file. The ‘child’ file can then overwrite only the needed values, thereby completely eliminating any overlap
+between the parent and child files.
 
 Example
 
 .richmediarc.en (parent file):
+
 ```
 {
-
-"settings": {
-
-	"type": "plain",
-
+  "settings": {
+    "type": "plain",
 	"entry": {
-
-		"js": "./script/main.js",
-
-		"html": "./index.html"
-},
-	"size": {
-
-		"width": 300,
-
-		"height": 250
-	}
-},
-	"content": {
-
-		"text": "Welcome!",
-
-		"cta": "Click here",
-
-		"bgcolor": "#FF0000"
-
-		"bgimg": "./img/bgimage.jpg"
-	}
+	  "js": "./script/main.js",
+	  "html": "./index.html"
+  },
+  "size": {
+    "width": 300,
+    "height": 250
+    }
+  },
+  "content": {
+    "text": "Welcome!",
+    "cta": "Click here",
+    "bgcolor": "#FF0000",
+    "bgimg": "./img/bgimage.jpg"
+    }
 }
 ```
+
 .richmediarc.fr (child file):
+
 ```
 {
-	"parent": "./richmediarc.en",
-
-	"content": {
-
-		"text": "Bienvenue!",
-
-		"cta": "Cliquez Ici"
-	}
-}
+  "parent": "./richmediarc.en",
+  "content": {
+    "text": "Bienvenue!",
+    "cta": "Cliquez Ici"
+    }
+ }
 ```
-As shown in the example above, in the French .richmediarc, we only specify the parent file, and the new values for text and cta. Everything else is inherited from the parent file.
+
+As shown in the example above, in the French .richmediarc, we only specify the parent file, and the new values for text
+and cta. Everything else is inherited from the parent file.
 
 This method is very useful and scalable, should the need arise to add even more languages or versions.
 
 ### Google Sheets
 
-Instead of having separate .richmediarc files for every version/language of your creative, it’s also possible to use Google Sheets as a data source. When using this method, each row in your sheet (feed) will be seen as a new version.
+Instead of having separate .richmediarc files for every version/language of your creative, it’s also possible to use
+Google Sheets as a data source. When using this method, each row in your sheet (feed) will be seen as a new version.
 
-To make this work, you will need to request a API key. Instructions to do this can be found [here](https://developers.google.com/sheets/api/guides/authorizing#APIKey):
+To make this work, you will need to request a API key. Instructions to do this can be
+found [here](https://developers.google.com/sheets/api/guides/authorizing#APIKey):
 
 (this will only take you a couple of minutes).
 
@@ -449,27 +464,26 @@ In the .richmediarc, you can then add contentSource.url and contentSource.apiKey
 
 Example:
 
-
-
 .richmediarc file:
+
 ```
 {
-	"settings": {
-		"type": "plain",
+  "settings": {
+	"type": "plain",
 	"entry": {
-		"js": "./script/main.js",
-		"html": "./index.html"
+	  "js": "./script/main.js",
+	  "html": "./index.html"
 	},
 	"size": {
-		"width": 300,
-		"height": 250
-	}
+	  "width": 300,
+	  "height": 250
+	},
 	"contentSource": {
-		"url":"URL_TO_SPREADSHEET",
-		"apiKey": "API_KEY_PLACEHOLDER"
+	  "url":"URL_TO_SPREADSHEET",
+	  "apiKey": "API_KEY_PLACEHOLDER"
 	}
   },
-	"content": {
+  "content": {
 	"bgimg": "./img/bgimage.jpg",
 	"copy": "Welcome",
 	"cta": "Click here"
@@ -480,24 +494,24 @@ Example:
 Google spreadsheet:
 <table style="width:100%">  
 	<tr>  
-		<th>bgimg</th>  
-		<th>copy</th>  
-		<th>cta</th>  
+      <th>bgimg</th>  
+      <th>copy</th>  
+      <th>cta</th>  
 	</tr>  
 	<tr>  
-		<td>./img/bgimage.jpg</td>  
-		<td>Welcome</td>  
-		<td>Click Here</td>  
+      <td>./img/bgimage.jpg</td>  
+      <td>Welcome</td>  
+      <td>Click Here</td>  
 	</tr>  
 	<tr>  
-		<td>./img/bgimage_fr.jpg</td>  
-		<td>Bienvenue</td>  
-		<td>Cliquez Ici</td>  
+      <td>./img/bgimage_fr.jpg</td>  
+      <td>Bienvenue</td>  
+      <td>Cliquez Ici</td>  
 	</tr> 
 	<tr>  
-		<td>./img/bgimage_nl.jpg</td>  
-		<td>Welkom</td>  
-		<td>Klik Hier</td>  
+      <td>./img/bgimage_nl.jpg</td>  
+      <td>Welkom</td>  
+      <td>Klik Hier</td>  
 	</tr>  
 </table>
 
@@ -507,13 +521,16 @@ To start the dev server, type the following command in your terminal or console.
 
 $ `npm run dev`
 
-“Dev” is actually a script which is found in package.json, which in turn runs the command rds-dev. After you execute this script, it will start searching for .richmediarc files in all the directories and subdirectories of your project. You’ll see something like this:
+“Dev” is actually a script which is found in package.json, which in turn runs the command rds-dev. After you execute
+this script, it will start searching for .richmediarc files in all the directories and subdirectories of your project.
+You’ll see something like this:
 
 <div style="display: flex; justify-content: center">
 <img src="https://res.cloudinary.com/frankie-dev/image/upload/v1608819040/MM_Temple_Server_docs/Screenshot_npm-run-dev.png" />
 </div> 
 
-Here, you can select which units you wish to preview. Navigate with arrow keys and select (it’s possible to select multiple values) with spacebar, then press enter to confirm your selection.
+Here, you can select which units you wish to preview. Navigate with arrow keys and select (it’s possible to select
+multiple values) with spacebar, then press enter to confirm your selection.
 
 <div style="display: flex; justify-content: center">
 <img src="https://res.cloudinary.com/frankie-dev/image/upload/v1608819367/MM_Temple_Server_docs/Screenshot_dev-server-open-browser.png" />
@@ -537,11 +554,13 @@ Now you will be able to run a dev server with the same selection simply by runni
 
 $ `npm run dev:selection`
 
-It will now compile the banners you selected and start a local server on port 8000. You can see the preview at [http://localhost:8000](http://localhost:8000).
+It will now compile the banners you selected and start a local server on port 8000. You can see the preview
+at [http://localhost:8000](http://localhost:8000).
 
 (if port 8000 is busy, it will automatically use the next available port, 8001, 8002, etc)
 
-**Important: You don’t have to restart the server if you make any changes to your banner’s code. It will automatically recompile your units when it detects changes in the source code.**
+**Important: You don’t have to restart the server if you make any changes to your banner’s code. It will automatically
+recompile your units when it detects changes in the source code.**
 
 # Build and upload your preview
 
@@ -551,14 +570,17 @@ To build your project, run the build script in your terminal or console.
 
 $ `npm run build`
 
-“build” is actually a script which is found in package.json, which in turn runs the command rds-build. After you execute this script, it will start searching for .richmediarc files in all the directories and subdirectories of your project. You’ll see something like this:
+“build” is actually a script which is found in package.json, which in turn runs the command rds-build. After you execute
+this script, it will start searching for .richmediarc files in all the directories and subdirectories of your project.
+You’ll see something like this:
 
 
 <div style="display: flex; justify-content: center">
 <img src="https://res.cloudinary.com/frankie-dev/image/upload/v1608825477/MM_Temple_Server_docs/Screenshot_npm-run-build.png" />
 </div>  
 
-Here, you can select which units you wish to build. Navigate with arrow keys and select (it’s possible to select multiple values) with spacebar, then press enter to confirm your selection.
+Here, you can select which units you wish to build. Navigate with arrow keys and select (it’s possible to select
+multiple values) with spacebar, then press enter to confirm your selection.
 
 <div style="display: flex; justify-content: center">
 <img src="https://res.cloudinary.com/frankie-dev/image/upload/v1608825601/MM_Temple_Server_docs/Screenshot_build-1.png" />
@@ -600,7 +622,8 @@ Press **Y**. You’ll see the following options
 <img src="https://res.cloudinary.com/frankie-dev/image/upload/v1608999362/MM_Temple_Server_docs/Screenshot_preview-1.png" />
 </div> 
 
-Below are guides for uploading to an amazon s3 bucket. FYI MediaMonks Preview and Amazon S3 do practically the same thing.
+Below are guides for uploading to an amazon s3 bucket. FYI MediaMonks Preview and Amazon S3 do practically the same
+thing.
 
 MediaMonks Preview
 
@@ -622,9 +645,11 @@ These values you can find in the pinned messages of our **`#wfh-aas-dev`** slack
 
 `? outputDir: (3334d7e2-3d58-4c84-aec7-4b6d4f50c7f0/)`
 
-It will automatically generate a unique hash value as the directory name of the preview. Just press enter or add your own value and then press enter.
+It will automatically generate a unique hash value as the directory name of the preview. Just press enter or add your
+own value and then press enter.
 
-It will then upload the contents of the ./build/ directory and show you a link to the preview, which should look something like this:
+It will then upload the contents of the ./build/ directory and show you a link to the preview, which should look
+something like this:
 
 `http://richmedia-previews-s3bucket-khpmpnjb2dya.s3.amazonaws.com/3334d7e2-3d58-4c84-aec7-4b6d4f50c7f0/index.html
 `
@@ -647,34 +672,35 @@ Needs description
 
 Needs description
 
-
 # Package.json
 
-Below you will find the contents of the package.json file which gets generated in the root folder when you start a new project with the generator:
+Below you will find the contents of the package.json file which gets generated in the root folder when you start a new
+project with the generator:
 
 ```json
-{  
-  "name": "",  
-  "version": "1.0.0",  
-  "description": "",  
-  "homepage": "",  
-  "author": "",  
-  "engines": {  
-  "npm": ">= 8.0.0"  
-  },  
-  "scripts": {  
-  "dev": "rds-dev",  
-  "build": "rds-build",  
-  "preview": "./node_modules/.bin/henk"  
-  },  
-  "license": "ISC",  
-  "dependencies": {  
-  "@mediamonks/henk": "^1.1.1",  
-  "@mediamonks/richmedia-temple-server": "^6.0",  
-  "@mediamonks/temple": "^4.0.0"  
-  }  
+{
+  "name": "",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "",
+  "author": "",
+  "engines": {
+    "npm": ">= 8.0.0"
+  },
+  "scripts": {
+    "dev": "rds-dev",
+    "build": "rds-build",
+    "preview": "./node_modules/.bin/henk"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@mediamonks/henk": "^1.1.1",
+    "@mediamonks/richmedia-temple-server": "^6.0",
+    "@mediamonks/temple": "^4.0.0"
+  }
 }
 ```
+
 You can run the commands under “scripts” in the following way: npm run dev, npm run build, etc
 
 **"dev"**
@@ -697,12 +723,11 @@ Will upload your banners to a preview. The first time you run this command, you 
 
 Under dependencies, you’ll see the 3 default dependencies needed to run dev/build/preview:
 
+- `"@mediamonks/henk": "^1.1.1"`
 
--   `"@mediamonks/henk": "^1.1.1"`
+- `"@mediamonks/richmedia-temple-server": "^6.0"`
 
--   `"@mediamonks/richmedia-temple-server": "^6.0"`
-
--   `"@mediamonks/temple": "^4.0.0"`
+- `"@mediamonks/temple": "^4.0.0"`
 
 If these are missing, install them via (for example)
 
