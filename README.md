@@ -6,7 +6,7 @@
 
 [Creating a new project](#creating-a-new-project)
 
-[Adjusting a banner](/#adjust-a-banner) 
+[Adjusting a banner](#adjust-a-banner) 
 
 [.richmediarc](#richmediarc)
 - [Basic .richmediarc concepts](#basic-.richmediarc-concepts)
@@ -202,7 +202,7 @@ If there are no javascript errors and everything works fine, that’s it!
 Once you have a working banner project you can go ahead and make changes to 
 it based on the design. You can learn more about changing banners [here](/adjust-a-banner.md)
 
-# .richmediarc
+## .richmediarc
 
 The .richmediarc file is one of the files that gets generated when you start a new project.
 
@@ -250,11 +250,11 @@ Go ahead and change content.bgcolor to something else and save the file. In the 
 getting recompiled. Once done, you can refresh the preview page and see the changes you made reflected in the preview
 unit.
 
-## Basic .richmediarc concepts
+### Basic .richmediarc concepts
 
 Below are some guides on how you can use these values in your creative.
 
-### Using .richmediarc values in HTML
+#### Using .richmediarc values in HTML
 
 In your index.html, you can retrieve .richmediarc values using the data-bind attribute on HTML elements. This is made
 possible by the databind class which is imported by ./js/Banner.js.
@@ -302,7 +302,7 @@ In index.html:
 </body>
 ```  
 
-### Using .richmediarc values in CSS
+#### Using .richmediarc values in CSS
 
 In CSS, you can retrieve these values as follows:
 
@@ -355,7 +355,7 @@ In style.css:
 }
 ```
 
-### Using .richmediarc values in javascript
+#### Using .richmediarc values in javascript
 
 The main javascript file (conveniently named ./js/main.js) imports the .richmediarc files as follows:
 
@@ -506,7 +506,7 @@ Example:
 }
 ```  
 
-### Google spreadsheet:
+#### Google spreadsheet (dynamic feed):
 
 <table style="width:100%">  
 	<tr>  
@@ -531,7 +531,7 @@ Example:
 	</tr>  
 </table>
 
-# Running a development server locally
+## Running a development server locally
 
 To start the dev server, type the following command in your terminal or console.
 
@@ -579,9 +579,9 @@ at [http://localhost:8000](http://localhost:8000).
 your banner’s code. It will automatically recompile your units when it detects changes in the source 
 code.
 
-# Build and upload your preview
+## Build and upload your preview
 
-## Build
+### Build
 
 To build your project, run the build script in your terminal or console.
 
@@ -619,7 +619,7 @@ It will now compile the banners you selected and then move these files to the ./
 
 Along with zipped files which you can use for delivering files or uploading to certain previews.
 
-## Upload
+### Upload
 
 Uploading your banners to a preview can be done in a number of ways.
 
@@ -671,25 +671,25 @@ something like this:
 `http://richmedia-previews-s3bucket-khpmpnjb2dya.s3.amazonaws.com/3334d7e2-3d58-4c84-aec7-4b6d4f50c7f0/index.html
 `
 
-# Types of banners
+## Types of banners
 
-## Plain:
+### Plain:
 
 Template for standard IAB banners with a regular ‘clickTag’.
 
-## Doubleclick:
+### Doubleclick:
 
 Template for banners which are uploaded to Doubleclick Studio.
 
-## Dynamic:
+### Dynamic:
 
 Needs description
 
-## Plain with VueJS
+### Plain with VueJS
 
 Needs description
 
-# Package.json
+## Package.json
 
 Below you will find the contents of the package.json file which gets generated in the root folder when you start a new
 project with the generator:
