@@ -498,7 +498,8 @@ Example:
 }
 ```  
 
-Google spreadsheet:
+### Google spreadsheet:
+
 <table style="width:100%">  
 	<tr>  
       <th>bgimg</th>  
