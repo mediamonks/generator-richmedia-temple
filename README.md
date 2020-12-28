@@ -3,6 +3,7 @@
 [Installation](#installations)
 
 [Creating a new project](#creating-a-new-project)
+- [Adjusting a banner](/adjust-a-banner.md) 
 
 [.richmediarc](#richmediarc)
 - [Basic .richmediarc concepts](#basic-.richmediarc-concepts)

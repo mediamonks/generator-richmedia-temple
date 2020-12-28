@@ -31,11 +31,13 @@ If you just want to get started and didn't receive any delivered files [here](ht
 
 ### Windows users
 
-If you are running Windows as your operating system please go to the [Windows page](/windows-users)
+If you are running Windows as your operating system please go to the 
+[Windows page](/windows-users.md)
 
 ### MacOS users
 
-If you are running MacOS as your operating system please go to the [MacOS page](/macos-users)
+If you are running MacOS as your operating system please go to the [MacOS 
+page](/macos-users.md)
 
 ## Installing packages
 
