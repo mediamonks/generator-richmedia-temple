@@ -31,9 +31,10 @@ If you just want to get started and didn't recieve any delivered files here are 
 
 ### [Windows users](#windows-users)
 
-If you are running Windows as your operating system please go to the [Windows page](/temple-suite/adjust-a-banner-step-by-step/windows-install-guide)
+If you are running Windows as your operating system please go to the 
+[Windows page](/windows-users.md)
 
-### [MacOS users](#macos-users)
+### [MacOS users](/macos-users.md)
 
 If you are running MacOS as your operating system please go to the [MacOS page](/temple-suite/adjust-a-banner-step-by-step/macos-install-guide)
 
