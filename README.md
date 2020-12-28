@@ -1,9 +1,12 @@
-# Contents
+# generator-richmedia-temple documentation
+
+## Contents
 
 [Installation](#installations)
 
 [Creating a new project](#creating-a-new-project)
-- [Adjusting a banner](/adjust-a-banner.md) 
+
+[Adjusting a banner](/#adjust-a-banner) 
 
 [.richmediarc](#richmediarc)
 - [Basic .richmediarc concepts](#basic-.richmediarc-concepts)
@@ -21,7 +24,7 @@
 
 [Package.json](#package.json)
 
-# Installation
+## Installation
 
 Software required
 
@@ -194,6 +197,10 @@ created. The banner should display as a simple unit with a red background.
 </div> 
 
 If there are no javascript errors and everything works fine, that’s it!
+
+## Adjusting a banner
+Once you have a working banner project you can go ahead and make changes to 
+it based on the design. You can learn more about changing banners [here](/adjust-a-banner.md)
 
 # .richmediarc
 
