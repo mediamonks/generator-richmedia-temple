@@ -85,6 +85,11 @@ module.exports = class extends Generator {
         break;
       }
 
+      case PlatformChoices.DYNAMIC_FT: {
+        this.composeWith(require.resolve('./dynamic-ft'), this.result);
+        break;
+      }
+
       case PlatformChoices.DOUBLECLICK: {
         this.composeWith(require.resolve('./doubleclick'), this.result);
         break;
