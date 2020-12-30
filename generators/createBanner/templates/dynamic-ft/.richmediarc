@@ -1,6 +1,6 @@
 {
   "settings": {
-    "type": "plain-ft",
+    "type": "dynamic-ft",
     "entry": {
       "js": "./script/main.js",
       "html": "./index.html"

@@ -85,8 +85,8 @@ module.exports = class extends Generator {
         break;
       }
 
-      case PlatformChoices.PLAIN_FT: {
-        this.composeWith(require.resolve('./plain-ft'), this.result);
+      case PlatformChoices.DYNAMIC_FT: {
+        this.composeWith(require.resolve('./dynamic-ft'), this.result);
         break;
       }
 
