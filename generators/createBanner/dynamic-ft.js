@@ -31,6 +31,15 @@ module.exports = class extends Generator {
       this.destinationPath(path.join(this.options.outputPath, 'static')),
     );
 
+    this.fs.copyTpl(
+      this.templatePath('dynamic-ft/static'),
+      this.destinationPath(this.options.outputPath, 'static'),
+      {
+        manifest_width: width,
+        manifest_height: height
+      }
+    )
+
     this.fs.copy(
       this.templatePath('dynamic-ft/img/**'),
       this.destinationPath(path.join(this.options.outputPath), 'img/'),
@@ -65,5 +74,4 @@ module.exports = class extends Generator {
 
     this.fs.writeJSON(this.destinationPath(path.join(this.options.outputPath, '.richmediarc')), json);
   }
-
 };
