@@ -85,6 +85,11 @@ module.exports = class extends Generator {
         break;
       }
 
+      case PlatformChoices.PLAIN_FT: {
+        this.composeWith(require.resolve('./plain-ft'), this.result);
+        break;
+      }
+
       case PlatformChoices.DOUBLECLICK: {
         this.composeWith(require.resolve('./doubleclick'), this.result);
         break;
