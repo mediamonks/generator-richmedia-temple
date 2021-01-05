@@ -406,4 +406,8 @@ You will see a second folder with the 300x600 in it.
 <img src="https://res.cloudinary.com/frankie-dev/image/upload/v1609166574/MM_Temple_Server_docs/adjust-banners/change_size_new_unit.jpg" />  
 </div>
 
-[Back to the top](#contents)
+<div style="display: flex; justify-content: space-between; width: 38%; margin: 2rem 0">
+<div><a href="https://github.com/mediamonks/generator-richmedia-temple/blob/gh-pages/index.md">Back to main 
+page</a></div> <div><a href="#contents">Back to the top</a></div>
+</div>
+
