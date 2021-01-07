@@ -48,6 +48,10 @@ body {
   opacity: 0;
 }
 
+.mainExit {
+  cursor: pointer;
+}
+
 .cta {}
 
 
