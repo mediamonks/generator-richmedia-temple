@@ -1,7 +1,7 @@
 import Entity from '@mediamonks/temple/Entity';
 import dataBind from "@mediamonks/temple/util/dataBind";
 
-import Animation from './Animation';
+
 
 export default class Banner extends Entity {
 
