@@ -58,7 +58,7 @@ module.exports = class extends Generator {
         type: 'input',
         name: 'outputPath',
         message: 'Where do you want to put it?',
-        default: `./src/${this.result.size}/`,
+        default: `./src/banners/${this.result.size}/`,
         validate: input => isPathInside(path.resolve(input), path.resolve(process.cwd())),
       })),
     };

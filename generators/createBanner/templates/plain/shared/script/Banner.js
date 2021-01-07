@@ -1,8 +1,6 @@
 import Entity from '@mediamonks/temple/Entity';
 import dataBind from "@mediamonks/temple/util/dataBind";
 
-
-
 export default class Banner extends Entity {
 
   constructor(config) {
@@ -23,8 +21,8 @@ export default class Banner extends Entity {
     this.domMainExit.addEventListener('mouseover', this.handleRollOver);
     this.domMainExit.addEventListener('mouseout', this.handleRollOut);
 
-    this.animation = new Animation(document.querySelector('.banner'), this.config);
-
+    this.timeline = this.animation.createTimeline(this.vars);
+    this.timeline.play();
   }
 
   exit = () => {
@@ -33,7 +31,7 @@ export default class Banner extends Entity {
   };
 
   handleExit = () => {
-    this.animation.playFadeOut();
+
   };
 
   /**
@@ -59,8 +57,6 @@ export default class Banner extends Entity {
 
   async start() {
     await this.init();
-
-    this.animation.playFadeIn();
   }
 }
 
