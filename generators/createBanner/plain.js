@@ -9,9 +9,6 @@ const PlatformChoices = require('../../util/data/PlatformChoices');
 
 module.exports = class extends Generator {
   async action() {
-    console.log("this.fs", this.fs)
-    console.log("this.fs.copyTpl", this.fs.copyTpl)
-    console.log("this.options", this.options)
     const [width, height] = this.options.size.split('x');
 
     this.fs.extendJSON(
