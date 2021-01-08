@@ -9,6 +9,9 @@ const PlatformChoices = require('../../util/data/PlatformChoices');
 
 module.exports = class extends Generator {
   async action() {
+    console.log("this.fs", this.fs)
+    console.log("this.fs.copyTpl", this.fs.copyTpl)
+    console.log("this.options", this.options)
     const [width, height] = this.options.size.split('x');
 
     this.fs.extendJSON(
@@ -18,7 +21,7 @@ module.exports = class extends Generator {
 
     // main html
     this.fs.copyTpl(
-      this.templatePath('plain/index.html'),
+      this.templatePath('plain-shared/banner/index.html'),
       this.destinationPath(path.join(this.options.outputPath, 'index.html')),
       {
         banner_width: width,
@@ -27,25 +30,30 @@ module.exports = class extends Generator {
     );
 
     this.fs.copy(
-      this.templatePath('plain/static'),
+      this.templatePath('plain-shared/banner/static'),
       this.destinationPath(path.join(this.options.outputPath,  'static')),
     );
 
     this.fs.copy(
-      this.templatePath('plain/img/**'),
+      this.templatePath('plain-shared/banner/img/**'),
       this.destinationPath(path.join(this.options.outputPath), 'img/'),
     );
 
     // main javascript
 
     this.fs.copy(
-      this.templatePath('plain/script'),
+      this.templatePath('plain-shared/banner/script'),
       this.destinationPath(path.join(this.options.outputPath, 'script')),
+    );
+
+    this.fs.copy(
+      this.templatePath('plain-shared/shared/script'),
+      this.destinationPath(path.join(this.options.outputPath, '../../shared/', 'script')),
     );
 
     // copy pasting css
     this.fs.copyTpl(
-      this.templatePath('plain/css/style.css'),
+      this.templatePath('plain-shared/banner/css/style.css'),
       this.destinationPath(path.join(this.options.outputPath, 'css/style.css')),
       {
         banner_width: width,
@@ -53,7 +61,7 @@ module.exports = class extends Generator {
       },
     );
 
-    const json = deepmerge(this.fs.readJSON(this.templatePath('plain/.richmediarc')), {
+    const json = deepmerge(this.fs.readJSON(this.templatePath('plain-shared/banner/.richmediarc')), {
       settings: {
         size: {
           width: parseInt(width, 10),
