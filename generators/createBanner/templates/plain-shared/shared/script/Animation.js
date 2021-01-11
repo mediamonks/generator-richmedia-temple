@@ -4,22 +4,13 @@ export default class Animation {
    * @param {HTMLDivElement} container
    * @param {null} config
    */
-  constructor(container, config) {
+  constructor(container) {
     this.container = container;
-    this.config = config;
-
-    this.fadeIn = new TimelineMax({pause: true});
-    this.fadeIn.to(".banner", 1, {opacity: 1});
-
-
-
   }
 
-  playFadeIn() {
-    this.fadeIn.play();
-  }
-
-  playFadeOut() {
-    this.fadeOut.play();
-  }
+  createTimeline = obj => {
+    var tl = gsap.timeline(obj);
+    tl.to('.banner', {duration:1, opacity: 1})
+    return tl;
+  };
 }
