@@ -51,6 +51,11 @@ module.exports = class extends Generator {
       this.destinationPath(path.join(this.options.outputPath, '../../shared/', 'script')),
     );
 
+    this.fs.copy(
+      this.templatePath('plain-shared/shared/img'),
+      this.destinationPath(path.join(this.options.outputPath, '../../shared/', 'img')),
+    );
+
     // copy pasting css
     this.fs.copyTpl(
       this.templatePath('plain-shared/banner/css/style.css'),
