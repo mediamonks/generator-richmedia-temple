@@ -1,5 +1,6 @@
 import Entity from '@mediamonks/temple/Entity';
 import dataBind from "@mediamonks/temple/util/dataBind";
+import fitText from '@mediamonks/temple/util/fitText';
 
 export default class Banner extends Entity {
 
@@ -14,6 +15,9 @@ export default class Banner extends Entity {
     await super.init();
 
     dataBind(this.config.content, document.body);
+
+    let title = document.body.querySelector('.title');
+    fitText([title]);
 
     this.domMainExit = document.body.querySelector('.mainExit');
 
