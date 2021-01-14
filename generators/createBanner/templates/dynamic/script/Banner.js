@@ -37,12 +37,12 @@ export default class Banner extends Entity {
   async setDynamicContent () {
     this.banner = document.body.querySelector('.banner');
     const title = document.body.querySelector('.title');
-    const cta = document.body.querySelector('.cta');
+    const ctaCopy = document.body.querySelector('.cta_copy');
     const logo = document.body.querySelector('.logo');
 
     // set text
     title.innerHTML = this.feed.text;
-    cta.querySelector(".cta_copy").innerHTML = this.feed.cta;
+    ctaCopy.innerHTML = this.feed.cta;
 
     // load images
     const tempImg = await load(this.feed.logo.Url)
@@ -55,7 +55,7 @@ export default class Banner extends Entity {
     this.mainExit = this.feed.exit_url.Url;
 
     //fit text according to parent container
-    fitText([title, cta]);
+    fitText([title, ctaCopy]);
   }
 
   async addEventListeners() {
