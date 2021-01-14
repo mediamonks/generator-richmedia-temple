@@ -16,8 +16,9 @@ export default class Banner extends Entity {
 
     dataBind(this.config.content, document.body);
 
-    let title = document.body.querySelector('.title');
-    fitText([title]);
+    const title = document.body.querySelector('.title');
+    const ctaCopy = document.body.querySelector('.cta_copy');
+    fitText([title, ctaCopy]);
 
     this.domMainExit = document.body.querySelector('.mainExit');
 
