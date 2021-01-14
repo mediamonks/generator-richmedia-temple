@@ -1,7 +1,6 @@
 import Entity from '@mediamonks/temple/Entity';
 import dataBind from "@mediamonks/temple/util/dataBind";
-
-
+import fitText from '@mediamonks/temple/util/fitText';
 
 export default class Banner extends Entity {
 
@@ -17,14 +16,17 @@ export default class Banner extends Entity {
 
     dataBind(this.config.content, document.body);
 
+    let title = document.body.querySelector('.title');
+    fitText([title]);
+
     this.domMainExit = document.body.querySelector('.mainExit');
 
     this.domMainExit.addEventListener('click', this.handleClick);
     this.domMainExit.addEventListener('mouseover', this.handleRollOver);
     this.domMainExit.addEventListener('mouseout', this.handleRollOut);
 
-
-
+    this.timeline = this.animation.createTimeline(this.config);
+    this.timeline.play();
   }
 
   exit = () => {
@@ -33,7 +35,7 @@ export default class Banner extends Entity {
   };
 
   handleExit = () => {
-    this.animation.playFadeOut();
+    this.timeline.progress(1);
   };
 
   /**
@@ -59,8 +61,6 @@ export default class Banner extends Entity {
 
   async start() {
     await this.init();
-
-    this.animation.playFadeIn();
   }
 }
 

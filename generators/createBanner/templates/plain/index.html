@@ -16,11 +16,16 @@
 <body>
   <div class="banner border">
     <div class="content fullscreen">
-      <h5 data-bind="text: text"></h5>
-      <div class="cta" data-bind="text: cta"></div>
+      <div class="title_container">
+        <div class="title" data-bind="html: text"></div>
+      </div>
+      <img class="logo" svg data-bind="src: logo">
+      <div class="cta">
+        <div data-bind="html: cta"></div>
+      </div>
     </div>
     <div class="mainExit fullscreen"></div>
   </div>
-  <script src="https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.0.1_min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
 </body>
 </html>

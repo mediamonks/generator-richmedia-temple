@@ -5,4 +5,9 @@ import Banner from "./Banner";
 import config from "richmediaconfig";
 
 const banner = new Banner(config);
-banner.start();
+
+banner.init()
+  .then(() => banner.loadDynamicContent())
+  .then(() => banner.setDynamicContent())
+  .then(() => banner.addEventListeners())
+  .then(() => banner.loadAndPlayAnimation());
