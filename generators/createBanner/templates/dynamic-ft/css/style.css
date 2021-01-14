@@ -48,6 +48,10 @@ body {
   opacity: 0;
 }
 
+.content {
+  opacity: 0;
+}
+
 .cta {}
 
 
