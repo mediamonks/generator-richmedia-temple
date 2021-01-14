@@ -45,6 +45,9 @@ body {
   overflow: hidden;
   width: var(--width);
   height: var(--height);
+}
+
+.content {
   opacity: 0;
 }
 

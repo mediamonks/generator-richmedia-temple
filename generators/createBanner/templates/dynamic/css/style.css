@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  background-color: #ffff00;
+  background-color: #ffffff;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -45,6 +45,9 @@ body {
   overflow: hidden;
   width: var(--width);
   height: var(--height);
+}
+
+.content {
   opacity: 0;
 }
 

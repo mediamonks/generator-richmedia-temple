@@ -9,10 +9,10 @@ export default class Animation {
     this.config = config;
 
     this.fadeIn = new TimelineMax({pause: true});
-    this.fadeIn.to(".banner", 1, {opacity: 1});
+    this.fadeIn.to(".content", 1, {opacity: 1});
 
     this.fadeOut = new TimelineMax({pause: true});
-    this.fadeOut.to(".banner", 1, {opacity: 0});
+    this.fadeOut.to(".content", 1, {opacity: 0});
 
   }
 

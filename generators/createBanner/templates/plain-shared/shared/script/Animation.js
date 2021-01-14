@@ -10,7 +10,7 @@ export default class Animation {
 
   createTimeline = obj => {
     var tl = gsap.timeline(obj);
-    tl.to('.banner', {duration:1, opacity: 1})
+    tl.to('.content', {duration:1, opacity: 1})
     return tl;
   };
 }

@@ -51,6 +51,10 @@ body {
   background-color: var(--content-background);
 }
 
+.content {
+  opacity: 0;
+}
+
 .mainExit {
   position: absolute;
   top: 0;
