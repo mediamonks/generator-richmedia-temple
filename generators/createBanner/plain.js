@@ -7,6 +7,7 @@ const path = require('path');
 
 const PlatformChoices = require('../../util/data/PlatformChoices');
 
+
 module.exports = class extends Generator {
   async action() {
     const [width, height] = this.options.size.split('x');
@@ -16,45 +17,51 @@ module.exports = class extends Generator {
       this.fs.readJSON(this.templatePath('plain/extendPackageJson.json')),
     );
 
-    // main html
     this.fs.copyTpl(
-      this.templatePath('plain/index.html'),
-      this.destinationPath(path.join(this.options.outputPath, 'index.html')),
+      this.templatePath('plain/banner'),
+      this.destinationPath(path.join(this.options.outputPath)),
       {
+        shared: this.options.isShared,
         banner_width: width,
         banner_height: height,
       },
     );
 
-    this.fs.copy(
-      this.templatePath('plain/static'),
-      this.destinationPath(path.join(this.options.outputPath,  'static')),
-    );
+    if(this.options.isShared) {
+      this.fs.copy(
+        this.templatePath('plain/shared/img'),
+        this.destinationPath(path.join(this.options.outputPath), '../../shared/img'),
+      );
 
-    this.fs.copy(
-      this.templatePath('plain/img/**'),
-      this.destinationPath(path.join(this.options.outputPath), 'img/'),
-    );
+      this.fs.copyTpl(
+        this.templatePath('plain/shared/script'),
+        this.destinationPath(path.join(this.options.outputPath, '../../shared/script')),
+        {
+          shared: this.options.isShared,
+        },
+      );
+    } else {
+      this.fs.copy(
+        this.templatePath('plain/shared/img'),
+        this.destinationPath(path.join(this.options.outputPath), 'img/'),
+      );
 
-    // main javascript
+      this.fs.copyTpl(
+        this.templatePath('plain/shared/script'),
+        this.destinationPath(path.join(this.options.outputPath, 'script')),
+        {
+          shared: this.options.isShared,
+        },
+      );
+    }
 
-    this.fs.copy(
-      this.templatePath('plain/script'),
-      this.destinationPath(path.join(this.options.outputPath, 'script')),
-    );
 
-    // copy pasting css
-    this.fs.copyTpl(
-      this.templatePath('plain/css/style.css'),
-      this.destinationPath(path.join(this.options.outputPath, 'css/style.css')),
-      {
-        banner_width: width,
-        banner_height: height,
+    const json = deepmerge(this.fs.readJSON(this.templatePath('plain/banner/.richmediarc')), {
+      content: {
+        logo: this.options.isShared ? "../../shared/img/logo.svg" : "./img/logo.svg",
       },
-    );
-
-    const json = deepmerge(this.fs.readJSON(this.templatePath('plain/.richmediarc')), {
       settings: {
+        type: this.options.isShared ? "plain-shared" : "plain",
         size: {
           width: parseInt(width, 10),
           height: parseInt(height, 10),
