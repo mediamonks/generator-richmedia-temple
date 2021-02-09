@@ -1,6 +1,6 @@
 <% if (shared) { %>
-import Banner from "../../../shared/script/Banner";
-import Animation from "../../../shared/script/Animation";
+import Banner from <%- bannerPath %>;
+import Animation from <%- animationPath %>;
 <% } else{ %>
 import Banner from "./Banner";
 import Animation from "./Animation";
