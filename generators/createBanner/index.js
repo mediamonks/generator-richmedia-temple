@@ -88,6 +88,36 @@ module.exports = class extends Generator {
           },
         ])),
       };
+
+      if (this.result.isShared) {
+        this.result.folderSharedExists = false;
+        if (this.fs.exists(this.destinationPath('package.json'))) {
+
+          let json = this.fs.readJSON(this.destinationPath('package.json'));
+          if(json.shared) {
+            this.result.folderSharedExists = true;
+            this.result.sharedFolder = json.shared;
+            this.log(`Shared folder already exists`);
+          } else {
+            this.result = {
+              ...this.result,
+              ...(await this.prompt([
+                {
+                  type: 'input',
+                  name: 'sharedFolder',
+                  message: 'what is the name of your shared folder?',
+                  default: 'shared'
+                },
+              ])),
+            };
+          }
+
+        }
+
+
+
+
+      }
     }
   }
 
