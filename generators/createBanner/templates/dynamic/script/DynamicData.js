@@ -31,7 +31,8 @@ export default class dynamicData {
     devDynamicContent.generator_richmedia_temple_framework_test_feed_main[0].exit_url.Url = "http://www.google.com";
     Enabler.setDevDynamicContent(devDynamicContent);
 
+    let feedName = Object.keys(devDynamicContent)[0];
 
-    return window.dynamicContent;
+    return window.dynamicContent[feedName][0];
   }
 }

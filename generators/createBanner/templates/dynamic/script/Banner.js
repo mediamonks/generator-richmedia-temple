@@ -31,7 +31,7 @@ export default class Banner extends Entity {
     //load dynamic data
     const dynamic = new dynamicData(this);
     const dynamicContent = await dynamic.get();
-    this.feed = dynamicContent[Object.keys(dynamicContent)[0]][0];
+    this.feed = dynamicContent;
   }
 
   async setDynamicContent () {
