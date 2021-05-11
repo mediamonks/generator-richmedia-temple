@@ -1,6 +1,9 @@
 {
   "settings": {
     "type": "dynamic-ft",
+    "bundleName": false,
+    "useOriginalImageName": false,
+    "useOriginalFileNames": false,
     "entry": {
       "js": "./script/main.js",
       "html": "./index.html"

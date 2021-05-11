@@ -13,26 +13,22 @@ module.exports = class extends Generator {
 
     this.fs.extendJSON(
       this.destinationPath('package.json'),
-      this.fs.readJSON(this.templatePath('dynamic-ft/extendPackageJson.json')),
+      this.fs.readJSON(this.templatePath('dynamic-flashtalking/extendPackageJson.json')),
     );
 
     // main html
-    this.fs.copyTpl(
-      this.templatePath('dynamic-ft/index.html'),
-      this.destinationPath(path.join(this.options.outputPath, 'index.html')),
-      {
-        banner_width: width,
-        banner_height: height,
-      },
+    this.fs.copy(
+      this.templatePath('dynamic-flashtalking/index.hbs'),
+      this.destinationPath(path.join(this.options.outputPath, 'index.hbs'))
     );
 
     this.fs.copy(
-      this.templatePath('dynamic-ft/static'),
+      this.templatePath('dynamic-flashtalking/static'),
       this.destinationPath(path.join(this.options.outputPath, 'static')),
     );
 
     this.fs.copyTpl(
-      this.templatePath('dynamic-ft/static'),
+      this.templatePath('dynamic-flashtalking/static'),
       this.destinationPath(this.options.outputPath, 'static'),
       {
         manifest_width: width,
@@ -41,7 +37,7 @@ module.exports = class extends Generator {
     )
 
     this.fs.copy(
-      this.templatePath('dynamic-ft/img/**'),
+      this.templatePath('dynamic-flashtalking/img/**'),
       this.destinationPath(path.join(this.options.outputPath), 'img/'),
     );
 
@@ -49,13 +45,13 @@ module.exports = class extends Generator {
     // main javascript
 
     this.fs.copy(
-      this.templatePath('dynamic-ft/script'),
+      this.templatePath('dynamic-flashtalking/script'),
       this.destinationPath(path.join(this.options.outputPath, 'script')),
     );
 
     // copy pasting css
     this.fs.copyTpl(
-      this.templatePath('dynamic-ft/css/style.css'),
+      this.templatePath('dynamic-flashtalking/css/style.css'),
       this.destinationPath(path.join(this.options.outputPath, 'css/style.css')),
       {
         banner_width: width,
@@ -63,7 +59,7 @@ module.exports = class extends Generator {
       },
     );
 
-    const json = deepmerge(this.fs.readJSON(this.templatePath('dynamic-ft/.richmediarc')), {
+    const json = deepmerge(this.fs.readJSON(this.templatePath('dynamic-flashtalking/.richmediarc')), {
       settings: {
         size: {
           width: parseInt(width, 10),

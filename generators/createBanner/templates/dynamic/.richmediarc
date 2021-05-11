@@ -4,7 +4,7 @@
     "useOriginalFileNames": false,
     "entry": {
       "js": "./script/main.js",
-      "html": "./index.html"
+      "html": "./index.hbs"
     },
     "size": {
       "width": 0,

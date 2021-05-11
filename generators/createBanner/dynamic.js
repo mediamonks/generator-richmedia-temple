@@ -12,13 +12,9 @@ module.exports = class extends Generator {
     const [width, height] = this.options.size.split('x');
 
     // main html
-    this.fs.copyTpl(
-      this.templatePath('dynamic/index.html'),
-      this.destinationPath(path.join(this.options.outputPath, 'index.html')),
-      {
-        banner_width: width,
-        banner_height: height,
-      },
+    this.fs.copy(
+      this.templatePath('dynamic/index.hbs'),
+      this.destinationPath(path.join(this.options.outputPath, 'index.hbs')),
     );
 
     this.fs.copy(
@@ -27,7 +23,6 @@ module.exports = class extends Generator {
     );
 
     // main javascript
-
     this.fs.copy(
       this.templatePath('dynamic/script'),
       this.destinationPath(path.join(this.options.outputPath, 'script')),
