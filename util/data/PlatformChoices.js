@@ -1,6 +1,6 @@
 const PlatformChoices = {
   PLAIN: 'plain',
-  DYNAMIC_FT: 'dynamic-ft',
+  DYNAMIC_FLASHTALKING: 'dynamic-flashtalking',
   DOUBLECLICK: 'doubleclick',
   DYNAMIC: 'dynamic',
   PLAIN_VUEJS: 'plain with VueJS',

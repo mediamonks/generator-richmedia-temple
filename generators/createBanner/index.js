@@ -58,7 +58,7 @@ module.exports = class extends Generator {
         type: 'input',
         name: 'outputPath',
         message: 'Where do you want to put it?',
-        default: `./src/banners/${this.result.size}/`,
+        default: `./src/${this.result.size}/`,
         validate: input => isPathInside(path.resolve(input), path.resolve(process.cwd())),
       })),
     };
@@ -70,7 +70,7 @@ module.exports = class extends Generator {
         {
           type: 'list',
           name: 'type',
-          message: 'Type of banner is this',
+          message: 'Type of display unit is this',
           choices: Object.values(PlatformChoices),
         },
       ])),
@@ -128,8 +128,8 @@ module.exports = class extends Generator {
         break;
       }
 
-      case PlatformChoices.DYNAMIC_FT: {
-        this.composeWith(require.resolve('./dynamic-ft'), this.result);
+      case PlatformChoices.DYNAMIC_FLASHTALKING: {
+        this.composeWith(require.resolve('./dynamic-flashtalking'), this.result);
         break;
       }
 

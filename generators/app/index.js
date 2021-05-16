@@ -19,8 +19,9 @@ Create, change and start developing your richmedia units
         name: 'todo',
         message: 'What do you want to do?',
         choices: [
-          'create a banner',
-          'create a 3D banner',
+          'create single display unit',
+          'create display unit set ( multiple units )',
+          // 'create a 3D banner',
           // {name: 'create spritesheet', disabled: false}
         ],
       },
@@ -30,12 +31,21 @@ Create, change and start developing your richmedia units
   async action() {
 
     switch (this.result.todo) {
-      case 'create a banner': {
+      case 'create single display unit': {
         if (!hasInitialSetup(this)) {
           this.composeWith(require.resolve('../setup'), { options: '' });
         }
 
         this.composeWith(require.resolve('../createBanner'), { options: '' });
+        break;
+      }
+
+      case 'create display unit set ( multiple units )': {
+        if (!hasInitialSetup(this)) {
+          this.composeWith(require.resolve('../setup'), { options: '' });
+        }
+
+        this.composeWith(require.resolve('../createDisplayUnitSet'), { options: '' });
         break;
       }
 

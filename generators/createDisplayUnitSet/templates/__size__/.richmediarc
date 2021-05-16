@@ -1,0 +1,9 @@
+{
+  "parent": "../shared/.sharedrc",
+  "settings": {
+    "size": {
+      "width": 0,
+      "height": 0
+    }
+  }
+}

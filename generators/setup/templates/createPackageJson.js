@@ -9,14 +9,14 @@ module.exports = function createPackageJson({ name = 'richmedia-temple' }) {
       npm: '>= 8.0.0',
     },
     scripts: {
-      "dev": "rds-dev",
-      "build": "rds-build",
+      dev: "rds-dev",
+      build: "rds-build",
       preview: './node_modules/.bin/henk',
     },
     license: 'ISC',
     dependencies: {
-      "@mediamonks/richmedia-temple-server": "^6.1.5",
-      "@mediamonks/temple": "^4.0.0",
+      "@mediamonks/richmedia-temple-server": "^7.2.0",
+      "@mediamonks/temple": "^5.0.0",
       "@mediamonks/henk": "^1.1.1",
     },
   };

@@ -34,7 +34,8 @@
   },
   "repository": "mediamonks/generator-richmedia-temple",
   "devDependencies": {
-    "@mediamonks/richmedia-temple-server": "^6.0.2",
-    "@mediamonks/temple": "^4.1.0"
+    "@mediamonks/richmedia-temple-server": "^7.2.0",
+    "@mediamonks/temple": "^5.0.13",
+    "gsap": "^3.6.1"
   }
 }

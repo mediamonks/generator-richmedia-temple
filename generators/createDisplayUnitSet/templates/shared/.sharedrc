@@ -1,0 +1,14 @@
+{
+  "entry": {
+    "js": "./script/main.js",
+    "html": "./index.hbs"
+  },
+  "content": {
+    "css": "./css/style.css",
+    "clickTag": "https://www.google.com",
+    "text": "Welcome to this Banner!",
+    "logo": "./img/logo.svg",
+    "cta": "Click here",
+    "bgcolor": "#FFFFFF"
+  }
+}
