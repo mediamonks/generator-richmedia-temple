@@ -65,6 +65,11 @@ module.exports = class extends Generator {
       this.destinationPath(path.join(this.options.outputPath, 'shared/.sharedrc'))
     );
 
+    this.fs.copy(
+      this.templatePath('flashtalking/index.hbs'),
+      this.destinationPath(path.join(this.options.outputPath, 'shared'))
+    );
+
     const sourceConfig = this.fs.readJSON(this.templatePath('__size__/.richmediarc'));
 
     this.options.set.forEach(size => {
@@ -74,6 +79,21 @@ module.exports = class extends Generator {
       const hasSeparateHTML = this.result.set_html.find(item => item === size);
       const hasSeparateJS = this.result.set_js.find(item => item === size);
       const hasSeparateCSS = this.result.set_css.find(item => item === size);
+
+      // static folder from flashtalking
+      this.fs.copy(
+        this.templatePath('flashtalking/static'),
+        this.destinationPath(path.join(outputPath, 'static'))
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('flashtalking/static/manifest.js'),
+        this.destinationPath(path.join(outputPath, 'static/manifest.js')),
+        {
+          width,
+          height,
+        },
+      );
 
       const entry = {
         ...sourceConfig.settings.entry
@@ -87,7 +107,7 @@ module.exports = class extends Generator {
         entry.html = './index.hbs';
 
         this.fs.copy(
-          this.templatePath('shared/index.hbs'),
+          this.templatePath('flashtalking/index.hbs'),
           this.destinationPath(path.join(outputPath, 'index.hbs'))
         );
       }

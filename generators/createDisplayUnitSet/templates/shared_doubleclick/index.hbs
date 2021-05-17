@@ -14,23 +14,20 @@
 </head>
 
 <body>
-  <div class="banner border">
+  <div class="banner border" data-bind="style.backgroundColor: bgcolor">
     <div class="content fullscreen">
       <div class="title_container">
-        <div class="title">
-          {{content.text}}
-        </div>
+        <div class="title" data-bind="html: text"></div>
       </div>
-      <img class="logo" inline src="{{content.logo}}">
+      <img class="logo" data-bind="src: logo.Url">
       <div class="cta">
-        <div class="cta_copy">
-          {{content.cta}}
-        </div>
+        <div class="cta_copy" data-bind="html: cta"></div>
       </div>
     </div>
     <div class="mainExit fullscreen"></div>
   </div>
 
+  <script src="https://s0.2mdn.net/ads/studio/Enabler.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
 </body>
 </html>

@@ -1,11 +1,8 @@
-import Entity from '@mediamonks/temple/Entity';
-import dataBind from "@mediamonks/temple/util/dataBind";
 import fitText from '@mediamonks/temple/util/fitText';
 
-export default class Banner extends Entity {
+export default class Banner {
 
   constructor(config) {
-    super();
 
     // add required components here
     this.config = config;
@@ -29,12 +26,8 @@ export default class Banner extends Entity {
     this.animation = animation;
   }
 
-  exit = () => {
-    window.open(window.clickTag, '_blank');
-    this.handleExit();
-  };
-
   handleExit = () => {
+    window.open(window.clickTag, '_blank');
     this.animation.progress(1);
   };
 
@@ -42,7 +35,7 @@ export default class Banner extends Entity {
    * When client clicks this function will be triggerd.
    */
   handleClick = () => {
-    this.exit();
+    this.handleExit();
   };
 
   /**

@@ -1,4 +1,4 @@
-const data = [
+module.exports = [
   { name: '300x250 (Medium Rectangle)', value: '300x250' },
   { name: '970x250 (Billboard)', value: '970x250' },
   { name: '300x600 (Large Skyscraper)', value: '300x600' },
@@ -11,13 +11,3 @@ const data = [
   { name: '300x50', value: '300x50' },
   { name: '320x50', value: '320x50' }
 ];
-
-module.exports = {
-  get(name){
-    if(!name){
-      return data;
-    }
-
-    return data.find(item => item.value === data)[0];
-  }
-}

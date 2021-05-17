@@ -1,7 +1,9 @@
 {
-  "entry": {
-    "js": "./script/main.js",
-    "html": "./index.hbs"
+  "settings": {
+    "entry": {
+      "js": "./script/main.js",
+      "html": "./index.hbs"
+    }
   },
   "content": {
     "css": "./css/style.css",
