@@ -1,12 +1,5 @@
-import Entity from '@mediamonks/temple/Entity';
-
-import DoubleClickPlatformComponent from '@mediamonks/temple/component/platform/DoubleClickPlatformComponent';
-import EventDispatcherComponent from "@mediamonks/temple/component/EventDispatcherComponent";
-import DoubleClickEventEnum from "@mediamonks/temple/event/DoubleClickEventEnum";
-
-
 import fitText from '@mediamonks/temple/util/fitText';
-import untilEnablerIsInitialized from '@mediamonks/temple/util/untilEnablerIsInitialized';
+import untilEnablerIsInitialized from '@mediamonks/temple/util/doubleclick/untilEnablerIsInitialized';
 import dataBind from "@mediamonks/temple/util/dataBind";
 import getEventDispatcher from "@mediamonks/temple/util/doubleclick/getEventDispatcher";
 import Events from "@mediamonks/temple/util/doubleclick/event/Events";

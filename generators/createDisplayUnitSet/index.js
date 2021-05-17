@@ -34,6 +34,8 @@ module.exports = class extends Generator {
           message: 'Please select a type you want:',
           choices: [
             // { name: PlatformChoices.DOUBLECLICK, value: PlatformChoices.DOUBLECLICK },
+            { name: PlatformChoices.DOUBLECLICK, value: PlatformChoices.DOUBLECLICK },
+            { name: PlatformChoices.FLASHTALKING, value: PlatformChoices.FLASHTALKING },
             { name: PlatformChoices.PLAIN, value: PlatformChoices.PLAIN }
           ],
         },
@@ -56,6 +58,11 @@ module.exports = class extends Generator {
     switch (this.result.type) {
       case PlatformChoices.PLAIN: {
         this.composeWith(require.resolve('./plain'), this.result);
+        break;
+      }
+
+      case PlatformChoices.FLASHTALKING: {
+        this.composeWith(require.resolve('./flashtalking'), this.result);
         break;
       }
 

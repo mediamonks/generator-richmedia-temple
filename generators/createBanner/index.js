@@ -71,7 +71,9 @@ module.exports = class extends Generator {
           type: 'list',
           name: 'type',
           message: 'Type of display unit is this',
-          choices: Object.values(PlatformChoices),
+          choices: [
+            PlatformChoices.PLAIN_VUEJS
+          ],
         },
       ])),
     };
@@ -128,7 +130,7 @@ module.exports = class extends Generator {
         break;
       }
 
-      case PlatformChoices.DYNAMIC_FLASHTALKING: {
+      case PlatformChoices.FLASHTALKING: {
         this.composeWith(require.resolve('./dynamic-flashtalking'), this.result);
         break;
       }
