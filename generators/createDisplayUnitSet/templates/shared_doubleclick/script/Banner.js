@@ -1,8 +1,8 @@
 import fitText from '@mediamonks/temple/util/fitText';
-import untilEnablerIsInitialized from '@mediamonks/temple/util/doubleclick/untilEnablerIsInitialized';
+import untilEnablerIsInitialized from '@mediamonks/temple/doubleclick/untilEnablerIsInitialized';
 import dataBind from "@mediamonks/temple/util/dataBind";
-import getEventDispatcher from "@mediamonks/temple/util/doubleclick/getEventDispatcher";
-import Events from "@mediamonks/temple/util/doubleclick/event/Events";
+import getEventDispatcher from "@mediamonks/temple/doubleclick/getEventDispatcher";
+import Events from "@mediamonks/temple/doubleclick/Events";
 import getDynamicData from "./getDynamicData";
 import Animation from "./Animation";
 
