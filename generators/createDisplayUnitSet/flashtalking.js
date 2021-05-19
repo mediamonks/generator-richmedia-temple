@@ -113,7 +113,7 @@ module.exports = class extends Generator {
       }
 
       if(hasSeparateJS){
-        entry.html = './script/main.js';
+        entry.js = './script/main.js';
 
         this.fs.copy(
           this.templatePath('shared/script'),
