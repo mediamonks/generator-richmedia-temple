@@ -9,7 +9,6 @@ export default class Banner {
   }
 
   async init() {
-    await super.init();
 
     const title = document.body.querySelector('.title');
     const ctaCopy = document.body.querySelector('.cta_copy');
