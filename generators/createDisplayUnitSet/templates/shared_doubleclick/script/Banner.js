@@ -4,20 +4,19 @@ import dataBind from "@mediamonks/temple/util/dataBind";
 import getEventDispatcher from "@mediamonks/temple/doubleclick/getEventDispatcher";
 import Events from "@mediamonks/temple/doubleclick/Events";
 import getDynamicData from "./getDynamicData";
-import Animation from "./Animation";
 
 
 export default class Banner {
 
-  constructor(container, animation, config = null) {
+  constructor(container, config = null) {
     // add required components here
     this.config = config;
     this.container = container;
-    this.animation = animation;
   }
 
   async init() {
     await untilEnablerIsInitialized();
+    await this.addEventListeners();
 
     this.feed = getDynamicData();
 
@@ -33,6 +32,10 @@ export default class Banner {
     fitText([title, ctaCopy]);
   }
 
+  addAnimation(animation){
+    this.animation = animation;
+  }
+
   async addEventListeners() {
     this.domMainExit = document.body.querySelector('.mainExit');
     this.domMainExit.addEventListener('click', this.handleClick);
@@ -45,7 +48,7 @@ export default class Banner {
   }
 
   handleExit = () => {
-    this.timeline.progress(1);
+    this.animation.getTimeline().progress(1);
   };
 
   /**
@@ -69,8 +72,9 @@ export default class Banner {
 
   };
 
-  start = () => {
-    this.animation = new Animation();
+  async start(){
+    await this.init();
+
     this.animation.play();
   }
 }
