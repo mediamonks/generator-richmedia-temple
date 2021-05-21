@@ -27,7 +27,7 @@ export default class Banner {
 
   handleExit = () => {
     window.open(window.clickTag, '_blank');
-    this.animation.progress(1);
+    this.animation.getTimeline().progress(1);
   };
 
   /**
