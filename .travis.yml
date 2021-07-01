@@ -5,6 +5,10 @@ node_js:
 
 sudo: false
 
+notifications:
+  slack:
+    secure: N/nU50xoaXIHnjEtaKavgvY2jH3od4H6v+2rrEWrePRYDVMvNk9J15y2Y9H1K0BaR3FgjmK+aqMGjgUrbg0sUZvR0YGXUs225Q9lVNpm5tjTDRTgfg3o64BhOdnRW4BC6zporP25JKn4HNQrNtNjAfu6nRFQNacfVsX8OHm708KE9HscyLyAacSLC4c6sYMFS7pY7yT2agaMgFK6XcYcpyubSCZ2dfhcH+rvHnayqNiT1yKe4O7sPygqehehwfWqrcYuoSa28VdmquLs9+yy+A3MtIuhN0iu1DVDjHuGqV9pkkWMNpUjuVoa9UQH18C4jnNiIKi3JG2hNSleXHCnjPneQxJYIDCYCLkKDOjEOreORcEMKv1vKPX/19YKrdm2BEMna+36wNF88co6/8rqxSixWVpp/6ViqKcQLowyPyCXUseKyzMfW8aKrwAcqHY7opCChDxHt0vieHUSfFDdnqJk5+a6x36X2kiaNKs2J2ni6X+O/d+vUiPfNcn1NNZoYoX2QvUyfAmMHwV3V4pysScp+sSJAuT2HLMpCzrfmlzlHN+YoaHr6nrlFQ0tU34ZX1s8547WM8iinPJAlgEy4370/MAhr5wzMf/p4ejmu02nWOKi1rzAEHqfcxxEAGFvqzNneiqdT+ys24MSk3f4qZJgAPt9OpI9r1siArGFjlY=
+
 #script:
 #- npm run test
 
@@ -16,3 +20,4 @@ deploy:
     tags: true
     node: '8'
   skip_cleanup: true
+
