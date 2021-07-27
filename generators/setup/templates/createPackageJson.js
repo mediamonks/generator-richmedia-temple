@@ -6,7 +6,7 @@ module.exports = function createPackageJson({ name = 'richmedia-temple' }) {
     homepage: '',
     author: '',
     engines: {
-      npm: '>= 8.0.0',
+      npm: '>= 14.9.0',
     },
     scripts: {
       dev: "rds-dev",
@@ -15,7 +15,7 @@ module.exports = function createPackageJson({ name = 'richmedia-temple' }) {
     },
     license: 'ISC',
     dependencies: {
-      "@mediamonks/richmedia-temple-server": "^7.3.0",
+      "@mediamonks/richmedia-temple-server": "^7.3.11",
       "@mediamonks/temple": "^6.0.2",
       "@mediamonks/henk": "^1.1.1",
     },
