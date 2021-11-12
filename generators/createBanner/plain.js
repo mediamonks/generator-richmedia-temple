@@ -24,9 +24,6 @@ module.exports = class extends Generator {
     }
 
 
-
-
-
     this.fs.copyTpl(
       this.templatePath('plain/banner'),
       this.destinationPath(path.join(this.options.outputPath)),

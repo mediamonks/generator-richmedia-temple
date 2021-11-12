@@ -1,5 +1,12 @@
 {
   "settings": {
+    "optimizations": {
+      "css": true,
+      "image": true,
+      "html": true,
+      "js": true
+    },
+    "useOriginalFileNames": false,
     "entry": {
       "js": "./script/main.js",
       "html": "./index.hbs"

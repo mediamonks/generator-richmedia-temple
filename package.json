@@ -29,6 +29,7 @@
     "mkdirp": "^0.5.1",
     "nyc": "15.0.0",
     "uuidv4": "6.0.0",
+    "webfontloader": "^1.6.28",
     "yeoman-generator": "4.3.0",
     "yosay": "^2.0.1"
   },
@@ -36,6 +37,6 @@
   "devDependencies": {
     "@mediamonks/richmedia-temple-server": "^7.4.1",
     "@mediamonks/temple": "^6.1.0",
-    "gsap": "^3.6.1"
+    "gsap": "^3.8.0"
   }
 }
