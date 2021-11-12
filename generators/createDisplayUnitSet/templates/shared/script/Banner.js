@@ -35,8 +35,7 @@ export default class Banner {
   }
 
   async init() {
-
-
+    await this.loadFonts(); //need to wait until fonts are loaded. Otherwise we will run fitText on the wrong fonts
 
     const title = document.body.querySelector('.title');
     const ctaCopy = document.body.querySelector('.cta_copy');

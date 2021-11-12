@@ -5,6 +5,8 @@
 
   --width: var(--settings-size-width)px;
   --height: var(--settings-size-height)px;
+
+  /*Default font Open Sans, included options OpenSansMedium  and OpenSansBold */
 }
 
 html {
@@ -20,6 +22,7 @@ html {
 }
 
 body {
+  font-family: OpenSans;
   background-color: var(--content-bgcolor);
   margin: 0;
   padding: 0;
