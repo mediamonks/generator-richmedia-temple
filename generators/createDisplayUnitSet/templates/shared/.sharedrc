@@ -10,11 +10,49 @@
     "entry": {
       "js": "./script/main.js",
       "html": "./index.hbs"
-    }
+    },
+    "fonts": [
+      {
+        "sources": [
+          "../shared/fonts/OpenSans-Regular.woff",
+          "../shared/fonts/OpenSans-Regular.woff2",
+          "../shared/fonts/OpenSans-Medium.woff",
+          "../shared/fonts/OpenSans-Medium.woff2",
+          "../shared/fonts/OpenSans-Bold.woff",
+          "../shared/fonts/OpenSans-Bold.woff2"
+        ],
+        "subset": {
+          "glyphs": [
+            "content.copy1",
+            "content.copy2",
+            "content.copy3"
+          ]
+        }
+      },
+      {
+        "sources": [
+          "../shared/fonts/OpenSans-Regular.woff",
+          "../shared/fonts/OpenSans-Regular.woff2",
+          "../shared/fonts/OpenSans-Medium.woff",
+          "../shared/fonts/OpenSans-Medium.woff2",
+          "../shared/fonts/OpenSans-Bold.woff",
+          "../shared/fonts/OpenSans-Bold.woff2"
+        ],
+        "subset": {
+          "glyphs": [
+            "content.cta"
+          ]
+        }
+      }
+    ]
   },
   "content": {
     "css": "./css/style.css",
-    "defaultFonts": ["OpenSans","OpenSansBold","OpenSansMedium"],
+    "defaultFonts": [
+      "OpenSans",
+      "OpenSansBold",
+      "OpenSansMedium"
+    ],
     "defaultFontUrl": "./css/fonts.css",
     "clickTag": "https://www.google.com",
     "text": "Welcome to this Banner!",
