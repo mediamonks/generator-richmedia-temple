@@ -5,12 +5,11 @@ const WebFont = require('webfontloader');
 export default class Banner {
 
   constructor(config) {
-
     // add required components here
     this.config = config;
   }
 
-  // fontLoading module for the lazy loading of fonts
+  // fontLoading module for the lazy loading of fonts - default is openSans
   async loadFonts() {
     let webFontConfig = {}
 
