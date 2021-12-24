@@ -22,7 +22,7 @@ export default class Banner {
 
     webFontConfig.timeout = 2000;
     webFontConfig.fontactive = (e) => {
-      console.log(`${e}, was detected. The document is ready and font loading is active`)
+      // console.log(`${e}, was detected. The document is ready and font loading is active`)
     }
 
     const prom = new Promise(resolve => {
