@@ -14,29 +14,19 @@
     "fonts": [
       {
         "sources": [
-          "../shared/fonts/OpenSans-Regular.woff",
-          "../shared/fonts/OpenSans-Regular.woff2",
-          "../shared/fonts/OpenSans-Medium.woff",
-          "../shared/fonts/OpenSans-Medium.woff2",
-          "../shared/fonts/OpenSans-Bold.woff",
-          "../shared/fonts/OpenSans-Bold.woff2"
+          "./fonts/OpenSans-Regular.woff",
+          "./fonts/OpenSans-Regular.woff2"
         ],
         "subset": {
           "glyphs": [
-            "content.copy1",
-            "content.copy2",
-            "content.copy3"
+            "content.title"
           ]
         }
       },
       {
         "sources": [
-          "../shared/fonts/OpenSans-Regular.woff",
-          "../shared/fonts/OpenSans-Regular.woff2",
-          "../shared/fonts/OpenSans-Medium.woff",
-          "../shared/fonts/OpenSans-Medium.woff2",
-          "../shared/fonts/OpenSans-Bold.woff",
-          "../shared/fonts/OpenSans-Bold.woff2"
+          "./fonts/OpenSans-Bold.woff",
+          "./fonts/OpenSans-Bold.woff2"
         ],
         "subset": {
           "glyphs": [
@@ -50,14 +40,13 @@
     "css": "./css/style.css",
     "defaultFonts": [
       "OpenSans",
-      "OpenSansBold",
-      "OpenSansMedium"
+      "OpenSansBold"
     ],
     "defaultFontUrl": "./css/fonts.css",
     "clickTag": "https://www.google.com",
-    "text": "Welcome to this Banner!",
+    "title": "Welcome to this Banner!",
     "logo": "./img/logo.svg",
-    "cta": "Click here",
+    "cta": "CLICK HERE",
     "bgcolor": "#FFFFFF"
   }
 }
