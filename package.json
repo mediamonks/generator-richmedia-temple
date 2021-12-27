@@ -36,6 +36,6 @@
   "devDependencies": {
     "@mediamonks/richmedia-temple-server": "^7.4.1",
     "@mediamonks/temple": "^6.1.0",
-    "gsap": "^3.6.0"
+    "gsap": "^3.8.0"
   }
 }
