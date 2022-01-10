@@ -57,10 +57,10 @@ body {
   left: 50%;
   width: 80%;
   height: 50%;
+  font-family: OpenSans, sans-serif;
   font-size: 50px;
   transform: translate(-50%, -50%);
   text-align: center;
-  text-transform: uppercase;
 }
 
 .title {
@@ -88,6 +88,7 @@ body {
   right: 10px;
   width: 100px;
   height: 30px;
+  font-family: OpenSansBold, sans-serif;
   overflow: hidden;
   will-change: transform;
   background-color: black;
@@ -104,6 +105,5 @@ body {
   font-size: 11px;
   font-weight: bold;
   color: white;
-  text-transform: uppercase;
 }
 

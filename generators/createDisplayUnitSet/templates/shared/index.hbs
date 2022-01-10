@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="ad.size" content="width={{settings.size.width}},height={{settings.size.height}}">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="ad.size" content="width={{settings.size.width}},height={{settings.size.height}}">
 
-    <title>{{settings.size.width}}x{{settings.size.height}}</title>
+  <title>{{settings.size.width}}x{{settings.size.height}}</title>
 
-    <link rel="stylesheet" href="{{content.css}}" type="text/css">
-    <script type="text/javascript">
-      var clickTag = "{{content.clickTag}}";
-    </script>
+  <link rel="stylesheet" href="{{content.css}}" type="text/css">
+
+  <script type="text/javascript">
+    var clickTag = "{{content.clickTag}}";
+  </script>
 </head>
 
 <body>
-  <div class="banner border">
-    <div class="content fullscreen">
-      <div class="title_container">
-        <div class="title">
-          {{content.text}}
-        </div>
-      </div>
-      <img class="logo" inline src="{{content.logo}}">
-      <div class="cta">
-        <div class="cta_copy">
-          {{content.cta}}
-        </div>
+<div class="banner border">
+  <div class="content fullscreen">
+    <div class="title_container">
+      <div class="title">
+        {{content.title}}
       </div>
     </div>
-    <div class="mainExit fullscreen"></div>
+    <img class="logo" inline src="{{content.logo}}">
+    <div class="cta">
+      <div class="cta_copy">
+        {{content.cta}}
+      </div>
+    </div>
   </div>
+  <div class="mainExit fullscreen"></div>
+</div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
 </body>
 </html>

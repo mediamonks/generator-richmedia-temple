@@ -1,16 +1,52 @@
 {
   "settings": {
+    "optimizations": {
+      "css": true,
+      "image": true,
+      "html": true,
+      "js": true
+    },
+    "useOriginalFileNames": false,
     "entry": {
       "js": "./script/main.js",
       "html": "./index.hbs"
-    }
+    },
+    "fonts": [
+      {
+        "sources": [
+          "./fonts/OpenSans-Regular.woff",
+          "./fonts/OpenSans-Regular.woff2"
+        ],
+        "subset": {
+          "glyphs": [
+            "content.title"
+          ]
+        }
+      },
+      {
+        "sources": [
+          "./fonts/OpenSans-Bold.woff",
+          "./fonts/OpenSans-Bold.woff2"
+        ],
+        "subset": {
+          "glyphs": [
+            "content.cta"
+          ]
+        }
+      }
+    ]
   },
   "content": {
     "css": "./css/style.css",
+    "defaultFonts": [
+      "OpenSans",
+      "OpenSansBold"
+    ],
+    "defaultFontUrl": "./css/fonts.css",
     "clickTag": "https://www.google.com",
-    "text": "Welcome to this Banner!",
+    "title": "Welcome to this Banner!",
     "logo": "./img/logo.svg",
-    "cta": "Click here",
+    "cta": "CLICK HERE",
     "bgcolor": "#FFFFFF"
   }
 }

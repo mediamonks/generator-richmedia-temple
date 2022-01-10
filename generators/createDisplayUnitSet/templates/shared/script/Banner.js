@@ -1,14 +1,40 @@
 import fitText from '@mediamonks/temple/util/fitText';
+const WebFont = require('webfontloader');
+
 
 export default class Banner {
 
   constructor(config) {
-
     // add required components here
     this.config = config;
   }
 
+  // fontLoading module for the lazy loading of fonts - default is openSans
+  async loadFonts() {
+    let webFontConfig = {}
+
+    webFontConfig = {
+      custom: {
+        families: this.config.content.defaultFonts,
+        urls: [this.config.content.defaultFontUrl]
+      }
+    }
+
+    webFontConfig.timeout = 2000;
+    webFontConfig.fontactive = (e) => {
+      // console.log(`${e}, was detected. The document is ready and font loading is active`)
+    }
+
+    const prom = new Promise(resolve => {
+      webFontConfig.active = resolve
+    });
+
+    WebFont.load(webFontConfig);
+    return prom;
+  }
+
   async init() {
+    await this.loadFonts(); //need to wait until fonts are loaded. Otherwise we will run fitText on the wrong fonts
 
     const title = document.body.querySelector('.title');
     const ctaCopy = document.body.querySelector('.cta_copy');
