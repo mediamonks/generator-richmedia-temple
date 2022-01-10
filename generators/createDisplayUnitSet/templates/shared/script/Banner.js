@@ -1,4 +1,5 @@
 import fitText from '@mediamonks/temple/util/fitText';
+import politeLoadImages from '@mediamonks/temple/util/politeLoadImages';
 const WebFont = require('webfontloader');
 
 
@@ -34,7 +35,9 @@ export default class Banner {
   }
 
   async init() {
+    const banner = document.querySelector('.banner')
     await this.loadFonts(); //need to wait until fonts are loaded. Otherwise we will run fitText on the wrong fonts
+    await politeLoadImages(banner);
 
     const title = document.body.querySelector('.title');
     const ctaCopy = document.body.querySelector('.cta_copy');
