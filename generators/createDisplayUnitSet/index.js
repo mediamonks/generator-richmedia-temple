@@ -7,8 +7,6 @@ const path = require('path');
 const PlatformChoices = require('../../util/data/PlatformChoices');
 const bannerChoices = require("./bannerChoices");
 
-console.log("npm test")
-
 module.exports = class extends Generator {
   async questions() {
     this.log(`Creating banner`);
